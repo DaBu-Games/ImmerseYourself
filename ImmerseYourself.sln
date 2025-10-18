@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmerseYourself", "ImmerseYourself.csproj", "{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{CF579C2B-3F9A-4CC2-AF21-C56F90AC184D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccms81k6cxpo8"]
+
+[ext_resource type="Script" uid="uid://bts5aej1qjfuh" path="res://Scripts/CameraMover.cs" id="1_sjl3n"]
+[ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND.png" id="2_647pg"]
+[ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND_evidencetab.png" id="3_rtjwx"]
+[ext_resource type="Script" uid="uid://bo2rxunjr1lyb" path="res://Scripts/SceneChanger.cs" id="4_rtjwx"]
+
+[node name="JudgeInterfase" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(955, 529)
+scale = Vector2(4.065, 1)
+zoom = Vector2(0.6, 0.6)
+script = ExtResource("1_sjl3n")
+movePosition = PackedVector2Array(960, 1620, 960, 530)
+
+[node name="BaseScreen" type="Node" parent="."]
+
+[node name="Background" type="TextureRect" parent="BaseScreen"]
+modulate = Color(0.29219002, 0.29219005, 0.29219002, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 1344.0
+offset_bottom = 756.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_647pg")
+
+[node name="Button" type="Button" parent="BaseScreen"]
+offset_left = 1409.0
+offset_top = 647.0
+offset_right = 1486.0
+offset_bottom = 678.0
+scale = Vector2(6.150678, 9.735111)
+text = "Evidense"
+
+[node name="EvidenceScreen" type="Node" parent="."]
+
+[node name="Background" type="TextureRect" parent="EvidenceScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = 756.0
+offset_right = 1341.0
+offset_bottom = 1836.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rtjwx")
+
+[node name="Evidence1" type="Button" parent="EvidenceScreen"]
+offset_left = 321.0
+offset_top = 1305.0
+offset_right = 405.6523
+offset_bottom = 1369.0054
+scale = Vector2(4.8238134, 9.921036)
+text = "Test"
+
+[node name="Evidence2" type="Button" parent="EvidenceScreen"]
+offset_left = 767.0
+offset_top = 1305.0
+offset_right = 851.65234
+offset_bottom = 1369.0054
+scale = Vector2(4.8238134, 9.921036)
+text = "Test"
+
+[node name="Evidence3" type="Button" parent="EvidenceScreen"]
+offset_left = 1213.0
+offset_top = 1305.0
+offset_right = 1297.6523
+offset_bottom = 1369.0054
+scale = Vector2(4.8238134, 9.921036)
+text = "Test"
+
+[node name="Return" type="Button" parent="EvidenceScreen"]
+offset_left = 18.0
+offset_top = 1104.0
+offset_right = 95.0
+offset_bottom = 1135.0
+scale = Vector2(2.2696996, 4.390179)
+text = "Return"
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("4_rtjwx")
+baseScene = "res://Scenes/JudgeInterfase.tscn"
+
+[connection signal="pressed" from="BaseScreen/Button" to="Camera2D" method="_on_button_pressed"]
+[connection signal="pressed" from="EvidenceScreen/Evidence1" to="SceneChanger" method="_on_button_pressed" binds= ["res://Scenes/JudgeInterfase.tscn"]]
+[connection signal="pressed" from="EvidenceScreen/Return" to="Camera2D" method="_on_button_pressed"]
