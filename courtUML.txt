@@ -29,6 +29,7 @@ class CasesManager{
 - HourGlass time
 - List<Case> cases
 - int caseIndex
+- ScaleRotate scale
 }
 
 class CourtManager{
@@ -46,15 +47,29 @@ class UIManager{
 -Node hourGlassPanel
 }
 
+class ScaleInput{
+- float totalLeft
+- float totalRight
+- float totalWeight
+}
+
+class ScaleRotate{
+- ScaleInput input
+- bool startScale
+}
+
 CourtManager --> Player
 CourtManager --> CasesManager
 CourtManager --> UIManager
 
 CasesManager --> HourGlass
 CasesManager --> Case
+CasesManager --> ScaleRotate
 
 Case --> Evidence
 Case --> Defendant
+
+ScaleRotate --> ScaleInput
 
 
 @enduml
