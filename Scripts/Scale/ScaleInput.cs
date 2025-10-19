@@ -6,7 +6,12 @@ using System.Threading;
 
 public partial class ScaleInput : Node
 {
+    [Signal]
+    public delegate void InitializedEventHandler();
+    
     private Wiimote wiiDevice;
+    private const float startWeight = 1.5f;
+    
     private float offsetTL = 0f;   // Top Left
     private float offsetTR = 0f;   // Top Right
     private float offsetBL = 0f;   // Bottom Left
@@ -16,7 +21,11 @@ public partial class ScaleInput : Node
     private float previousWeight = 0f;
     
     private float totalLeft = 0f;
+    private float leftPerc = 0f;
+    
+    private float rightPerc = 0f;
     private float totalRight = 0f;
+    
     private float totalWeight = 0f;
     
     private bool isHandlerAttached = false;
@@ -32,6 +41,7 @@ public partial class ScaleInput : Node
         }
         
         GD.Print("✅ Connected! Reading weight data...");
+        EmitSignal(SignalName.Initialized);
     }
 
     public override void _ExitTree()
@@ -40,7 +50,7 @@ public partial class ScaleInput : Node
         GD.Print("Disconnected.");
     }
 
-    // for testing
+    /* for testing
     private bool isSpaceHeld = false;
     public override void _Input(InputEvent @event)
     {
@@ -61,10 +71,11 @@ public partial class ScaleInput : Node
                 UpdateInput(false);
             }
         }
-    }
+    }*/
 
     public void UpdateInput(bool update)
     {
+        GD.Print("Update: " + update);
         if(wiiDevice == null)
             return;
         
@@ -83,6 +94,11 @@ public partial class ScaleInput : Node
     public Vector2 GetInput()
     {
         return new Vector2(totalLeft, totalRight);
+    }
+
+    public Vector2 GetPercentage()
+    {
+        return new Vector2(leftPerc, rightPerc);
     }
 
     public float GetTotalWeight()
@@ -167,9 +183,9 @@ public partial class ScaleInput : Node
         var bb = e.WiimoteState.BalanceBoardState;
         float total = bb.WeightKg;
 
-        // Only process if the difference is greater than 0.1 kg
-        if (Math.Abs(total - previousWeight) <= 0.225f)
-            return;
+        // Only process if the difference is greater than 0.225 kg
+        //if (Math.Abs(total - previousWeight) <= 0.15f)
+            //return;
         
         previousWeight = total;
         
@@ -182,7 +198,7 @@ public partial class ScaleInput : Node
         float br = bb.SensorValuesKg.BottomRight;
         
         // recalibrate because it means there is nothing on the board
-        if (total < 1.5f)
+        if (total < startWeight)
         {
             offsetTL = GetEverage(offsetTL, tl);
             offsetBL = GetEverage(offsetBL, bl);
@@ -206,8 +222,7 @@ public partial class ScaleInput : Node
         br -= offsetBR;
         br = Math.Max(0, br);
         
-        total -= baseWeightOffset;
-        total = Math.Max(0, total);
+        total = Math.Max(0, total - baseWeightOffset);
 
         // Compute left/right weights
         float left  = tl + bl;
@@ -216,22 +231,15 @@ public partial class ScaleInput : Node
         // Compute total weight
         float totalRaw = left + right;
         
-        float leftPerc  = totalRaw > 0 ? left / totalRaw : 0f;
-        float rightPerc = totalRaw > 0 ? right / totalRaw : 0f;
+        leftPerc  = totalRaw > 0 ? left / totalRaw : 0f;
+        rightPerc = totalRaw > 0 ? right / totalRaw : 0f;
         
         totalLeft = total * leftPerc;
         totalRight = total * rightPerc;
         totalWeight = total; 
         
-        
-        GD.Print("=== Wii Fit Board Data ===");
-        GD.Print($"balance: ");
-        GD.Print($"lef percentage: {leftPerc}");
-        GD.Print($"---------------------------");
-        GD.Print($"Left:  {totalLeft} kg");
-        GD.Print($"Right: {totalRight} kg");
-        GD.Print($"---------------------------");
-        GD.Print($"Total: {bb.WeightKg:F2} kg");
-        GD.Print($"Total Weight: {total} kg");
+        GD.Print($"Total Weight: {totalWeight:F2}");
+        GD.Print($"Total Left: {totalLeft:F2} percentage: {leftPerc:F2}");
+        GD.Print($"Total Right: {totalRight:F2} percentage: {rightPerc:F2}");
     }
 }
