@@ -1,22 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccms81k6cxpo8"]
+[gd_scene load_steps=8 format=3 uid="uid://l0qnm20s846"]
 
 [ext_resource type="Script" uid="uid://bts5aej1qjfuh" path="res://Scripts/CameraMover.cs" id="1_sjl3n"]
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND.png" id="2_647pg"]
+[ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_qkk8s"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND_evidencetab.png" id="3_rtjwx"]
+[ext_resource type="Script" uid="uid://cm1p5djvmyx8v" path="res://Scripts/EvidenceDisplay.cs" id="4_hb1gq"]
 [ext_resource type="Script" uid="uid://bo2rxunjr1lyb" path="res://Scripts/SceneChanger.cs" id="4_rtjwx"]
+[ext_resource type="Texture2D" uid="uid://u4b4dubvhhbw" path="res://icon.svg" id="5_qkk8s"]
 
-[node name="JudgeInterfase" type="Node2D"]
+[node name="JudgePanel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(955, 529)
+position = Vector2(951, 529)
 scale = Vector2(4.065, 1)
 zoom = Vector2(0.6, 0.6)
 script = ExtResource("1_sjl3n")
-movePosition = PackedVector2Array(960, 1620, 960, 530)
 
-[node name="BaseScreen" type="Node" parent="."]
+[node name="UIManager" type="Node" parent="." node_paths=PackedStringArray("evidenceDisplayItems", "sceneChanger")]
+script = ExtResource("2_qkk8s")
+evidenceDisplayItems = [NodePath("EvidenceScreen/Evidense"), NodePath("EvidenceScreen/Evidense2"), NodePath("EvidenceScreen/Evidense3"), NodePath("EvidenceScreen/Evidense4")]
+sceneChanger = NodePath("SceneChanger")
 
-[node name="Background" type="TextureRect" parent="BaseScreen"]
+[node name="BaseScreen" type="Node" parent="UIManager"]
+
+[node name="Background" type="TextureRect" parent="UIManager/BaseScreen"]
 modulate = Color(0.29219002, 0.29219005, 0.29219002, 1)
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,18 +37,20 @@ offset_bottom = 756.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_647pg")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="BaseScreen"]
-offset_left = 1409.0
+[node name="Button" type="Button" parent="UIManager/BaseScreen"]
+offset_left = 1414.0
 offset_top = 647.0
-offset_right = 1486.0
+offset_right = 1491.0
 offset_bottom = 678.0
 scale = Vector2(6.150678, 9.735111)
 text = "Evidense"
+metadata/_edit_use_anchors_ = true
 
-[node name="EvidenceScreen" type="Node" parent="."]
+[node name="EvidenceScreen" type="Node" parent="UIManager"]
 
-[node name="Background" type="TextureRect" parent="EvidenceScreen"]
+[node name="Background" type="TextureRect" parent="UIManager/EvidenceScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,43 +63,96 @@ offset_bottom = 1836.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_rtjwx")
+metadata/_edit_use_anchors_ = true
 
-[node name="Evidence1" type="Button" parent="EvidenceScreen"]
-offset_left = 321.0
-offset_top = 1305.0
-offset_right = 405.6523
-offset_bottom = 1369.0054
-scale = Vector2(4.8238134, 9.921036)
-text = "Test"
-
-[node name="Evidence2" type="Button" parent="EvidenceScreen"]
-offset_left = 767.0
-offset_top = 1305.0
-offset_right = 851.65234
-offset_bottom = 1369.0054
-scale = Vector2(4.8238134, 9.921036)
-text = "Test"
-
-[node name="Evidence3" type="Button" parent="EvidenceScreen"]
-offset_left = 1213.0
-offset_top = 1305.0
-offset_right = 1297.6523
-offset_bottom = 1369.0054
-scale = Vector2(4.8238134, 9.921036)
-text = "Test"
-
-[node name="Return" type="Button" parent="EvidenceScreen"]
+[node name="Return" type="Button" parent="UIManager/EvidenceScreen"]
 offset_left = 18.0
 offset_top = 1104.0
 offset_right = 95.0
 offset_bottom = 1135.0
 scale = Vector2(2.2696996, 4.390179)
 text = "Return"
+metadata/_edit_use_anchors_ = true
 
-[node name="SceneChanger" type="Node" parent="."]
+[node name="Evidense" type="Button" parent="UIManager/EvidenceScreen"]
+offset_left = 40.0
+offset_top = 1533.0001
+offset_right = 48.0
+offset_bottom = 1541.0001
+scale = Vector2(43.35628, 61.94525)
+script = ExtResource("4_hb1gq")
+endPosition = Vector2(628, 1131)
+sizeMultiplier = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UIManager/EvidenceScreen/Evidense"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.06345345, 0.06345345)
+texture = ExtResource("5_qkk8s")
+
+[node name="Evidense2" type="Button" parent="UIManager/EvidenceScreen"]
+offset_left = 540.0
+offset_top = 1533.0
+offset_right = 548.0
+offset_bottom = 1541.0
+scale = Vector2(43.35628, 61.94525)
+script = ExtResource("4_hb1gq")
+endPosition = Vector2(628, 1131)
+sizeMultiplier = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UIManager/EvidenceScreen/Evidense2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.06345345, 0.06345345)
+texture = ExtResource("5_qkk8s")
+
+[node name="Evidense3" type="Button" parent="UIManager/EvidenceScreen"]
+offset_left = 1040.0
+offset_top = 1533.0
+offset_right = 1048.0
+offset_bottom = 1541.0
+scale = Vector2(43.35628, 61.94525)
+script = ExtResource("4_hb1gq")
+endPosition = Vector2(628, 1131)
+sizeMultiplier = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UIManager/EvidenceScreen/Evidense3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.06345345, 0.06345345)
+texture = ExtResource("5_qkk8s")
+
+[node name="Evidense4" type="Button" parent="UIManager/EvidenceScreen"]
+offset_left = 1540.0
+offset_top = 1533.0
+offset_right = 1548.0
+offset_bottom = 1541.0
+scale = Vector2(43.35628, 61.94525)
+script = ExtResource("4_hb1gq")
+endPosition = Vector2(628, 1131)
+sizeMultiplier = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UIManager/EvidenceScreen/Evidense4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.06345345, 0.06345345)
+texture = ExtResource("5_qkk8s")
+
+[node name="SceneChanger" type="Node" parent="UIManager"]
 script = ExtResource("4_rtjwx")
 baseScene = "res://Scenes/JudgeInterfase.tscn"
 
-[connection signal="pressed" from="BaseScreen/Button" to="Camera2D" method="_on_button_pressed"]
-[connection signal="pressed" from="EvidenceScreen/Evidence1" to="SceneChanger" method="_on_button_pressed" binds= ["res://Scenes/JudgeInterfase.tscn"]]
-[connection signal="pressed" from="EvidenceScreen/Return" to="Camera2D" method="_on_button_pressed"]
+[connection signal="pressed" from="UIManager/BaseScreen/Button" to="Camera2D" method="_on_button_pressed" binds= [Vector2(955, 1600), 5.0, 0.6]]
+[connection signal="pressed" from="UIManager/EvidenceScreen/Return" to="Camera2D" method="_on_button_pressed" binds= [Vector2(955, 530), 5.0, 0.6]]
+[connection signal="pressed" from="UIManager/EvidenceScreen/Evidense" to="UIManager/EvidenceScreen/Evidense" method="_on_button_pressed"]
+[connection signal="pressed" from="UIManager/EvidenceScreen/Evidense2" to="UIManager/EvidenceScreen/Evidense2" method="_on_button_pressed"]
+[connection signal="pressed" from="UIManager/EvidenceScreen/Evidense3" to="UIManager/EvidenceScreen/Evidense3" method="_on_button_pressed"]
+[connection signal="pressed" from="UIManager/EvidenceScreen/Evidense4" to="UIManager/EvidenceScreen/Evidense4" method="_on_button_pressed"]

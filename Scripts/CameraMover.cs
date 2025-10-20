@@ -2,32 +2,29 @@ using Godot;
 
 public partial class CameraMover : Camera2D
 {
-    [Export] Vector2[] movePosition;
-    [Export] float speed = 5f;
+    Vector2 movePosition;
+    Vector2 zoom;
 
     Vector2 cameraPosition;
-
-    int currentTarget = 0;
-    int test;
+    Vector2 cameraZoom;
 
     bool isMoving = false;
 
-    float timeElapsed;
     float lerpDuration = 3;
+    float timeElapsed;
+    float speed = 5f;
 
-    public override void _Input(InputEvent @event)
+    private void _on_button_pressed(Vector2 position, float speed = 5.0f, float zoom = 0.6f)
     {
-        if (@event.IsActionPressed("TestSpace"))
-        {
-            cameraPosition = this.Position;
-            isMoving = true;
-        }
-    }
+        this.zoom = new Vector2(zoom, zoom);
+        this.movePosition = position;
+        this.speed = speed;
 
-    private void _on_button_pressed()
-    {
         cameraPosition = this.Position;
+        cameraZoom = this.Zoom;
+
         isMoving = true;
+
     }
 
     public override void _PhysicsProcess(double delta)
@@ -36,17 +33,14 @@ public partial class CameraMover : Camera2D
 
         if (timeElapsed < lerpDuration)
         {
-            this.Position = cameraPosition.Lerp(movePosition[currentTarget], timeElapsed / lerpDuration);
+            this.Position = cameraPosition.Lerp(movePosition, timeElapsed / lerpDuration);
+            this.Zoom = cameraZoom.Lerp(zoom, timeElapsed / lerpDuration);
             timeElapsed += (float)(delta * speed);
         }
         else
         {
             isMoving = false;
             timeElapsed = 0;
-
-            currentTarget++;
-            if (currentTarget >= movePosition.Length) currentTarget = 0;
-            GD.Print(currentTarget);
         }
     }
 
