@@ -2,12 +2,40 @@ using Godot;
 
 public partial class SceneChanger : Node
 {
-    [Export] string baseScene;
+    public void SwitchScene(PackedScene scene, Node parentNode)
+    {
+        foreach (var child in parentNode.GetChildren())
+        {
+            parentNode.RemoveChild(child);
+        }
 
-    private void _on_button_pressed(string sceneLocation) => ChangeScene(sceneLocation);
-    private void _on_button_pressed() => ChangeScene();
+        var instance = scene.Instantiate();
+        parentNode.AddChild(instance);
+    }
 
+    public void TryOpenScene(PackedScene scene, string rootName, Node parentNode)
+    {
+        var instance = scene.Instantiate();
+        foreach (var child in parentNode.GetChildren())
+        {
+            if (child.IsInGroup(rootName))
+            {
+                GD.Print("Instance already exists");
+                return;
+            }
+        }
 
-    private void ChangeScene(string scene) => GetTree().ChangeSceneToFile(scene);
-    private void ChangeScene() => GetTree().ChangeSceneToFile(baseScene);
+        parentNode.AddChild(instance);
+    }
+
+    public void CloseScene(PackedScene scene, string rootName, Node parentNode)
+    {
+        foreach (var child in parentNode.GetChildren())
+        {
+            if (child.IsInGroup(rootName))
+            {
+                parentNode.RemoveChild(child);
+            }
+        }
+    }
 }

@@ -2,11 +2,16 @@ using Godot;
 
 public partial class UIManager : Node
 {
-    [Export] private EvidenceDisplay[] evidenceDisplayItems;
-    public EvidenceDisplay[] EvidenceItems { get { return evidenceDisplayItems; } }
+    [Export] private PackedScene judgePanel;
+    public PackedScene JudgePanel { get { return judgePanel; } }
 
-    [Export] private SceneChanger sceneChanger;
-    public SceneChanger SceneChanger { get { return sceneChanger; } }
+    [Export] private PackedScene mainMenu;
+    public PackedScene MainMenu { get { return mainMenu; } }
 
+    public SceneChanger sceneChanger = new SceneChanger();
 
+    public override void _Ready()
+    {
+        sceneChanger.SwitchScene(mainMenu, this);
+    }
 }

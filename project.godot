@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="ImmerseYourself"
-run/main_scene="uid://l0qnm20s846"
+run/main_scene="uid://ddsclml7gkpr6"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="ImmerseYourself"
+
+[global_group]
+
+MainCamera=""
+UIManager=""
 
 [input]
 
