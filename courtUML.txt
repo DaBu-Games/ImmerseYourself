@@ -1,0 +1,75 @@
+@startuml
+
+class Player{
+- string name
+- int points
+}
+
+class Evidence{
+- media image
+- string context
+}
+
+class Defendant{
+- media sprite
+- string name
+}
+
+class Case{
+- List<Evidence> evidence
+- Defendant defendant
+}
+
+class HourGlass{
+- int currentTime
+- int maxTime
+}
+
+class CasesManager{
+- HourGlass time
+- List<Case> cases
+- int caseIndex
+- ScaleRotate scale
+}
+
+class CourtManager{
+- Player judge
+- Player evilLawyer
+- Player goodLawyer
+- CaseManager caseManager
+- UIManager uiManager
+}
+
+class UIManager{
+-Node judgePanel
+-Node settingsPanel
+-Node courtRoom
+-Node hourGlassPanel
+}
+
+class ScaleInput{
+- float totalLeft
+- float totalRight
+- float totalWeight
+}
+
+class ScaleRotate{
+- ScaleInput input
+- bool startScale
+}
+
+CourtManager --> Player
+CourtManager --> CasesManager
+CourtManager --> UIManager
+
+CasesManager --> HourGlass
+CasesManager --> Case
+CasesManager --> ScaleRotate
+
+Case --> Evidence
+Case --> Defendant
+
+ScaleRotate --> ScaleInput
+
+
+@enduml
