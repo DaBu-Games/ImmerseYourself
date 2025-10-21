@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddsclml7gkpr6"]
+
+[ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://lfb35wnh1w6x" path="res://Scenes/UI/judge_panel.tscn" id="3_7lihs"]
+[ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/main_menu.tscn" id="4_kldst"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["MainCamera"]]
+position = Vector2(951, 529)
+scale = Vector2(4.065, 1)
+zoom = Vector2(0.6, 0.6)
+
+[node name="UIManager" type="Node" parent="." groups=["UIManager"]]
+script = ExtResource("2_b2bpf")
+judgePanel = ExtResource("3_7lihs")
+mainMenu = ExtResource("4_kldst")
+
+[node name="MainMenu" parent="UIManager" instance=ExtResource("4_kldst")]
