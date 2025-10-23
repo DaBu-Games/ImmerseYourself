@@ -22,7 +22,7 @@ position = Vector2(625, 517)
 scale = Vector2(0.99218756, 1.5449221)
 texture = ExtResource("2_vtlp1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("input")]
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("input", "left", "right")]
 position = Vector2(631, 420)
 scale = Vector2(7, 0.5)
 texture = ExtResource("2_vtlp1")
@@ -32,3 +32,22 @@ maxRotation = 20.0
 minWeight = 0.5
 stiffness = 20.0
 damping = 2.0
+left = NodePath("../Label")
+right = NodePath("../Label2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 282.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 128
+text = "50%"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 839.0
+offset_top = -4.0
+offset_right = 1158.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 128
+text = "50%"
+horizontal_alignment = 2
