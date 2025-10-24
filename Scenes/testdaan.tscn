@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm7fduvs3vieo"]
+
+[ext_resource type="Script" uid="uid://yu7wsn2wn8mh" path="res://Scripts/Scale/ScaleInput.cs" id="1_7uv0i"]
+[ext_resource type="Texture2D" uid="uid://u4b4dubvhhbw" path="res://icon.svg" id="2_vtlp1"]
+[ext_resource type="Script" uid="uid://dp18pvwsnbhwe" path="res://Scripts/Scale/ScaleRotate.cs" id="3_knkf6"]
+
+[node name="Scale" type="Control"]
+layout_mode = 3
+anchor_left = -0.257
+anchor_right = 1.0
+anchor_bottom = 0.897
+offset_left = 293.064
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 70.74402
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7uv0i")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(625, 517)
+scale = Vector2(0.99218756, 1.5449221)
+texture = ExtResource("2_vtlp1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("input")]
+position = Vector2(631, 420)
+scale = Vector2(7, 0.5)
+texture = ExtResource("2_vtlp1")
+script = ExtResource("3_knkf6")
+input = NodePath("..")
+maxRotation = 20.0
+minWeight = 0.5
+stiffness = 20.0
+damping = 2.0
