@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbeta6qvfyyve"]
+
+[ext_resource type="Script" uid="uid://bts5aej1qjfuh" path="res://Scripts/CameraMover.cs" id="1_l3igj"]
+[ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND.png" id="2_cw4wv"]
+[ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND_evidencetab.png" id="3_uomto"]
+
+[node name="Judge2" type="Control" groups=["JudgePanel"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraMover" type="Node" parent="."]
+script = ExtResource("1_l3igj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cw4wv")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 270.0
+offset_bottom = 120.0
+text = "Evidence"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_uomto")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 270.0
+offset_bottom = 120.0
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_top = 200.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/TextureRect/ScrollContainer" groups=["EvidenceScreen"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[connection signal="pressed" from="HBoxContainer/TextureRect/Button" to="CameraMover" method="_on_button_pressed" binds= [Vector2(576, 972)]]
+[connection signal="pressed" from="HBoxContainer2/TextureRect/Button" to="CameraMover" method="_on_button_pressed" binds= [Vector2(576, 324)]]

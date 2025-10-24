@@ -2,11 +2,8 @@ using Godot;
 
 public partial class JudgePanel : Node
 {
-    private UIManager uiManager;
-
-    public override void _Ready()
+    private void _on_button_pressed()
     {
-        var nodeGroup = GetTree().GetNodesInGroup("MainCamera");
-        uiManager = (UIManager)nodeGroup[0];
+        UIManager.Instance.SwitchToJudgePanel();
     }
 }

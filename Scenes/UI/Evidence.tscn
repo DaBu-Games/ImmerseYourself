@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi0e04el3bhjw"]
+
+[ext_resource type="Texture2D" uid="uid://u4b4dubvhhbw" path="res://icon.svg" id="1_lkkkd"]
+[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="2_ghovb"]
+[ext_resource type="Script" uid="uid://cm1p5djvmyx8v" path="res://Scripts/EvidenceDisplay.cs" id="2_phri6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phri6"]
+font = ExtResource("2_ghovb")
+font_size = 64
+
+[node name="Evidence" type="Button" node_paths=PackedStringArray("labelNR")]
+custom_minimum_size = Vector2(333, 333)
+offset_right = 333.0
+offset_bottom = 333.0
+icon = ExtResource("1_lkkkd")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_phri6")
+labelNR = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 59.0
+offset_bottom = 86.002014
+theme_override_font_sizes/font_size = 64
+text = "1"
+label_settings = SubResource("LabelSettings_phri6")
+horizontal_alignment = 1
+vertical_alignment = 1
