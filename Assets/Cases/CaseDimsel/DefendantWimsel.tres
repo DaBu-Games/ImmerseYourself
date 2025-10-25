@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Defendant" load_steps=2 format=3 uid="uid://rsvsgim018uq"]
+
+[ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="1_16xdl"]
+
+[resource]
+script = ExtResource("1_16xdl")
+Name = "Wimsel"
+DescriptionGood = "She was a angel"
+DescriptionEvil = "She was so badd"
+metadata/_custom_type_script = "uid://di5ks8w4v3w4p"

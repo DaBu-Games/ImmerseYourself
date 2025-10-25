@@ -1,19 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=9 format=3 uid="uid://ddsclml7gkpr6"]
 
+[ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
-[ext_resource type="PackedScene" uid="uid://lfb35wnh1w6x" path="res://Scenes/UI/judge_panel.tscn" id="3_7lihs"]
+[ext_resource type="PackedScene" uid="uid://dbeta6qvfyyve" path="res://Scenes/UI/judge_pannel.tscn" id="2_kldst"]
+[ext_resource type="Script" uid="uid://chfltvqgu41m0" path="res://Scripts/Case/CaseManager.cs" id="4_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/main_menu.tscn" id="4_kldst"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="6_2irst"]
+[ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
+[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["MainCamera"]]
-position = Vector2(951, 529)
+position = Vector2(576, 324)
 scale = Vector2(4.065, 1)
-zoom = Vector2(0.6, 0.6)
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
 
-[node name="UIManager" type="Node" parent="." groups=["UIManager"]]
+[node name="UIManager" type="Control" parent="." groups=["UIManager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
-judgePanel = ExtResource("3_7lihs")
+judgePanel = ExtResource("2_kldst")
 mainMenu = ExtResource("4_kldst")
 
-[node name="MainMenu" parent="UIManager" instance=ExtResource("4_kldst")]
+[node name="CaseManager" type="Node" parent="."]
+script = ExtResource("4_b2bpf")
+Cases = Array[ExtResource("6_2irst")]([ExtResource("7_bf53h")])
+evidenceScene = ExtResource("6_7lihs")
