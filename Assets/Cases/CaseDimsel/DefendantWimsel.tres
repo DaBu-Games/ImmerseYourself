@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Defendant" load_steps=2 format=3 uid="uid://rsvsgim018uq"]
+[gd_resource type="Resource" script_class="Defendant" load_steps=3 format=3 uid="uid://rsvsgim018uq"]
 
+[ext_resource type="Texture2D" uid="uid://ljha7kw7i1xr" path="res://courtUML.svg" id="1_3yvgo"]
 [ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="1_16xdl"]
 
 [resource]
 script = ExtResource("1_16xdl")
-Name = "Wimsel"
+name = "Dimsel"
 DescriptionGood = "She was a angel"
 DescriptionEvil = "She was so badd"
+image = ExtResource("1_3yvgo")
 metadata/_custom_type_script = "uid://di5ks8w4v3w4p"

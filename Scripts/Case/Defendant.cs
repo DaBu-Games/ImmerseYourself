@@ -5,7 +5,8 @@ using System;
 public partial class Defendant : Resource
 {
     [ExportCategory("Data")]
-    [Export] private string Name { get; set; } = "";
+    [Export] private string name { get; set; } = "";
+    public string Name { get { return name; } }
     
     [Export(PropertyHint.MultilineText)]
     private string DescriptionGood { get; set; } = "";
@@ -13,5 +14,6 @@ public partial class Defendant : Resource
     [Export(PropertyHint.MultilineText)]
     private string DescriptionEvil { get; set; } = "";
     
-    [Export] private Texture2D Image { get; set; }
+    [Export] private Texture2D image { get; set; }
+    public Texture2D Image { get { return image; } }
 }

@@ -1,29 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi0e04el3bhjw"]
+[gd_scene load_steps=6 format=3 uid="uid://bi0e04el3bhjw"]
 
 [ext_resource type="Texture2D" uid="uid://u4b4dubvhhbw" path="res://icon.svg" id="1_lkkkd"]
 [ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="2_ghovb"]
-[ext_resource type="Script" uid="uid://cm1p5djvmyx8v" path="res://Scripts/EvidenceDisplay.cs" id="2_phri6"]
+[ext_resource type="Script" uid="uid://cm1p5djvmyx8v" path="res://Scripts/Case/EvidenceDisplay.cs" id="2_phri6"]
+[ext_resource type="Texture2D" uid="uid://lpm2daescryq" path="res://Assets/2D/Buttons/evidence file button_version2.png" id="3_phri6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_phri6"]
 font = ExtResource("2_ghovb")
 font_size = 64
 
-[node name="Evidence" type="Button" node_paths=PackedStringArray("labelNR")]
+[node name="Evidence" type="Button" node_paths=PackedStringArray("textureRect", "labelNR")]
 custom_minimum_size = Vector2(333, 333)
 offset_right = 333.0
 offset_bottom = 333.0
-icon = ExtResource("1_lkkkd")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_phri6")
+textureRect = NodePath("TextureRect2")
 labelNR = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_phri6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -98.5
+offset_right = 114.5
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.10471976
+texture = ExtResource("1_lkkkd")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-offset_right = 59.0
-offset_bottom = 86.002014
-theme_override_font_sizes/font_size = 64
+offset_left = 29.0
+offset_top = 53.000004
+offset_right = 88.0
+offset_bottom = 139.00201
+rotation = 0.10471976
 text = "1"
 label_settings = SubResource("LabelSettings_phri6")
 horizontal_alignment = 1

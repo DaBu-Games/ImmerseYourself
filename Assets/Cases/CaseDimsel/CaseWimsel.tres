@@ -8,6 +8,6 @@
 
 [resource]
 script = ExtResource("5_a71st")
-evidence = Array[ExtResource("1_8aafs")]([ExtResource("2_w61d5"), ExtResource("3_iirke")])
+evidence = Array[ExtResource("1_8aafs")]([ExtResource("2_w61d5"), ExtResource("3_iirke"), ExtResource("2_w61d5")])
 defendant = ExtResource("4_ridbc")
 metadata/_custom_type_script = "uid://daddog7lmu7yn"

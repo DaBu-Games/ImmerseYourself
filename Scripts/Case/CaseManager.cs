@@ -3,38 +3,55 @@ using System;
 
 public partial class CaseManager : Node
 {
-    [Export] private Godot.Collections.Array<Case> Cases { get; set; } = new();
+    [Export] private Godot.Collections.Array<Case> cases { get; set; } = new();
     [Export] private PackedScene evidenceScene;
+    [Export] private PackedScene caseScene;
     private int caseIndex = 0;
-    private Node evidenceScreen;
 
     public override void _Ready()
     {
         GetTree().NodeAdded += SetEvidence;
+        GetTree().NodeAdded += SetCases;
     }
 
-    public void SetNewCase()
+    public void SetNewCase(int index)
     {
-        
+        caseIndex = index;
+        UIManager.Instance.SwitchToJudgePanel();
     }
 
-    private void SetEvidence(Node node)
+    private void SetEvidence(Node evidenceScreen)
     {
-        if (node.IsInGroup("EvidenceScreen"))
+        if (evidenceScreen.IsInGroup("EvidenceScreen"))
         {
-            evidenceScreen = node;
             
-            var currentEvidence = Cases[caseIndex].Evidence;
-        
-            // Example loop through your case’s evidence
+            var currentEvidence = cases[caseIndex].Evidence;
+            
             for(int i = 0; i < currentEvidence.Count; i++ )
             {
                 var evidenceDisplay = evidenceScene.Instantiate<EvidenceDisplay>();
-                int count = i + 1;
                 
-                evidenceDisplay.Setup(currentEvidence[i].Image, count);
+                evidenceDisplay.Setup(currentEvidence[i].Image, i);
                 
                 evidenceScreen.AddChild(evidenceDisplay);
+            }
+        }
+    }
+
+    private void SetCases(Node caseMenu)
+    {
+        if (caseMenu.IsInGroup("CaseMenu"))
+        {
+            for (int i = 0; i < cases.Count; i++)
+            { 
+                var defendant = cases[i].Defendant;
+               var caseDisplay = caseScene.Instantiate<CaseDisplay>();
+               
+               caseDisplay.Setup(defendant.Image, defendant.Name);
+               int count = i;
+               caseDisplay.Pressed += () => SetNewCase(count);
+               
+               caseMenu.AddChild(caseDisplay);
             }
         }
     }
