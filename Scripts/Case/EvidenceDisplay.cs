@@ -2,6 +2,7 @@ using Godot;
 
 public partial class EvidenceDisplay : Button
 {
+    [Export] TextureRect textureRect;
     [Export] private Label labelNR;
     private int count;
 
@@ -12,8 +13,8 @@ public partial class EvidenceDisplay : Button
     
     public void Setup(Texture2D texture, int nr)
     {
-        this.Icon = texture;
-        labelNR.Text = nr.ToString();
+        textureRect.Texture = texture;
+        labelNR.Text = (nr + 1).ToString();
         
         count = nr;
     }

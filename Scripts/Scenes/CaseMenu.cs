@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class MainMenu : Node
+public partial class CaseMenu : Node
 {
     private void _on_button_pressed()
     {

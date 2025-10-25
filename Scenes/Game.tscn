@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=10 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://dbeta6qvfyyve" path="res://Scenes/UI/judge_pannel.tscn" id="2_kldst"]
 [ext_resource type="Script" uid="uid://chfltvqgu41m0" path="res://Scripts/Case/CaseManager.cs" id="4_b2bpf"]
-[ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/main_menu.tscn" id="4_kldst"]
+[ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/case_menu.tscn" id="4_kldst"]
 [ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="6_2irst"]
 [ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
+[ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node2D"]
 
@@ -20,6 +21,12 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 
+[node name="CaseManager" type="Node" parent="."]
+script = ExtResource("4_b2bpf")
+cases = Array[ExtResource("6_2irst")]([ExtResource("7_bf53h")])
+evidenceScene = ExtResource("6_7lihs")
+caseScene = ExtResource("9_bf53h")
+
 [node name="UIManager" type="Control" parent="." groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
@@ -30,9 +37,4 @@ size_flags_vertical = 3
 theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
-mainMenu = ExtResource("4_kldst")
-
-[node name="CaseManager" type="Node" parent="."]
-script = ExtResource("4_b2bpf")
-Cases = Array[ExtResource("6_2irst")]([ExtResource("7_bf53h")])
-evidenceScene = ExtResource("6_7lihs")
+caseMenu = ExtResource("4_kldst")
