@@ -5,10 +5,8 @@ public partial class CameraMover : Node
     Camera2D camera;
 
     Vector2 movePosition;
-    Vector2 zoom;
 
     Vector2 cameraPosition;
-    Vector2 cameraZoom;
 
     bool isMoving = false;
 
@@ -22,14 +20,10 @@ public partial class CameraMover : Node
         camera = (Camera2D)nodeGroup[0];
     }
 
-    private void _on_button_pressed(Vector2 position, float speed = 5.0f, float zoom = 0.6f)
+    private void _on_button_pressed(Vector2 position)
     {
-        this.zoom = new Vector2(zoom, zoom);
         this.movePosition = position;
-        this.speed = speed;
-
         cameraPosition = camera.Position;
-        cameraZoom = camera.Zoom;
 
         isMoving = true;
     }
@@ -41,7 +35,6 @@ public partial class CameraMover : Node
         if (timeElapsed < lerpDuration)
         {
             camera.Position = cameraPosition.Lerp(movePosition, timeElapsed / lerpDuration);
-            camera.Zoom = cameraZoom.Lerp(zoom, timeElapsed / lerpDuration);
             timeElapsed += (float)(delta * speed);
         }
         else

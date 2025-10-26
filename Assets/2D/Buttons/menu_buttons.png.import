@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhxdksf36eiiw"
-path="res://.godot/imported/UI_JUDGE_BACKGROUND.png-cc54be49ea3baa61e0f7a2338ddcc48b.ctex"
+uid="uid://dyhkluohra102"
+path="res://.godot/imported/menu_buttons.png-3f319d316861c3ffec65aa1012721886.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/Placeholder/UI_JUDGE_BACKGROUND.png"
-dest_files=["res://.godot/imported/UI_JUDGE_BACKGROUND.png-cc54be49ea3baa61e0f7a2338ddcc48b.ctex"]
+source_file="res://Assets/2D/Buttons/menu_buttons.png"
+dest_files=["res://.godot/imported/menu_buttons.png-3f319d316861c3ffec65aa1012721886.ctex"]
 
 [params]
 

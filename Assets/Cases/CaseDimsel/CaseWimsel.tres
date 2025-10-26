@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Case" load_steps=6 format=3 uid="uid://ipsgixevgh7m"]
+
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="1_8aafs"]
+[ext_resource type="Resource" uid="uid://5iq5q2wogfmd" path="res://Assets/Cases/CaseDimsel/Evidence/WimselBlood.tres" id="2_w61d5"]
+[ext_resource type="Resource" uid="uid://dc4hmy8sf2mpb" path="res://Assets/Cases/CaseDimsel/Evidence/WimselKnife.tres" id="3_iirke"]
+[ext_resource type="Resource" uid="uid://rsvsgim018uq" path="res://Assets/Cases/CaseDimsel/DefendantWimsel.tres" id="4_ridbc"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="5_a71st"]
+
+[resource]
+script = ExtResource("5_a71st")
+evidence = Array[ExtResource("1_8aafs")]([ExtResource("2_w61d5"), ExtResource("3_iirke"), ExtResource("2_w61d5")])
+defendant = ExtResource("4_ridbc")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"
