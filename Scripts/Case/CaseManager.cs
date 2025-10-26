@@ -6,6 +6,8 @@ public partial class CaseManager : Node
     [Export] private Godot.Collections.Array<Case> cases { get; set; } = new();
     [Export] private PackedScene evidenceScene;
     [Export] private PackedScene caseScene;
+    [Export] private RoundsManager roundsManager;
+    
     private int caseIndex = 0;
 
     public override void _Ready()
@@ -17,6 +19,8 @@ public partial class CaseManager : Node
     public void SetNewCase(int index)
     {
         caseIndex = index;
+        roundsManager.StartTiking();
+        
         UIManager.Instance.SwitchToJudgePanel();
     }
 
