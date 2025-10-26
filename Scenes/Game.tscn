@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://kp7bmampcp3g" path="res://Scripts/RoundsManager.cs" id="6_71axn"]
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
+[ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node2D"]
@@ -43,3 +44,14 @@ theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
+
+[node name="SecondWindow" type="Window" parent="."]
+oversampling_override = 1.0
+mode = 3
+position = Vector2i(2000, 0)
+size = Vector2i(1920, 1080)
+
+[node name="TextureRect" type="TextureRect" parent="SecondWindow"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("8_2irst")
