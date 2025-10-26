@@ -14,6 +14,9 @@ public partial class Defendant : Resource
     [Export(PropertyHint.MultilineText)]
     private string DescriptionEvil { get; set; } = "";
     
-    [Export] private Texture2D image { get; set; }
-    public Texture2D Image { get { return image; } }
+    [Export] private Texture2D sprite { get; set; }
+    public Texture2D Sprite { get { return sprite; } }
+    
+    [Export] private Texture2D icon { get; set; }
+    public Texture2D Icon { get { return icon; } }
 }
