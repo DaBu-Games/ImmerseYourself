@@ -140,6 +140,16 @@ offset_bottom = 40.0
 scale = Vector2(0.06345345, 0.06345345)
 texture = ExtResource("4_jw24s")
 
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+position = Vector2i(-100, -100)
+
+[node name="TextureRect" type="TextureRect" parent="Window"]
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 123.0
+offset_bottom = 129.0
+
 [connection signal="pressed" from="BaseScreen/EvidenceMenu" to="CameraMover" method="_on_button_pressed" binds= [Vector2(951, 1621), 5.0, 0.6]]
 [connection signal="pressed" from="EvidenceScreen/Return" to="CameraMover" method="_on_button_pressed" binds= [Vector2(951, 529), 5.0, 0.6]]
 [connection signal="pressed" from="EvidenceScreen/Evidense" to="EvidenceScreen/Evidense" method="_on_button_pressed"]
