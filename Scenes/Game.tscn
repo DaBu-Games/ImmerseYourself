@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=14 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
+[ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
+[ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
 
 [node name="Game" type="Node2D"]
 
@@ -33,7 +35,7 @@ roundsManager = NodePath("../RoundsManager")
 [node name="RoundsManager" type="Node" parent="."]
 script = ExtResource("6_71axn")
 
-[node name="UIManager" type="Control" parent="." groups=["UIManager"]]
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -44,14 +46,33 @@ theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
+defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
+evidenceSlideIn = NodePath("../SecondWindow/Background/Evidence")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
 mode = 3
-position = Vector2i(2000, 0)
+position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
-[node name="TextureRect" type="TextureRect" parent="SecondWindow"]
+[node name="Background" type="TextureRect" parent="SecondWindow"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("8_2irst")
+
+[node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 684.0
+offset_right = 1161.0
+offset_bottom = 979.0
+script = ExtResource("12_3so38")
+
+[node name="Evidence" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 128.0
+offset_right = 1220.0
+offset_bottom = 628.0
+expand_mode = 1
+script = ExtResource("13_3cx6b")

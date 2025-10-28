@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Defendant" load_steps=3 format=3 uid="uid://rsvsgim018uq"]
+[gd_resource type="Resource" script_class="Defendant" load_steps=4 format=3 uid="uid://rsvsgim018uq"]
 
-[ext_resource type="Texture2D" uid="uid://ljha7kw7i1xr" path="res://courtUML.svg" id="1_3yvgo"]
 [ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="1_16xdl"]
+[ext_resource type="Texture2D" uid="uid://lpm2daescryq" path="res://Assets/2D/Buttons/evidence file button_version2.png" id="1_mghb4"]
+[ext_resource type="Texture2D" uid="uid://dyhkluohra102" path="res://Assets/2D/Buttons/menu_buttons.png" id="3_ngaie"]
 
 [resource]
 script = ExtResource("1_16xdl")
 name = "Dimsel"
 DescriptionGood = "She was a angel"
 DescriptionEvil = "She was so badd"
-image = ExtResource("1_3yvgo")
+sprite = ExtResource("3_ngaie")
+icon = ExtResource("1_mghb4")
 metadata/_custom_type_script = "uid://di5ks8w4v3w4p"

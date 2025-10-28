@@ -11,7 +11,7 @@ public partial class EvidenceDisplay : Button
        
     }
     
-    public void Setup(Texture2D texture, int nr)
+    public void SetUp(Texture2D texture, int nr)
     {
         textureRect.Texture = texture;
         labelNR.Text = (nr + 1).ToString();

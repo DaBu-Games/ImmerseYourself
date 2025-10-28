@@ -8,6 +8,7 @@ public partial class CaseManager : Node
     [Export] private PackedScene caseScene;
     [Export] private RoundsManager roundsManager;
     
+    
     private int caseIndex = 0;
 
     public override void _Ready()
@@ -20,8 +21,12 @@ public partial class CaseManager : Node
     {
         caseIndex = index;
         roundsManager.StartTiking();
-        
-        UIManager.Instance.SwitchToJudgePanel();
+        UIManager.Instance.StartCase(cases[index].Defendant);
+    }
+
+    public void ShowEvidence(int index)
+    {
+        UIManager.Instance.SlideInEvidence(cases[caseIndex].Evidence[index].Image, index);
     }
 
     private void SetEvidence(Node evidenceScreen)
@@ -35,7 +40,9 @@ public partial class CaseManager : Node
             {
                 var evidenceDisplay = evidenceScene.Instantiate<EvidenceDisplay>();
                 
-                evidenceDisplay.Setup(currentEvidence[i].Image, i);
+                evidenceDisplay.SetUp(currentEvidence[i].Image, i);
+                int count = i;
+                evidenceDisplay.Pressed += () => ShowEvidence(count);
                 
                 evidenceScreen.AddChild(evidenceDisplay);
             }
@@ -51,7 +58,7 @@ public partial class CaseManager : Node
                 var defendant = cases[i].Defendant;
                var caseDisplay = caseScene.Instantiate<CaseDisplay>();
                
-               caseDisplay.Setup(defendant.Image, defendant.Name);
+               caseDisplay.Setup(defendant.Icon, defendant.Name);
                int count = i;
                caseDisplay.Pressed += () => SetNewCase(count);
                
