@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=18 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -20,6 +20,10 @@ font_size = 126
 [sub_resource type="LabelSettings" id="LabelSettings_3so38"]
 font = ExtResource("12_3so38")
 font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
+font = ExtResource("12_3so38")
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_3cx6b"]
 font = ExtResource("12_3so38")
@@ -96,6 +100,17 @@ offset_bottom = 419.0
 scale = Vector2(1.1172643, 1.1370906)
 text = "00:00"
 label_settings = SubResource("LabelSettings_3so38")
+autowrap_mode = 2
+
+[node name="Time" type="Label" parent="SecondWindow/Timer/Time"]
+layout_mode = 0
+offset_left = -32.221565
+offset_top = 758.95496
+offset_right = 430.7785
+offset_bottom = 1011.95496
+scale = Vector2(1.1172643, 1.1370906)
+text = "Press \"space\" to skip"
+label_settings = SubResource("LabelSettings_acvyw")
 autowrap_mode = 2
 
 [node name="Node2D" type="Node2D" parent="SecondWindow/Timer"]

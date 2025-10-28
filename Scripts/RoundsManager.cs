@@ -20,23 +20,25 @@ public partial class RoundsManager : Node
         public RoundType Type { get; private set; }
         public double Duration { get; private set; }
 
+        public bool Skipable { get; private set; }
         public string DisplayInfo { get; private set; }
 
-        public Round(RoundType type, double duration, string displayInfo = "")
+        public Round(RoundType type, double duration, bool skipable, string displayInfo = "")
         {
             Type = type;
             Duration = duration * 60;
             DisplayInfo = displayInfo;
+            Skipable = skipable;
         }
     }
 
     [ExportCategory("Rounds Data")]
     private List<Round> rounds = new List<Round>()
     {
-        new Round(RoundType.preparing, 1, "Prep phase"),
-        new Round(RoundType.evil,      1, "Opening statement [SINS]"),
-        new Round(RoundType.good,      1, "Opening statement [VIRTUES]"),
-        new Round(RoundType.allOut,    2, "OPEN DEBATE")
+        new Round(RoundType.preparing, 1, true, "Prep phase"),
+        new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
+        new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
+        new Round(RoundType.allOut,    2, false, "OPEN DEBATE")
     };
 
     private int currentRound = 0;
@@ -57,10 +59,7 @@ public partial class RoundsManager : Node
 
     public override void _Process(double delta)
     {
-        if (!isRunning && Input.IsActionPressed("TestSpace"))
-        {
-            StartRound();
-        }
+        if (Input.IsActionJustPressed("TestSpace")) TrySkipRound();
 
         if (!isRunning)
             return;
@@ -102,6 +101,27 @@ public partial class RoundsManager : Node
         WarningDisplay.Visible = false;
 
         OnRoundStart();
+    }
+
+    private void TrySkipRound()
+    {
+        if (currentRound > rounds.Count) return;
+
+        if (!rounds[currentRound].Skipable) return;
+
+        //Check for remaining time after the current round.
+        double newTime = 0;
+        for (int i = 0; i < rounds.Count; i++)
+        {
+            if (i > currentRound)
+            {
+                newTime += rounds[i].Duration;
+            }
+        }
+        fullTimer = newTime == 0 ? fullTimer : newTime;
+
+        currentRound++;
+        StartRound();
     }
 
     private void DisplayTimers(double delta)
