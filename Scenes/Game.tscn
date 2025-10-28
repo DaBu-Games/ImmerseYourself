@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=17 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -11,6 +11,23 @@
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
+[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="12_3so38"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dahhg"]
+font = ExtResource("12_3so38")
+font_size = 126
+
+[sub_resource type="LabelSettings" id="LabelSettings_3so38"]
+font = ExtResource("12_3so38")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cx6b"]
+font = ExtResource("12_3so38")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxwew"]
+font = ExtResource("12_3so38")
+font_size = 100
 
 [node name="Game" type="Node2D"]
 
@@ -30,8 +47,11 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="."]
+[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay")]
 script = ExtResource("6_71axn")
+timer = NodePath("../SecondWindow/Timer/Time")
+roundTimer = NodePath("../SecondWindow/Timer/Info")
+WarningDisplay = NodePath("../SecondWindow/Timer/Node2D")
 
 [node name="UIManager" type="Control" parent="." groups=["UIManager"]]
 layout_mode = 3
@@ -48,10 +68,53 @@ caseMenu = ExtResource("4_kldst")
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
 mode = 3
-position = Vector2i(2000, 0)
+position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
 [node name="TextureRect" type="TextureRect" parent="SecondWindow"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("8_2irst")
+
+[node name="Timer" type="Node" parent="SecondWindow"]
+
+[node name="Info" type="Label" parent="SecondWindow/Timer"]
+offset_left = -40.0
+offset_top = 36.0
+offset_right = 1560.0
+offset_bottom = 222.0
+scale = Vector2(0.9004769, 0.8995372)
+pivot_offset = Vector2(800, 0)
+text = "\"Prep phase\" 00:00"
+label_settings = SubResource("LabelSettings_dahhg")
+
+[node name="Time" type="Label" parent="SecondWindow/Timer"]
+offset_left = 54.0
+offset_top = 166.0
+offset_right = 517.00006
+offset_bottom = 419.0
+scale = Vector2(1.1172643, 1.1370906)
+text = "00:00"
+label_settings = SubResource("LabelSettings_3so38")
+autowrap_mode = 2
+
+[node name="Node2D" type="Node2D" parent="SecondWindow/Timer"]
+visible = false
+
+[node name="Label" type="Label" parent="SecondWindow/Timer/Node2D"]
+offset_left = 358.0
+offset_top = 925.0
+offset_right = 1658.0
+offset_bottom = 1025.0
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_3cx6b")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SecondWindow/Timer/Node2D"]
+offset_left = 356.0
+offset_top = 811.0
+offset_right = 1656.0
+offset_bottom = 911.0
+text = "Phase is done!"
+label_settings = SubResource("LabelSettings_wxwew")
+horizontal_alignment = 1

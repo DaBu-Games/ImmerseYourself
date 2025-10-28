@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public enum RoundType
@@ -12,50 +11,77 @@ public enum RoundType
 
 public partial class RoundsManager : Node
 {
+    [Export] public Label timer;
+    [Export] public Label roundTimer;
+    [Export] public Node2D WarningDisplay;
+
     public class Round
     {
         public RoundType Type { get; private set; }
         public double Duration { get; private set; }
 
-        public Round(RoundType type, double duration)
+        public string DisplayInfo { get; private set; }
+
+        public Round(RoundType type, double duration, string displayInfo = "")
         {
             Type = type;
-            Duration = duration;
+            Duration = duration * 60;
+            DisplayInfo = displayInfo;
         }
     }
-    
+
     [ExportCategory("Rounds Data")]
     private List<Round> rounds = new List<Round>()
     {
-        new Round(RoundType.preparing, 2),
-        new Round(RoundType.evil, 2),
-        new Round(RoundType.good, 2),
-        new Round(RoundType.allOut, 2)
+        new Round(RoundType.preparing, 1, "Prep phase"),
+        new Round(RoundType.evil,      1, "Opening statement [SINS]"),
+        new Round(RoundType.good,      1, "Opening statement [VIRTUES]"),
+        new Round(RoundType.allOut,    2, "OPEN DEBATE")
     };
 
     private int currentRound = 0;
     private double time = 0;
     private double targetTime = 0;
+
     private bool isRunning = false;
+
+    private double fullTimer = 0;
+
+    public override void _Ready()
+    {
+        foreach (var round in rounds)
+        {
+            fullTimer += round.Duration;
+        }
+    }
 
     public override void _Process(double delta)
     {
-        if(!isRunning)
+        if (!isRunning && Input.IsActionPressed("TestSpace"))
+        {
+            StartRound();
+        }
+
+        if (!isRunning)
             return;
-        
+
         time += delta;
-        
-        if (time >= targetTime)
+
+        DisplayTimers(delta);
+
+        if (time > targetTime)
         {
             OnRoundEnd();
             currentRound++;
-            StartRound();
+
+            isRunning = false;
+            WarningDisplay.Visible = true;
         }
     }
 
     public void StartTiking()
     {
-        currentRound = 0; 
+        currentRound = 0;
         StartRound();
     }
 
@@ -71,11 +97,26 @@ public partial class RoundsManager : Node
         var round = rounds[currentRound];
         targetTime = round.Duration;
         time = 0;
+
         isRunning = true;
-        
+        WarningDisplay.Visible = false;
+
         OnRoundStart();
     }
-    
+
+    private void DisplayTimers(double delta)
+    {
+        fullTimer -= delta;
+        int minutes = (int)fullTimer / 60;
+        int seconds = (int)fullTimer % 60;
+        timer.Text = $"{minutes}:{seconds}";
+
+        var infoText = rounds[currentRound].DisplayInfo;
+        minutes = (int)(rounds[currentRound].Duration - time) / 60;
+        seconds = (int)(rounds[currentRound].Duration - time) % 60;
+        roundTimer.Text = $"{infoText}, {minutes}:{seconds}";
+    }
+
     private void OnRoundStart()
     {
         GD.Print($"[Event] {rounds[currentRound].Type} started!");
@@ -85,5 +126,5 @@ public partial class RoundsManager : Node
     {
         GD.Print($"[Event] {rounds[currentRound].Type} ended!");
     }
-    
+
 }

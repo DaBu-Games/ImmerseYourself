@@ -24,7 +24,7 @@ texture = ExtResource("2_vtlp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("input")]
 position = Vector2(631, 420)
-scale = Vector2(7, 0.5)
+scale = Vector2(6.9818773, 0.4943902)
 texture = ExtResource("2_vtlp1")
 script = ExtResource("3_knkf6")
 input = NodePath("..")
