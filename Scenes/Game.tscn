@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=21 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -13,6 +13,28 @@
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
+[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="14_wxwew"]
+[ext_resource type="Texture2D" uid="uid://1pwgn0vbohdp" path="res://Assets/2D/HourGlass.png" id="15_acvyw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
+font = ExtResource("14_wxwew")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_alh3a"]
+font = ExtResource("14_wxwew")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_4q8tf"]
+font = ExtResource("14_wxwew")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3xnh"]
+font = ExtResource("14_wxwew")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_8r6kd"]
+font = ExtResource("14_wxwew")
+font_size = 100
 
 [node name="Game" type="Node2D"]
 
@@ -32,8 +54,12 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="."]
+[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay", "FinalDisplay")]
 script = ExtResource("6_71axn")
+timer = NodePath("../SecondWindow/Timer/Time")
+roundTimer = NodePath("../SecondWindow/Timer/Info")
+WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
+FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
@@ -59,6 +85,7 @@ size = Vector2i(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("8_2irst")
+flip_h = true
 
 [node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
 layout_mode = 0
@@ -76,3 +103,95 @@ offset_right = 1220.0
 offset_bottom = 628.0
 expand_mode = 1
 script = ExtResource("13_3cx6b")
+
+[node name="Timer" type="Node" parent="SecondWindow"]
+
+[node name="Info" type="Label" parent="SecondWindow/Timer"]
+offset_left = 141.38147
+offset_top = 75.0
+offset_right = 1741.3815
+offset_bottom = 261.0
+scale = Vector2(0.9004769, 0.8995372)
+pivot_offset = Vector2(800, 0)
+text = "\"Prep phase\" 00:00"
+label_settings = SubResource("LabelSettings_acvyw")
+
+[node name="Time" type="Label" parent="SecondWindow/Timer"]
+offset_left = 244.38147
+offset_top = 215.0
+offset_right = 707.3815
+offset_bottom = 468.0
+scale = Vector2(1.1172643, 1.1370906)
+text = "00:00"
+label_settings = SubResource("LabelSettings_alh3a")
+autowrap_mode = 2
+
+[node name="Time" type="Label" parent="SecondWindow/Timer/Time"]
+layout_mode = 0
+offset_left = -212.1253
+offset_top = 723.77716
+offset_right = 250.87476
+offset_bottom = 976.7771
+scale = Vector2(1.1172643, 1.1370906)
+text = "Press \"space\" to skip"
+label_settings = SubResource("LabelSettings_4q8tf")
+autowrap_mode = 2
+
+[node name="InbetweenDisplay" type="Node2D" parent="SecondWindow/Timer"]
+visible = false
+
+[node name="Label" type="Label" parent="SecondWindow/Timer/InbetweenDisplay"]
+offset_left = 358.0
+offset_top = 925.0
+offset_right = 1658.0
+offset_bottom = 1025.0
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_x3xnh")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SecondWindow/Timer/InbetweenDisplay"]
+offset_left = 356.0
+offset_top = 811.0
+offset_right = 1656.0
+offset_bottom = 911.0
+text = "Phase is done!"
+label_settings = SubResource("LabelSettings_8r6kd")
+horizontal_alignment = 1
+
+[node name="FinalDisplay" type="Node2D" parent="SecondWindow/Timer"]
+visible = false
+
+[node name="Label2" type="Label" parent="SecondWindow/Timer/FinalDisplay"]
+offset_left = 356.0
+offset_top = 811.0
+offset_right = 1656.0
+offset_bottom = 911.0
+text = "Phase is done!"
+label_settings = SubResource("LabelSettings_8r6kd")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="SecondWindow/Timer/FinalDisplay"]
+offset_left = 755.0
+offset_top = 902.0
+offset_right = 1264.0
+offset_bottom = 1013.9154
+
+[node name="Label" type="Label" parent="SecondWindow/Timer/FinalDisplay/Button"]
+layout_mode = 0
+offset_left = -397.0
+offset_top = 23.0
+offset_right = 903.0
+offset_bottom = 123.0
+text = "Show Score"
+label_settings = SubResource("LabelSettings_x3xnh")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SecondWindow/Timer"]
+offset_left = -151.0
+offset_top = -65.0
+offset_right = 3849.0
+offset_bottom = 2935.0
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("15_acvyw")
+
+[connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ChooseCase"]
