@@ -51,11 +51,8 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay")]
+[node name="RoundsManager" type="Node" parent="."]
 script = ExtResource("6_71axn")
-timer = NodePath("../SecondWindow/Timer/Time")
-roundTimer = NodePath("../SecondWindow/Timer/Info")
-WarningDisplay = NodePath("../SecondWindow/Timer/Node2D")
 
 [node name="UIManager" type="Control" parent="." groups=["UIManager"]]
 layout_mode = 3

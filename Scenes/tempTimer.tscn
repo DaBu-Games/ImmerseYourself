@@ -1,0 +1,132 @@
+[gd_scene load_steps=18 format=3 uid="uid://dfad4qvjh3hsn"]
+
+[ext_resource type="Script" uid="uid://chfltvqgu41m0" path="res://Scripts/Case/CaseManager.cs" id="1_hsoql"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="2_7v3uq"]
+[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="3_3qyyf"]
+[ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="4_82adk"]
+[ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="5_1wsvc"]
+[ext_resource type="Script" uid="uid://kp7bmampcp3g" path="res://Scripts/RoundsManager.cs" id="6_ofghn"]
+[ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="7_7v82v"]
+[ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="8_03vvi"]
+[ext_resource type="PackedScene" uid="uid://dbeta6qvfyyve" path="res://Scenes/UI/judge_pannel.tscn" id="9_88jj7"]
+[ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/case_menu.tscn" id="10_ntnvu"]
+[ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="11_400hw"]
+[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="12_mr4u5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3cmd"]
+font = ExtResource("12_mr4u5")
+font_size = 126
+
+[sub_resource type="LabelSettings" id="LabelSettings_u53bs"]
+font = ExtResource("12_mr4u5")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_p773u"]
+font = ExtResource("12_mr4u5")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ltwxr"]
+font = ExtResource("12_mr4u5")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_12no1"]
+font = ExtResource("12_mr4u5")
+font_size = 100
+
+[node name="TempTimer" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["MainCamera"]]
+position = Vector2(576, 324)
+scale = Vector2(4.065, 1)
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="CaseManager" type="Node" parent="." node_paths=PackedStringArray("roundsManager")]
+script = ExtResource("1_hsoql")
+cases = Array[ExtResource("2_7v3uq")]([ExtResource("3_3qyyf")])
+evidenceScene = ExtResource("4_82adk")
+caseScene = ExtResource("5_1wsvc")
+roundsManager = NodePath("")
+
+[node name="RoundsManager" type="Node" parent="."]
+script = ExtResource("6_ofghn")
+
+[node name="UIManager" type="Control" parent="." groups=["UIManager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("7_7v82v")
+script = ExtResource("8_03vvi")
+judgePanel = ExtResource("9_88jj7")
+caseMenu = ExtResource("10_ntnvu")
+
+[node name="SecondWindow" type="Window" parent="."]
+oversampling_override = 1.0
+mode = 3
+position = Vector2i(0, 36)
+size = Vector2i(1920, 1080)
+
+[node name="TextureRect" type="TextureRect" parent="SecondWindow"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("11_400hw")
+
+[node name="Timer" type="Node" parent="SecondWindow"]
+
+[node name="Info" type="Label" parent="SecondWindow/Timer"]
+offset_left = -40.0
+offset_top = 36.0
+offset_right = 1560.0
+offset_bottom = 222.0
+scale = Vector2(0.9004769, 0.8995372)
+pivot_offset = Vector2(800, 0)
+text = "\"Prep phase\" 00:00"
+label_settings = SubResource("LabelSettings_w3cmd")
+
+[node name="Time" type="Label" parent="SecondWindow/Timer"]
+offset_left = 54.0
+offset_top = 166.0
+offset_right = 517.00006
+offset_bottom = 419.0
+scale = Vector2(1.1172643, 1.1370906)
+text = "00:00"
+label_settings = SubResource("LabelSettings_u53bs")
+autowrap_mode = 2
+
+[node name="Time" type="Label" parent="SecondWindow/Timer/Time"]
+layout_mode = 0
+offset_left = -32.221565
+offset_top = 758.95496
+offset_right = 430.7785
+offset_bottom = 1011.95496
+scale = Vector2(1.1172643, 1.1370906)
+text = "Press \"space\" to skip"
+label_settings = SubResource("LabelSettings_p773u")
+autowrap_mode = 2
+
+[node name="Node2D" type="Node2D" parent="SecondWindow/Timer"]
+visible = false
+
+[node name="Label" type="Label" parent="SecondWindow/Timer/Node2D"]
+offset_left = 358.0
+offset_top = 925.0
+offset_right = 1658.0
+offset_bottom = 1025.0
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_ltwxr")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SecondWindow/Timer/Node2D"]
+offset_left = 356.0
+offset_top = 811.0
+offset_right = 1656.0
+offset_bottom = 911.0
+text = "Phase is done!"
+label_settings = SubResource("LabelSettings_12no1")
+horizontal_alignment = 1
