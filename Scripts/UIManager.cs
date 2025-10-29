@@ -4,15 +4,15 @@ public partial class UIManager : Node
 {
     public static UIManager Instance { get; private set; }
     [ExportCategory("Small screen")]
-    
+
     [Export] private PackedScene judgePanel;
     public PackedScene JudgePanel { get { return judgePanel; } }
 
     [Export] private PackedScene caseMenu;
     public PackedScene CaseMenu { get { return caseMenu; } }
-    
+
     [ExportCategory("Big screen")]
-    
+
     [Export] private DefendantDisplay defendantDisplay;
     [Export] private EvidenceSlideIn evidenceSlideIn;
 
@@ -25,10 +25,11 @@ public partial class UIManager : Node
     }
 
     public void SwitchToJudgePanel() => sceneChanger.SwitchScene(judgePanel, this);
-    public void SwitchToCaseMenu()   => sceneChanger.SwitchScene(caseMenu, this);
+    public void SwitchToCaseMenu() => sceneChanger.SwitchScene(caseMenu, this);
 
     public void ChooseCase()
     {
+        GD.Print("HEY");
         SwitchToCaseMenu();
     }
 

@@ -157,7 +157,6 @@ label_settings = SubResource("LabelSettings_8r6kd")
 horizontal_alignment = 1
 
 [node name="FinalDisplay" type="Node2D" parent="SecondWindow/Timer"]
-visible = false
 
 [node name="Label2" type="Label" parent="SecondWindow/Timer/FinalDisplay"]
 offset_left = 356.0
@@ -183,3 +182,5 @@ offset_bottom = 123.0
 text = "Show Score"
 label_settings = SubResource("LabelSettings_x3xnh")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ChooseCase"]
