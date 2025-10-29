@@ -13,7 +13,9 @@ public partial class RoundsManager : Node
 {
     [Export] public Label timer;
     [Export] public Label roundTimer;
+
     [Export] public Node2D WarningDisplay;
+    [Export] public Node2D FinalDisplay;
 
     public class Round
     {
@@ -59,7 +61,7 @@ public partial class RoundsManager : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("TestSpace")) TrySkipRound();
+        if (Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
 
         if (!isRunning)
             return;
@@ -74,7 +76,12 @@ public partial class RoundsManager : Node
             currentRound++;
 
             isRunning = false;
-            WarningDisplay.Visible = true;
+
+            //Display based on round state.
+            if (currentRound >= rounds.Count)
+                FinalDisplay.Visible = true;
+            else
+                WarningDisplay.Visible = true;
         }
     }
 
@@ -90,6 +97,7 @@ public partial class RoundsManager : Node
         {
             GD.Print("All rounds finished!");
             isRunning = false;
+
             return;
         }
 
@@ -98,12 +106,14 @@ public partial class RoundsManager : Node
         time = 0;
 
         isRunning = true;
+
         WarningDisplay.Visible = false;
+        FinalDisplay.Visible = false;
 
         OnRoundStart();
     }
 
-    private void TrySkipRound()
+    private void TryStartNextRound()
     {
         if (currentRound > rounds.Count) return;
 
