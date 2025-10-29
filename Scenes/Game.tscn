@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=14 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -11,27 +11,8 @@
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
-[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="12_3so38"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dahhg"]
-font = ExtResource("12_3so38")
-font_size = 126
-
-[sub_resource type="LabelSettings" id="LabelSettings_3so38"]
-font = ExtResource("12_3so38")
-font_size = 56
-
-[sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
-font = ExtResource("12_3so38")
-font_size = 30
-
-[sub_resource type="LabelSettings" id="LabelSettings_3cx6b"]
-font = ExtResource("12_3so38")
-font_size = 80
-
-[sub_resource type="LabelSettings" id="LabelSettings_wxwew"]
-font = ExtResource("12_3so38")
-font_size = 100
+[ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
+[ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
 
 [node name="Game" type="Node2D"]
 
@@ -54,7 +35,7 @@ roundsManager = NodePath("../RoundsManager")
 [node name="RoundsManager" type="Node" parent="."]
 script = ExtResource("6_71axn")
 
-[node name="UIManager" type="Control" parent="." groups=["UIManager"]]
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -65,6 +46,8 @@ theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
+defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
+evidenceSlideIn = NodePath("../SecondWindow/Background/Evidence")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -72,61 +55,24 @@ mode = 3
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
-[node name="TextureRect" type="TextureRect" parent="SecondWindow"]
+[node name="Background" type="TextureRect" parent="SecondWindow"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("8_2irst")
 
-[node name="Timer" type="Node" parent="SecondWindow"]
-
-[node name="Info" type="Label" parent="SecondWindow/Timer"]
-offset_left = -40.0
-offset_top = 36.0
-offset_right = 1560.0
-offset_bottom = 222.0
-scale = Vector2(0.9004769, 0.8995372)
-pivot_offset = Vector2(800, 0)
-text = "\"Prep phase\" 00:00"
-label_settings = SubResource("LabelSettings_dahhg")
-
-[node name="Time" type="Label" parent="SecondWindow/Timer"]
-offset_left = 54.0
-offset_top = 166.0
-offset_right = 517.00006
-offset_bottom = 419.0
-scale = Vector2(1.1172643, 1.1370906)
-text = "00:00"
-label_settings = SubResource("LabelSettings_3so38")
-autowrap_mode = 2
-
-[node name="Time" type="Label" parent="SecondWindow/Timer/Time"]
+[node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
 layout_mode = 0
-offset_left = -32.221565
-offset_top = 758.95496
-offset_right = 430.7785
-offset_bottom = 1011.95496
-scale = Vector2(1.1172643, 1.1370906)
-text = "Press \"space\" to skip"
-label_settings = SubResource("LabelSettings_acvyw")
-autowrap_mode = 2
+offset_left = 854.0
+offset_top = 684.0
+offset_right = 1161.0
+offset_bottom = 979.0
+script = ExtResource("12_3so38")
 
-[node name="Node2D" type="Node2D" parent="SecondWindow/Timer"]
-visible = false
-
-[node name="Label" type="Label" parent="SecondWindow/Timer/Node2D"]
-offset_left = 358.0
-offset_top = 925.0
-offset_right = 1658.0
-offset_bottom = 1025.0
-text = "Press space to continue"
-label_settings = SubResource("LabelSettings_3cx6b")
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="SecondWindow/Timer/Node2D"]
-offset_left = 356.0
-offset_top = 811.0
-offset_right = 1656.0
-offset_bottom = 911.0
-text = "Phase is done!"
-label_settings = SubResource("LabelSettings_wxwew")
-horizontal_alignment = 1
+[node name="Evidence" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 128.0
+offset_right = 1220.0
+offset_bottom = 628.0
+expand_mode = 1
+script = ExtResource("13_3cx6b")
