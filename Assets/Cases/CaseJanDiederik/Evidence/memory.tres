@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://cvd7pp4qyfx1f"]
+
+[ext_resource type="Texture2D" uid="uid://djqdbdikbis6k" path="res://Assets/2D/bewijsstukken/jan/jan virtue 2.png" id="1_pumd8"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_me7xi"]
+
+[resource]
+script = ExtResource("2_me7xi")
+image = ExtResource("1_pumd8")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

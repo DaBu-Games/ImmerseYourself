@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Case" load_steps=6 format=3 uid="uid://bnnpju53u1q5m"]
+
+[ext_resource type="Resource" uid="uid://doadij7577iwv" path="res://Assets/Cases/CaseBarry/DefendantBarry.tres" id="1_2tj07"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_rnnro"]
+[ext_resource type="Resource" uid="uid://d2qn0w34n02gx" path="res://Assets/Cases/CaseBarry/Evidence/BarrySPike.tres" id="3_jrdki"]
+[ext_resource type="Resource" uid="uid://hua0r2h4ke12" path="res://Assets/Cases/CaseBarry/Evidence/BarryBalloon.tres" id="4_w4qmc"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="5_t23pa"]
+
+[resource]
+script = ExtResource("5_t23pa")
+evidence = Array[ExtResource("2_rnnro")]([ExtResource("3_jrdki"), ExtResource("4_w4qmc")])
+defendant = ExtResource("1_2tj07")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"

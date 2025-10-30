@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://5iq5q2wogfmd"]
-
-[ext_resource type="Texture2D" uid="uid://u4b4dubvhhbw" path="res://icon.svg" id="1_0bokq"]
-[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="1_tpofm"]
-
-[resource]
-script = ExtResource("1_tpofm")
-image = ExtResource("1_0bokq")
-metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

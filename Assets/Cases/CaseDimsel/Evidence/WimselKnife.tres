@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://dc4hmy8sf2mpb"]
-
-[ext_resource type="Texture2D" uid="uid://cutfpveecfr4e" path="res://courtUML.svg" id="1_4j0gu"]
-[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="1_xyrxk"]
-
-[resource]
-script = ExtResource("1_xyrxk")
-image = ExtResource("1_4j0gu")
-metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

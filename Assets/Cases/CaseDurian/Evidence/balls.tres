@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://dsx0w0d2m87fn"]
+
+[ext_resource type="Texture2D" uid="uid://dmoul856ri8i3" path="res://Assets/2D/bewijsstukken/durain/durain virtue 2.png" id="1_pp56n"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_6s2hg"]
+
+[resource]
+script = ExtResource("2_6s2hg")
+image = ExtResource("1_pp56n")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

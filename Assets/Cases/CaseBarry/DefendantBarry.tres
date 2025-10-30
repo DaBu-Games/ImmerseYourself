@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Defendant" load_steps=3 format=3 uid="uid://doadij7577iwv"]
+
+[ext_resource type="Texture2D" uid="uid://cw3ae0c16vsx6" path="res://Assets/2D/Character/Barry.png" id="1_l4qfs"]
+[ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="2_40chn"]
+
+[resource]
+script = ExtResource("2_40chn")
+name = "Barry van der Jel"
+DescriptionGood = " Lived to entertain children, Volunteer, Pure Intention"
+DescriptionEvil = "Involuntary manslaughter, Suicide, Induced trauma to multiple children
+"
+sprite = ExtResource("1_l4qfs")
+icon = ExtResource("1_l4qfs")
+metadata/_custom_type_script = "uid://di5ks8w4v3w4p"

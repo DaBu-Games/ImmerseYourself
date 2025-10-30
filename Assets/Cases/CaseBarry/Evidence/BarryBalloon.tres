@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://hua0r2h4ke12"]
+
+[ext_resource type="Texture2D" uid="uid://ckawqec3nyw4h" path="res://Assets/2D/bewijsstukken/barry/barryvirtue.png" id="1_ufyut"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_20q6r"]
+
+[resource]
+script = ExtResource("2_20q6r")
+image = ExtResource("1_ufyut")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

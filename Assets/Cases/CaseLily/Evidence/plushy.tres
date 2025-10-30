@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://buwiymje7dxvx"]
+
+[ext_resource type="Texture2D" uid="uid://c4o7uga8meksq" path="res://Assets/2D/bewijsstukken/lily/lilysin1.png" id="1_q2rl7"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_wbqvj"]
+
+[resource]
+script = ExtResource("2_wbqvj")
+image = ExtResource("1_q2rl7")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

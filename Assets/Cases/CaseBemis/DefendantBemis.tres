@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Defendant" load_steps=3 format=3 uid="uid://6per50qngwow"]
+
+[ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="1_r3wms"]
+[ext_resource type="Texture2D" uid="uid://dxaf3m47aijmo" path="res://Assets/2D/Character/Bemis.png" id="1_vhxit"]
+
+[resource]
+script = ExtResource("1_r3wms")
+name = "Bemis Dimpel"
+DescriptionGood = "Decided to become a monk wanting to fix his personality issues
+"
+DescriptionEvil = "Racist, Bully, Abuser"
+sprite = ExtResource("1_vhxit")
+icon = ExtResource("1_vhxit")
+metadata/_custom_type_script = "uid://di5ks8w4v3w4p"
