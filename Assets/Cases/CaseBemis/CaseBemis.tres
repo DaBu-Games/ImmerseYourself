@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Case" load_steps=8 format=3 uid="uid://r00553kwuy64"]
+
+[ext_resource type="Resource" uid="uid://6per50qngwow" path="res://Assets/Cases/CaseBemis/DefendantBemis.tres" id="1_3ffeg"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_17f3l"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="3_3g8mx"]
+[ext_resource type="Resource" uid="uid://ggywsglef8o2" path="res://Assets/Cases/CaseBemis/Evidence/Bomb.tres" id="3_77k1l"]
+[ext_resource type="Resource" uid="uid://bxfxif8dlsx17" path="res://Assets/Cases/CaseBemis/Evidence/Neckles.tres" id="4_qdam3"]
+[ext_resource type="Resource" uid="uid://cbr3awtncqtio" path="res://Assets/Cases/CaseBemis/Evidence/PoisenPotato.tres" id="5_etwne"]
+[ext_resource type="Resource" uid="uid://dah184cfetsoj" path="res://Assets/Cases/CaseBemis/Evidence/Vlaams.tres" id="6_17khb"]
+
+[resource]
+script = ExtResource("3_3g8mx")
+evidence = Array[ExtResource("2_17f3l")]([ExtResource("3_77k1l"), ExtResource("4_qdam3"), ExtResource("5_etwne"), ExtResource("6_17khb")])
+defendant = ExtResource("1_3ffeg")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"

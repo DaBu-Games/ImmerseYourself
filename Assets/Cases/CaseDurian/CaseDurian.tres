@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Case" load_steps=8 format=3 uid="uid://by11quxqcygxn"]
+
+[ext_resource type="Resource" uid="uid://boo7i1bjhj4y0" path="res://Assets/Cases/CaseDurian/DefendantDurian.tres" id="1_51i6a"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_2fg3c"]
+[ext_resource type="Resource" uid="uid://dsx0w0d2m87fn" path="res://Assets/Cases/CaseDurian/Evidence/balls.tres" id="3_vfswk"]
+[ext_resource type="Resource" uid="uid://c270wai7by0xp" path="res://Assets/Cases/CaseDurian/Evidence/gasoline.tres" id="4_f3owy"]
+[ext_resource type="Resource" uid="uid://dgqnso8n0etrw" path="res://Assets/Cases/CaseDurian/Evidence/grave.tres" id="5_ebkdx"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="5_qg3xn"]
+[ext_resource type="Resource" uid="uid://cnggg2k5vot3p" path="res://Assets/Cases/CaseDurian/Evidence/therapy.tres" id="6_gcp5h"]
+
+[resource]
+script = ExtResource("5_qg3xn")
+evidence = Array[ExtResource("2_2fg3c")]([ExtResource("3_vfswk"), ExtResource("4_f3owy"), ExtResource("5_ebkdx"), ExtResource("6_gcp5h")])
+defendant = ExtResource("1_51i6a")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"

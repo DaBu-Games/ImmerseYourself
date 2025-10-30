@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Case" load_steps=8 format=3 uid="uid://cn0e6hrun482n"]
+
+[ext_resource type="Resource" uid="uid://7eeqnhp61g0c" path="res://Assets/Cases/CaseJanDiederik/DefendantJanDiederik.tres" id="1_n48m4"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_635jh"]
+[ext_resource type="Resource" uid="uid://e0crufum66by" path="res://Assets/Cases/CaseJanDiederik/Evidence/book.tres" id="3_ngami"]
+[ext_resource type="Resource" uid="uid://cdju2pgxjos06" path="res://Assets/Cases/CaseJanDiederik/Evidence/brokenhartt.tres" id="4_u255u"]
+[ext_resource type="Resource" uid="uid://cvd7pp4qyfx1f" path="res://Assets/Cases/CaseJanDiederik/Evidence/memory.tres" id="5_f5akn"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="5_k76qh"]
+[ext_resource type="Resource" uid="uid://b8maxp14ekxch" path="res://Assets/Cases/CaseJanDiederik/Evidence/organ.tres" id="6_aba1w"]
+
+[resource]
+script = ExtResource("5_k76qh")
+evidence = Array[ExtResource("2_635jh")]([ExtResource("3_ngami"), ExtResource("4_u255u"), ExtResource("5_f5akn"), ExtResource("6_aba1w")])
+defendant = ExtResource("1_n48m4")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"
