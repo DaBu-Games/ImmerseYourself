@@ -26,4 +26,9 @@ public partial class DefendantDisplay : TextureRect
         tween.TweenProperty(this, "modulate:a", show ? 1.0f : 0.0f, fadeDuration);
         await ToSignal(tween, Tween.SignalName.Finished);
     }
+
+    public void ChangeZIndex(int zIndex)
+    {
+        zIndex = zIndex; 
+    }
 }

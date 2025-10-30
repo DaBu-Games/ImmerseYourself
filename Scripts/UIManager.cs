@@ -16,6 +16,9 @@ public partial class UIManager : Node
     [Export] private DefendantDisplay defendantDisplay;
     [Export] private EvidenceSlideIn evidenceSlideIn;
 
+    [Export] private TextureRect scale;
+    [Export] private TextureRect scaleFocus;
+
     private SceneChanger sceneChanger = new SceneChanger();
 
     public override void _Ready()
@@ -31,6 +34,9 @@ public partial class UIManager : Node
     {
         GD.Print("HEY");
         SwitchToCaseMenu();
+        scale.ZIndex = 0;
+        defendantDisplay.ChangeZIndex(0);
+        scaleFocus.Hide();
     }
 
     public void StartCase(Defendant defendant)
@@ -42,5 +48,13 @@ public partial class UIManager : Node
     public void SlideInEvidence(Texture2D texture, int index)
     {
         evidenceSlideIn.SetUp(texture, index);
+    }
+
+    public void ShowResult()
+    {
+        evidenceSlideIn.SlideOut();
+        scale.ZIndex = 2;
+        defendantDisplay.ChangeZIndex(1);
+        scaleFocus.Show();
     }
 }
