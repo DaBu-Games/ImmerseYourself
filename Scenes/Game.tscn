@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=25 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -8,13 +8,17 @@
 [ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="6_2irst"]
 [ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://kp7bmampcp3g" path="res://Scripts/RoundsManager.cs" id="6_71axn"]
+[ext_resource type="Script" uid="uid://yu7wsn2wn8mh" path="res://Scripts/Scale/ScaleInput.cs" id="7_alh3a"]
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
 [ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="14_wxwew"]
+[ext_resource type="Texture2D" uid="uid://c2xudq5m822wo" path="res://Assets/2D/Scale/scale-foot.png" id="15_4q8tf"]
+[ext_resource type="Script" uid="uid://dp18pvwsnbhwe" path="res://Scripts/Scale/ScaleRotate.cs" id="15_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://1pwgn0vbohdp" path="res://Assets/2D/HourGlass.png" id="15_acvyw"]
+[ext_resource type="Texture2D" uid="uid://i3wq6lt0kefe" path="res://Assets/2D/Scale/scale-arm.png" id="16_x3xnh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
 font = ExtResource("14_wxwew")
@@ -61,6 +65,9 @@ roundTimer = NodePath("../SecondWindow/Timer/Info")
 WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
 FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
+[node name="ScaleManager" type="Node" parent="."]
+script = ExtResource("7_alh3a")
+
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
@@ -82,25 +89,75 @@ position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
 [node name="Background" type="TextureRect" parent="SecondWindow"]
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 texture = ExtResource("8_2irst")
 flip_h = true
 
+[node name="Scale" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.25
+offset_top = -237.0
+offset_right = 168.25
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_4q8tf")
+expand_mode = 1
+
+[node name="arms" type="TextureRect" parent="SecondWindow/Background/Scale" node_paths=PackedStringArray("input")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -497.0
+offset_top = -154.0
+offset_right = 451.0
+offset_bottom = 129.0
+grow_horizontal = 2
+texture = ExtResource("16_x3xnh")
+expand_mode = 1
+script = ExtResource("15_8r6kd")
+input = NodePath("../../../../ScaleManager")
+maxRotation = 25.0
+
 [node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
-layout_mode = 0
-offset_left = 854.0
-offset_top = 684.0
-offset_right = 1161.0
-offset_bottom = 979.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.5
+offset_top = -430.0
+offset_right = 153.5
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("12_3so38")
 
 [node name="Evidence" type="TextureRect" parent="SecondWindow/Background"]
-layout_mode = 0
-offset_left = 720.0
-offset_top = 128.0
-offset_right = 1220.0
-offset_bottom = 628.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 script = ExtResource("13_3cx6b")
 

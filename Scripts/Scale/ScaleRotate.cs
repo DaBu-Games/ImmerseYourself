@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ScaleRotate : Node2D
+public partial class ScaleRotate : TextureRect
 {
     [Export] private ScaleInput input;
     [Export] private float maxRotation;
