@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=22 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
+[ext_resource type="Script" uid="uid://cg2vk8k33mk8m" path="res://Scripts/RollManager.cs" id="11_alh3a"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
 [ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="14_wxwew"]
@@ -54,12 +55,8 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay", "FinalDisplay")]
+[node name="RoundsManager" type="Node" parent="."]
 script = ExtResource("6_71axn")
-timer = NodePath("../SecondWindow/Timer/Time")
-roundTimer = NodePath("../SecondWindow/Timer/Info")
-WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
-FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
@@ -74,6 +71,13 @@ judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
 defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
 evidenceSlideIn = NodePath("../SecondWindow/Background/Evidence")
+
+[node name="RollManager" type="Control" parent="." groups=["RollManager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_alh3a")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
