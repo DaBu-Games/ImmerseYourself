@@ -40,7 +40,7 @@ public partial class RoundsManager : Node
         new Round(RoundType.preparing, 1, true, "Prep phase"),
         new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
         new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
-        new Round(RoundType.allOut,    2, false, "OPEN DEBATE")
+        new Round(RoundType.allOut,    0.1, false, "OPEN DEBATE")
     };
 
     private int currentRound = 0;

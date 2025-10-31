@@ -29,6 +29,6 @@ public partial class DefendantDisplay : TextureRect
 
     public void ChangeZIndex(int zIndex)
     {
-        zIndex = zIndex; 
+        ZIndex = zIndex; 
     }
 }

@@ -18,6 +18,8 @@ public partial class UIManager : Node
 
     [Export] private TextureRect scale;
     [Export] private TextureRect scaleFocus;
+    
+    [Export] private CanvasLayer timerDisplay;
 
     private SceneChanger sceneChanger = new SceneChanger();
 
@@ -43,6 +45,7 @@ public partial class UIManager : Node
     {
         SwitchToJudgePanel();
         defendantDisplay.SetUp(defendant);
+        timerDisplay.Show();
     }
 
     public void SlideInEvidence(Texture2D texture, int index)
@@ -52,9 +55,10 @@ public partial class UIManager : Node
 
     public void ShowResult()
     {
+        timerDisplay.Hide();
         evidenceSlideIn.SlideOut();
-        scale.ZIndex = 2;
-        defendantDisplay.ChangeZIndex(1);
+        scale.ZIndex = 1;
+        defendantDisplay.ChangeZIndex(2);
         scaleFocus.Show();
     }
 }
