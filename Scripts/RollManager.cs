@@ -10,6 +10,8 @@ public partial class RollManager : Node
         public string Name;
         public string PlayerName;
 
+        public int score;
+
         public Roll(string name, string PlayerName)
         {
             this.Name = name;
@@ -27,22 +29,22 @@ public partial class RollManager : Node
         };
     }
 
-    public override void _Process(double delta)
+    public void SwitchRolls()
     {
-        foreach (Roll roll in rollList)
-        {
-            GD.Print(roll.Name, " = ", roll.PlayerName);
-        }
+        var tempList = rollList;
+        rollList[0] = tempList[1]; // Judge --> Devil
+        rollList[1] = tempList[2]; // Devil --> Angel
+        rollList[2] = tempList[0]; // Angel --> Judge
     }
 
     public void FillRoll(string name, string playerName)
     {
         foreach (Roll roll in rollList)
         {
-            if (roll.Name == name)
-            {
-                roll.PlayerName = playerName;
-            }
+            if (roll.Name != name) continue;
+
+            roll.PlayerName = playerName;
+            GD.Print(roll.Name, " = ", roll.PlayerName);
         }
     }
 }

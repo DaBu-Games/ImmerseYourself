@@ -27,7 +27,7 @@ public partial class RollInput : Node
 
         input = inputItem.Text;
         name = this.Name;
-    }
 
-    private void _on_text_edit_text_changed() => rollManager.FillRoll(input, name);
+        rollManager.FillRoll(name, input);
+    }
 }

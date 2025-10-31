@@ -11,6 +11,10 @@ public partial class UIManager : Node
     [Export] private PackedScene caseMenu;
     public PackedScene CaseMenu { get { return caseMenu; } }
 
+    [Export] private PackedScene rollMenu;
+    public PackedScene Rollmenu { get { return rollMenu; } }
+
+
     [ExportCategory("Big screen")]
 
     [Export] private DefendantDisplay defendantDisplay;
@@ -30,7 +34,8 @@ public partial class UIManager : Node
     public void ChooseCase()
     {
         GD.Print("HEY");
-        SwitchToCaseMenu();
+        sceneChanger.SwitchScene(rollMenu, this);
+        //SwitchToCaseMenu();
     }
 
     public void StartCase(Defendant defendant)

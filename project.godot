@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ImmerseYourself"
-run/main_scene="uid://kmftlia2jqke"
+run/main_scene="uid://ddsclml7gkpr6"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
