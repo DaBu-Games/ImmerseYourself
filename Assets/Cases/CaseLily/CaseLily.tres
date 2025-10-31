@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Case" load_steps=8 format=3 uid="uid://bfhow6udl4jb"]
+
+[ext_resource type="Resource" uid="uid://ehxrgjnvg3ey" path="res://Assets/Cases/CaseLily/DefendantLily.tres" id="1_ywhl3"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_8gyca"]
+[ext_resource type="Resource" uid="uid://b450v71ttildl" path="res://Assets/Cases/CaseLily/Evidence/bff.tres" id="3_ypdtn"]
+[ext_resource type="Resource" uid="uid://bju1w2jpixpq8" path="res://Assets/Cases/CaseLily/Evidence/music.tres" id="4_ril84"]
+[ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="5_bo8gb"]
+[ext_resource type="Resource" uid="uid://buwiymje7dxvx" path="res://Assets/Cases/CaseLily/Evidence/plushy.tres" id="5_vx0eo"]
+[ext_resource type="Resource" uid="uid://l3ms41fu3f53" path="res://Assets/Cases/CaseLily/Evidence/prison.tres" id="6_fo7vo"]
+
+[resource]
+script = ExtResource("5_bo8gb")
+evidence = Array[ExtResource("2_8gyca")]([ExtResource("3_ypdtn"), ExtResource("4_ril84"), ExtResource("5_vx0eo"), ExtResource("6_fo7vo")])
+defendant = ExtResource("1_ywhl3")
+metadata/_custom_type_script = "uid://daddog7lmu7yn"

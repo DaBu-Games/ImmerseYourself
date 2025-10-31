@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://ggywsglef8o2"]
+
+[ext_resource type="Texture2D" uid="uid://d2qjh2fmxnej4" path="res://Assets/2D/bewijsstukken/bemis/bemis sin 2.png" id="1_3xqi0"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_6u026"]
+
+[resource]
+script = ExtResource("2_6u026")
+image = ExtResource("1_3xqi0")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

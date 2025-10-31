@@ -61,6 +61,9 @@ public partial class EvidenceSlideIn : TextureRect
 
     public async Task SlideOut()
     {
+        if(Texture == null)
+            return;
+        
         isAnimating = true;
 
         var tween = CreateTween()

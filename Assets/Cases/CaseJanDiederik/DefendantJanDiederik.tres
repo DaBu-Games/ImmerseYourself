@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Defendant" load_steps=3 format=3 uid="uid://7eeqnhp61g0c"]
+
+[ext_resource type="Texture2D" uid="uid://cu11g7l83rorn" path="res://Assets/2D/Character/Jan-Diederik.png" id="1_oxr3y"]
+[ext_resource type="Script" uid="uid://di5ks8w4v3w4p" path="res://Scripts/Case/Defendant.cs" id="2_yp5pl"]
+
+[resource]
+script = ExtResource("2_yp5pl")
+name = "Jan Diederik Gert Jannes"
+DescriptionGood = "Organ Donor, Adopted many children, Runs the local orphanage, Volunteer, Feeds the homeless, Attends protests for human rights, Donates to charity"
+DescriptionEvil = "Pretentious narcissist, Only does good things because it makes him look like a good person, Cheated on all of his partners, Misogynist"
+sprite = ExtResource("1_oxr3y")
+icon = ExtResource("1_oxr3y")
+metadata/_custom_type_script = "uid://di5ks8w4v3w4p"

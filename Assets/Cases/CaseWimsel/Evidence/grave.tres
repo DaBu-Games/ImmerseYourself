@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Evidence" load_steps=3 format=3 uid="uid://b1idny648va2d"]
+
+[ext_resource type="Texture2D" uid="uid://rudyilmeeao7" path="res://Assets/2D/bewijsstukken/wimsel/wimsel-sinbewiijs1.png" id="1_pihie"]
+[ext_resource type="Script" uid="uid://cdcuotmaf0rg3" path="res://Scripts/Case/Evidence.cs" id="2_8wqjj"]
+
+[resource]
+script = ExtResource("2_8wqjj")
+image = ExtResource("1_pihie")
+metadata/_custom_type_script = "uid://cdcuotmaf0rg3"

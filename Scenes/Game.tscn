@@ -1,22 +1,34 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=28 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://dbeta6qvfyyve" path="res://Scenes/UI/judge_pannel.tscn" id="2_kldst"]
+[ext_resource type="Resource" uid="uid://bfhow6udl4jb" path="res://Assets/Cases/CaseLily/CaseLily.tres" id="3_tfod6"]
 [ext_resource type="Script" uid="uid://chfltvqgu41m0" path="res://Scripts/Case/CaseManager.cs" id="4_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://bhdxhijgpg0m1" path="res://Scenes/UI/case_menu.tscn" id="4_kldst"]
+[ext_resource type="Resource" uid="uid://bnnpju53u1q5m" path="res://Assets/Cases/CaseBarry/CaseBarry.tres" id="4_rajel"]
+[ext_resource type="Resource" uid="uid://r00553kwuy64" path="res://Assets/Cases/CaseBemis/CaseBemis.tres" id="5_vvhu1"]
 [ext_resource type="Script" uid="uid://daddog7lmu7yn" path="res://Scripts/Case/Case.cs" id="6_2irst"]
 [ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://kp7bmampcp3g" path="res://Scripts/RoundsManager.cs" id="6_71axn"]
-[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
+[ext_resource type="Resource" uid="uid://by11quxqcygxn" path="res://Assets/Cases/CaseDurian/CaseDurian.tres" id="6_lbihj"]
+[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseWimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
+[ext_resource type="Resource" uid="uid://cn0e6hrun482n" path="res://Assets/Cases/CaseJanDiederik/CaseJanDiederik.tres" id="8_raj38"]
+[ext_resource type="Script" uid="uid://yu7wsn2wn8mh" path="res://Scripts/Scale/ScaleInput.cs" id="7_alh3a"]
+[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
-[ext_resource type="PackedScene" uid="uid://brpu26ntje1bo" path="res://Scenes/UI/rollInput_menu.tscn" id="11_4q8tf"]
-[ext_resource type="Script" uid="uid://cg2vk8k33mk8m" path="res://Scripts/RollManager.cs" id="11_alh3a"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
+[ext_resource type="Texture2D" uid="uid://dbreokuptr7hu" path="res://Assets/2D/Backgrounds/Achtergrond_IY.png" id="12_tfod6"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
 [ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="14_wxwew"]
+[ext_resource type="Texture2D" uid="uid://c2xudq5m822wo" path="res://Assets/2D/Scale/scale-foot.png" id="15_4q8tf"]
+[ext_resource type="Script" uid="uid://dp18pvwsnbhwe" path="res://Scripts/Scale/ScaleRotate.cs" id="15_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://1pwgn0vbohdp" path="res://Assets/2D/HourGlass.png" id="15_acvyw"]
+[ext_resource type="Texture2D" uid="uid://i3wq6lt0kefe" path="res://Assets/2D/Scale/scale-arm.png" id="16_x3xnh"]
+[ext_resource type="Texture2D" uid="uid://634y2c2gnoh6" path="res://Assets/2D/Backgrounds/Middengrond_IY.png" id="17_vvhu1"]
+[ext_resource type="Texture2D" uid="uid://bj3q18mldxqfk" path="res://Assets/2D/Backgrounds/Voorgrond_IY.png" id="18_lbihj"]
+[ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
 font = ExtResource("14_wxwew")
@@ -51,7 +63,7 @@ limit_bottom = 648
 
 [node name="CaseManager" type="Node" parent="." node_paths=PackedStringArray("roundsManager")]
 script = ExtResource("4_b2bpf")
-cases = Array[ExtResource("6_2irst")]([ExtResource("7_bf53h")])
+cases = Array[ExtResource("6_2irst")]([ExtResource("3_tfod6"), ExtResource("4_rajel"), ExtResource("5_vvhu1"), ExtResource("6_lbihj"), ExtResource("7_bf53h"), ExtResource("8_raj38")])
 evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
@@ -63,28 +75,27 @@ roundTimer = NodePath("../SecondWindow/Timer/Info")
 WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
 FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
-[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
+[node name="ScaleManager" type="Node" parent="."]
+script = ExtResource("7_alh3a")
+
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn", "scale", "scaleFocus", "timerDisplay") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+scale = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-168.0,"offset_top":-256.0,"offset_right":168.5,"offset_bottom":218.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":1,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","texture":ExtResource("15_4q8tf"),"expand_mode":1,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
-rollMenu = ExtResource("11_4q8tf")
 defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
 evidenceSlideIn = NodePath("../SecondWindow/Background/Evidence")
-
-[node name="RollManager" type="Control" parent="." groups=["RollManager"]]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(1.0751444, 1.0480769)
-script = ExtResource("11_alh3a")
+scale = NodePath("../SecondWindow/Background/Scale")
+scaleFocus = NodePath("../SecondWindow/Background/scaleFocus")
+timerDisplay = NodePath("../SecondWindow/Timer")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -93,29 +104,140 @@ position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
 [node name="Background" type="TextureRect" parent="SecondWindow"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("8_2irst")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_tfod6")
+expand_mode = 2
 flip_h = true
 
-[node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
+[node name="Scale" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -256.0
+offset_right = 168.5
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_4q8tf")
+expand_mode = 1
+
+[node name="arms" type="TextureRect" parent="SecondWindow/Background/Scale" node_paths=PackedStringArray("input", "good", "bad")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -349.0
+offset_right = 344.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_x3xnh")
+expand_mode = 1
+script = ExtResource("15_8r6kd")
+input = NodePath("../../../../ScaleManager")
+maxRotation = 25.0
+good = NodePath("Good")
+bad = NodePath("Evil")
+
+[node name="Good" type="Label" parent="SecondWindow/Background/Scale/arms"]
 layout_mode = 0
-offset_left = 854.0
-offset_top = 684.0
-offset_right = 1161.0
-offset_bottom = 979.0
+offset_left = 35.0
+offset_top = 5.5
+offset_right = 232.0
+offset_bottom = 141.5
+theme_override_fonts/font = ExtResource("14_wxwew")
+theme_override_font_sizes/font_size = 74
+text = "50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Evil" type="Label" parent="SecondWindow/Background/Scale/arms"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 7.5
+offset_right = 688.0
+offset_bottom = 143.5
+theme_override_fonts/font = ExtResource("14_wxwew")
+theme_override_font_sizes/font_size = 74
+text = "50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shade" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_vvhu1")
+expand_mode = 2
+
+[node name="Shadow" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_lbihj")
+expand_mode = 2
+
+[node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -560.0
+offset_right = 154.0
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("12_3so38")
 
 [node name="Evidence" type="TextureRect" parent="SecondWindow/Background"]
-layout_mode = 0
-offset_left = 720.0
-offset_top = 128.0
-offset_right = 1220.0
-offset_bottom = 628.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -32.0
+offset_right = 250.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 script = ExtResource("13_3cx6b")
 
-[node name="Timer" type="Node" parent="SecondWindow"]
+[node name="scaleFocus" type="TextureRect" parent="SecondWindow/Background"]
+visible = false
+modulate = Color(0, 0, 0, 0.60784316)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_tfod6")
+
+[node name="Timer" type="CanvasLayer" parent="SecondWindow"]
 
 [node name="Info" type="Label" parent="SecondWindow/Timer"]
 offset_left = 141.38147
@@ -137,7 +259,7 @@ text = "00:00"
 label_settings = SubResource("LabelSettings_alh3a")
 autowrap_mode = 2
 
-[node name="Hint" type="Label" parent="SecondWindow/Timer/Time"]
+[node name="Skip" type="Label" parent="SecondWindow/Timer/Time"]
 layout_mode = 0
 offset_left = -212.1253
 offset_top = 723.77716
@@ -205,4 +327,23 @@ offset_bottom = 2935.0
 scale = Vector2(0.145, 0.145)
 texture = ExtResource("15_acvyw")
 
-[connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ChooseCase"]
+[node name="ResultScreen" type="CanvasLayer" parent="SecondWindow"]
+visible = false
+
+[node name="Button" type="Button" parent="SecondWindow/ResultScreen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -192.0
+offset_right = 255.0
+offset_bottom = -80.08447
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_b2bpf")
+theme_override_font_sizes/font_size = 64
+text = "Confirm score"
+
+[connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ShowResult"]
