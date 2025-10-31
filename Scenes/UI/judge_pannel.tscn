@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbeta6qvfyyve"]
+[gd_scene load_steps=7 format=3 uid="uid://dbeta6qvfyyve"]
 
 [ext_resource type="Script" uid="uid://bts5aej1qjfuh" path="res://Scripts/CameraMover.cs" id="1_l3igj"]
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="2_cw4wv"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="3_uomto"]
 [ext_resource type="Texture2D" uid="uid://b7ydtva2akjif" path="res://Assets/2D/Buttons/evidence button.png" id="3_xdwfl"]
+[ext_resource type="Texture2D" uid="uid://ccewrxa17wo01" path="res://Assets/2D/Buttons/evidence file button.png" id="4_hjrl2"]
 [ext_resource type="Texture2D" uid="uid://deedkpeh3es1y" path="res://Assets/2D/Buttons/arrow_button_back.png" id="4_q0vg7"]
 
 [node name="Judge2" type="Control" groups=["JudgePanel"]]
@@ -25,30 +26,23 @@ size_flags_horizontal = 3
 texture = ExtResource("2_cw4wv")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." groups=["evidenceButton"]]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.23003472
-anchor_top = 0.2808642
-anchor_right = 0.7699653
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 135.0
-offset_top = 143.0
-offset_right = -207.0
-offset_bottom = -123.0
+offset_left = -140.0
+offset_top = -348.0
+offset_right = 140.0
+offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 0
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_xdwfl")
-expand_mode = 1
+texture_normal = ExtResource("3_xdwfl")
+texture_disabled = ExtResource("4_hjrl2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -66,24 +60,15 @@ size_flags_horizontal = 3
 texture = ExtResource("3_uomto")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/TextureRect"]
+[node name="Button" type="TextureButton" parent="HBoxContainer/TextureRect"]
 layout_mode = 1
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 470.0
-offset_bottom = 120.0
-flat = true
-icon_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TextureRect/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_q0vg7")
-expand_mode = 1
+offset_right = 414.0
+offset_bottom = 111.0
+texture_normal = ExtResource("4_q0vg7")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TextureRect"]
 layout_mode = 1
@@ -103,5 +88,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[connection signal="pressed" from="Button" to="CameraMover" method="_on_button_pressed" binds= [Vector2(576, 972)]]
+[connection signal="pressed" from="TextureButton" to="CameraMover" method="_on_button_pressed" binds= [Vector2(576, 972)]]
 [connection signal="pressed" from="HBoxContainer/TextureRect/Button" to="CameraMover" method="_on_button_pressed" binds= [Vector2(576, 324)]]
