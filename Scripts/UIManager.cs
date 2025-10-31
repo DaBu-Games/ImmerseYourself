@@ -14,12 +14,13 @@ public partial class UIManager : Node
     [ExportCategory("Big screen")]
 
     [Export] private DefendantDisplay defendantDisplay;
-    [Export] private EvidenceSlideIn evidenceSlideIn;
+    [Export] private EvidenceUIManager evidenceUiManager;
 
     [Export] private TextureRect scale;
     [Export] private TextureRect scaleFocus;
     
     [Export] private CanvasLayer timerDisplay;
+    [Export] private Camera2D camera2D;
 
     private SceneChanger sceneChanger = new SceneChanger();
 
@@ -50,15 +51,27 @@ public partial class UIManager : Node
 
     public void SlideInEvidence(Texture2D texture, int index)
     {
-        evidenceSlideIn.SetUp(texture, index);
+        evidenceUiManager.SetUp(texture, index);
+    }
+
+    public void RoundsCompleted()
+    {
+        evidenceUiManager.SlideOut();
+        (GetTree().GetFirstNodeInGroup("evidenceButton") as TextureButton)?.SetDisabled(true);
+        ResetCameraPosition();
     }
 
     public void ShowResult()
     {
         timerDisplay.Hide();
-        evidenceSlideIn.SlideOut();
         scale.ZIndex = 1;
         defendantDisplay.ChangeZIndex(2);
         scaleFocus.Show();
+    }
+
+
+    private void ResetCameraPosition()
+    {
+        camera2D.Position = GetViewport().GetVisibleRect().Size / 2;
     }
 }

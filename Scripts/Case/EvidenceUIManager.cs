@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class EvidenceSlideIn : TextureRect
+public partial class EvidenceUIManager : TextureRect
 {
     [Export] private float slideDuration = 0.8f;
     

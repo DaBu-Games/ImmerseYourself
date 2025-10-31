@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class CaseManager : Node
 {
@@ -8,7 +9,7 @@ public partial class CaseManager : Node
     [Export] private PackedScene caseScene;
     [Export] private RoundsManager roundsManager;
     
-    
+    private List<int> choosedCase = new();
     private int caseIndex = 0;
 
     public override void _Ready()
@@ -20,6 +21,7 @@ public partial class CaseManager : Node
     public void SetNewCase(int index)
     {
         caseIndex = index;
+        choosedCase.Add(index);
         roundsManager.StartTiking();
         UIManager.Instance.StartCase(cases[index].Defendant);
     }
@@ -60,7 +62,14 @@ public partial class CaseManager : Node
                
                caseDisplay.Setup(defendant.Icon, defendant.Name);
                int count = i;
-               caseDisplay.Pressed += () => SetNewCase(count);
+               if (choosedCase.Contains(i))
+               {
+                   caseDisplay.Disabled = true;
+               }
+               else
+               {
+                   caseDisplay.Pressed += () => SetNewCase(count);
+               }
                
                caseMenu.AddChild(caseDisplay);
             }
