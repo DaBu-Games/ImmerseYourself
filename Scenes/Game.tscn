@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
-[ext_resource type="PackedScene" uid="uid://uwef6l56v1x6" path="res://Scenes/UI/rollInput_menu.tscn" id="11_4q8tf"]
+[ext_resource type="PackedScene" uid="uid://brpu26ntje1bo" path="res://Scenes/UI/rollInput_menu.tscn" id="11_4q8tf"]
 [ext_resource type="Script" uid="uid://cg2vk8k33mk8m" path="res://Scripts/RollManager.cs" id="11_alh3a"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
@@ -56,8 +56,12 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="."]
+[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay", "FinalDisplay")]
 script = ExtResource("6_71axn")
+timer = NodePath("../SecondWindow/Timer/Time")
+roundTimer = NodePath("../SecondWindow/Timer/Info")
+WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
+FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn") groups=["UIManager"]]
 layout_mode = 3
@@ -133,7 +137,7 @@ text = "00:00"
 label_settings = SubResource("LabelSettings_alh3a")
 autowrap_mode = 2
 
-[node name="Time" type="Label" parent="SecondWindow/Timer/Time"]
+[node name="Hint" type="Label" parent="SecondWindow/Timer/Time"]
 layout_mode = 0
 offset_left = -212.1253
 offset_top = 723.77716

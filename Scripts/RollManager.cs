@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 public partial class RollManager : Node
 {
-    private List<Roll> rollList;
+    private List<Player> rollList;
 
-    public class Roll
+    public class Player
     {
         public string Name;
         public string PlayerName;
 
-        public int score;
+        public int score = 0;
 
-        public Roll(string name, string PlayerName)
+        public Player(string name, string PlayerName)
         {
             this.Name = name;
             this.PlayerName = PlayerName;
@@ -21,11 +21,11 @@ public partial class RollManager : Node
 
     public override void _Ready()
     {
-        rollList = new List<Roll>()
+        rollList = new List<Player>()
         {
-            new Roll("Judge","Player1"),
-            new Roll("Devil","Player2"),
-            new Roll("Angel","Player3")
+            new Player("Judge","Player1"),
+            new Player("Devil","Player2"),
+            new Player("Angel","Player3")
         };
     }
 
@@ -39,12 +39,11 @@ public partial class RollManager : Node
 
     public void FillRoll(string name, string playerName)
     {
-        foreach (Roll roll in rollList)
+        foreach (Player roll in rollList)
         {
             if (roll.Name != name) continue;
 
             roll.PlayerName = playerName;
-            GD.Print(roll.Name, " = ", roll.PlayerName);
         }
     }
 }

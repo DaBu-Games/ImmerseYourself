@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://uwef6l56v1x6"]
+[gd_scene load_steps=6 format=3 uid="uid://brpu26ntje1bo"]
 
 [ext_resource type="Script" uid="uid://maykst3nxwcg" path="res://Scripts/Scenes/RollMenu.cs" id="1_2laf5"]
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_6rvj3"]
@@ -100,10 +100,12 @@ theme_override_fonts/font = ExtResource("2_2wrsb")
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Input Name"
 
-[node name="StartButton" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 419.0
-offset_right = 517.0
-offset_bottom = 427.0
-scale = Vector2(14.474784, 14.474784)
+offset_left = 531.0
+offset_top = 455.0
+offset_right = 622.0
+offset_bottom = 507.0
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
