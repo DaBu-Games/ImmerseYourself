@@ -16,6 +16,11 @@ public partial class UIManager : Node
     [Export] private DefendantDisplay defendantDisplay;
     [Export] private EvidenceSlideIn evidenceSlideIn;
 
+    [Export] private TextureRect scale;
+    [Export] private TextureRect scaleFocus;
+    
+    [Export] private CanvasLayer timerDisplay;
+
     private SceneChanger sceneChanger = new SceneChanger();
 
     public override void _Ready()
@@ -31,16 +36,29 @@ public partial class UIManager : Node
     {
         GD.Print("HEY");
         SwitchToCaseMenu();
+        scale.ZIndex = 0;
+        defendantDisplay.ChangeZIndex(0);
+        scaleFocus.Hide();
     }
 
     public void StartCase(Defendant defendant)
     {
         SwitchToJudgePanel();
         defendantDisplay.SetUp(defendant);
+        timerDisplay.Show();
     }
 
     public void SlideInEvidence(Texture2D texture, int index)
     {
         evidenceSlideIn.SetUp(texture, index);
+    }
+
+    public void ShowResult()
+    {
+        timerDisplay.Hide();
+        evidenceSlideIn.SlideOut();
+        scale.ZIndex = 1;
+        defendantDisplay.ChangeZIndex(2);
+        scaleFocus.Show();
     }
 }
