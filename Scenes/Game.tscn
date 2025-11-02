@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=36 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://bj3q18mldxqfk" path="res://Assets/2D/Backgrounds/Voorgrond_IY.png" id="18_lbihj"]
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
 [ext_resource type="Script" uid="uid://crjshtt1jdsek" path="res://Scripts/Case/EvidenceUIManager.cs" id="25_3jf1l"]
+[ext_resource type="Texture2D" uid="uid://djao0o74f0yd7" path="res://Assets/2D/Backgrounds/EndScreen.png" id="28_356ba"]
+[ext_resource type="Script" uid="uid://b3qux1nguwe6j" path="res://Scripts/EndScreen/EndScreenUI.cs" id="28_iyesh"]
+[ext_resource type="PackedScene" uid="uid://f8ka0ak6776l" path="res://Scenes/UI/ScoreCard.tscn" id="30_iyesh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
 font = ExtResource("14_wxwew")
@@ -240,6 +243,7 @@ grow_vertical = 2
 texture = ExtResource("18_tfod6")
 
 [node name="Timer" type="CanvasLayer" parent="SecondWindow"]
+visible = false
 
 [node name="Info" type="Label" parent="SecondWindow/Timer"]
 offset_left = 141.38147
@@ -347,5 +351,51 @@ grow_vertical = 0
 theme = ExtResource("1_b2bpf")
 theme_override_font_sizes/font_size = 64
 text = "Confirm score"
+
+[node name="Endscreen" type="CanvasLayer" parent="SecondWindow" node_paths=PackedStringArray("hContainer")]
+script = ExtResource("28_iyesh")
+hContainer = NodePath("VBoxContainer/HBoxContainer")
+scoreCard = ExtResource("30_iyesh")
+
+[node name="TextureRect" type="TextureRect" parent="SecondWindow/Endscreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_356ba")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondWindow/Endscreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SecondWindow/Endscreen/VBoxContainer"]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_wxwew")
+theme_override_font_sizes/font_size = 124
+text = "End results"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondWindow/Endscreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 620)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="SecondWindow/Endscreen/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("14_wxwew")
+theme_override_font_sizes/font_size = 128
+text = "Quit"
 
 [connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ShowResult"]
