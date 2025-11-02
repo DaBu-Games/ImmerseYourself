@@ -54,7 +54,7 @@ public partial class RoundsManager : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
+        if (time != 0 && Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
 
         if (!isRunning)
             return;
