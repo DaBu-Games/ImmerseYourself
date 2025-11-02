@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6hqn44mod2" path="res://Scenes/UI/SwitchRolls.tscn" id="18_iyesh"]
 [ext_resource type="Texture2D" uid="uid://bj3q18mldxqfk" path="res://Assets/2D/Backgrounds/Voorgrond_IY.png" id="18_lbihj"]
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
-[ext_resource type="Script" path="res://Scripts/Case/EvidenceUIManager.cs" id="25_3jf1l"]
+[ext_resource type="Script" uid="uid://crjshtt1jdsek" path="res://Scripts/Case/EvidenceUIManager.cs" id="25_3jf1l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_356ba"]
 font = ExtResource("14_wxwew")
@@ -83,11 +83,13 @@ FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 [node name="ScaleManager" type="Node" parent="."]
 script = ExtResource("7_alh3a")
 
-[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "scale", "scaleFocus", "timerDisplay") groups=["UIManager"]]
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceUiManager", "scale", "scaleFocus", "timerDisplay", "camera2D") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 9.0
+offset_top = -2.0
+offset_right = 1161.0
+offset_bottom = 646.0
 scale = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-162.0,"offset_top":-308.0,"offset_right":162.0,"offset_bottom":220.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":1,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","texture":ExtResource("15_4q8tf"),"expand_mode":1,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
 
 size_flags_horizontal = 3
@@ -99,9 +101,11 @@ caseMenu = ExtResource("4_kldst")
 rollMenu = ExtResource("11_4q8tf")
 rollSwitchMenu = ExtResource("18_iyesh")
 defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
+evidenceUiManager = NodePath("../SecondWindow/Background/Evidence")
 scale = NodePath("../SecondWindow/Background/Scale")
 scaleFocus = NodePath("../SecondWindow/Background/scaleFocus")
 timerDisplay = NodePath("../SecondWindow/Timer")
+camera2D = NodePath("../Camera2D")
 
 [node name="RollManager" type="Control" parent="." node_paths=PackedStringArray("rollVisualizer", "visualScores") groups=["RollManager"]]
 layout_mode = 3
