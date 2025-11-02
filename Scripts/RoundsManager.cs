@@ -41,6 +41,7 @@ public partial class RoundsManager : Node
         new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
         new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
         new Round(RoundType.allOut,    3, false, "OPEN DEBATE")
+
     };
 
     private int currentRound = 0;
@@ -71,9 +72,14 @@ public partial class RoundsManager : Node
 
             //Display based on round state.
             if (currentRound >= rounds.Count)
+            {
                 FinalDisplay.Visible = true;
+                UIManager.Instance.RoundsCompleted();
+            }
             else
+            {
                 WarningDisplay.Visible = true;
+            }
         }
     }
 
@@ -92,9 +98,8 @@ public partial class RoundsManager : Node
     {
         if (currentRound >= rounds.Count)
         {
-            GD.Print("All rounds finished!");
+            GD.Print("ello??????????");
             isRunning = false;
-
             return;
         }
 
