@@ -40,7 +40,7 @@ public partial class RoundsManager : Node
         new Round(RoundType.preparing, 1, true, "Prep phase"),
         new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
         new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
-        new Round(RoundType.allOut,    2, false, "OPEN DEBATE")
+        new Round(RoundType.allOut,    3, false, "OPEN DEBATE")
     };
 
     private int currentRound = 0;
@@ -50,14 +50,6 @@ public partial class RoundsManager : Node
     private bool isRunning = false;
 
     private double fullTimer = 0;
-
-    public override void _Ready()
-    {
-        foreach (var round in rounds)
-        {
-            fullTimer += round.Duration;
-        }
-    }
 
     public override void _Process(double delta)
     {
@@ -87,6 +79,11 @@ public partial class RoundsManager : Node
 
     public void StartTiking()
     {
+        foreach (var round in rounds)
+        {
+            fullTimer += round.Duration;
+        }
+
         currentRound = 0;
         StartRound();
     }

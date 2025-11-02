@@ -1,9 +1,13 @@
 using Godot;
+using Godot.Collections;
 using System.Collections.Generic;
 
 public partial class RollManager : Node
 {
-    private List<Player> rollList;
+    public List<Player> rollList;
+
+    [Export] private Node2D rollVisualizer;
+    [Export] private Array<Label> visualScores;
 
     public class Player
     {
@@ -27,14 +31,30 @@ public partial class RollManager : Node
             new Player("Devil","Player2"),
             new Player("Angel","Player3")
         };
+
+        rollVisualizer.Visible = false;
+    }
+
+    public override void _Process(double delta)
+    {
+        for (int i = 0; i < visualScores.Count; i++)
+        {
+            var currentPlayer = rollList[i];
+            visualScores[i].Text = currentPlayer.PlayerName + ": " + currentPlayer.score;
+        }
     }
 
     public void SwitchRolls()
     {
-        var tempList = rollList;
-        rollList[0] = tempList[1]; // Judge --> Devil
-        rollList[1] = tempList[2]; // Devil --> Angel
-        rollList[2] = tempList[0]; // Angel --> Judge
+        var tempList = new List<string>();
+        foreach (var player in rollList)
+        {
+            tempList.Add(player.PlayerName);
+        }
+
+        rollList[0].PlayerName = tempList[1]; // Judge --> Devil
+        rollList[1].PlayerName = tempList[2]; // Devil --> Angel
+        rollList[2].PlayerName = tempList[0]; // Angel --> Judge
     }
 
     public void FillRoll(string name, string playerName)
@@ -45,5 +65,10 @@ public partial class RollManager : Node
 
             roll.PlayerName = playerName;
         }
+    }
+
+    public void ToggleVisualizeRolls()
+    {
+
     }
 }

@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci6hqn44mod2"]
+
+[ext_resource type="Script" uid="uid://bvjjnbo8qjlne" path="res://Scripts/Scenes/RollSwitchMenu.cs" id="1_vpcm2"]
+[ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_wmygy"]
+[ext_resource type="Script" uid="uid://dfnklp7w1insf" path="res://Scenes/UI/RollDisplayer.cs" id="2_l4aq6"]
+[ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="2_ydank"]
+[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="3_l4aq6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpcm2"]
+font = ExtResource("3_l4aq6")
+font_size = 100
+
+[node name="SwitchRolls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vpcm2")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wmygy")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 488.0
+offset_right = 624.0
+offset_bottom = 540.0
+text = "Continue"
+
+[node name="RollVisual" type="Node2D" parent="." node_paths=PackedStringArray("DisplayItems")]
+position = Vector2(0, 1)
+scale = Vector2(0.6000005, 0.6000005)
+script = ExtResource("2_l4aq6")
+DisplayItems = [NodePath("Label2"), NodePath("Label"), NodePath("Label3")]
+
+[node name="scaleFocus" type="TextureRect" parent="RollVisual"]
+modulate = Color(0, 0, 0, 0.60784316)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.66652
+offset_top = 288.3331
+offset_right = 2131.6665
+offset_bottom = 1368.3331
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.80027974, 0.4319904)
+texture = ExtResource("2_ydank")
+
+[node name="Label2" type="Label" parent="RollVisual"]
+offset_left = 570.0
+offset_top = 359.0
+offset_right = 1363.0
+offset_bottom = 459.0
+text = "Judge: Player 1"
+label_settings = SubResource("LabelSettings_vpcm2")
+
+[node name="Label" type="Label" parent="RollVisual"]
+offset_left = 570.0
+offset_top = 484.0
+offset_right = 1335.0
+offset_bottom = 584.0
+text = "Devil: Player 1"
+label_settings = SubResource("LabelSettings_vpcm2")
+
+[node name="Label3" type="Label" parent="RollVisual"]
+offset_left = 570.0
+offset_top = 600.0
+offset_right = 1373.0
+offset_bottom = 700.0
+text = "Angel: Player 1"
+label_settings = SubResource("LabelSettings_vpcm2")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

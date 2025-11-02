@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=37 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -12,12 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bi0e04el3bhjw" path="res://Scenes/UI/Evidence.tscn" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://kp7bmampcp3g" path="res://Scripts/RoundsManager.cs" id="6_71axn"]
 [ext_resource type="Resource" uid="uid://by11quxqcygxn" path="res://Assets/Cases/CaseDurian/CaseDurian.tres" id="6_lbihj"]
-[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseWimsel/CaseWimsel.tres" id="7_bf53h"]
-[ext_resource type="Texture2D" uid="uid://do0rknaxtwl4" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND_evidencetab.png" id="8_2irst"]
-[ext_resource type="Resource" uid="uid://cn0e6hrun482n" path="res://Assets/Cases/CaseJanDiederik/CaseJanDiederik.tres" id="8_raj38"]
 [ext_resource type="Script" uid="uid://yu7wsn2wn8mh" path="res://Scripts/Scale/ScaleInput.cs" id="7_alh3a"]
-[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseDimsel/CaseWimsel.tres" id="7_bf53h"]
+[ext_resource type="Resource" uid="uid://ipsgixevgh7m" path="res://Assets/Cases/CaseWimsel/CaseWimsel.tres" id="7_bf53h"]
+[ext_resource type="Resource" uid="uid://cn0e6hrun482n" path="res://Assets/Cases/CaseJanDiederik/CaseJanDiederik.tres" id="8_raj38"]
 [ext_resource type="PackedScene" uid="uid://c5ajw737hlg4o" path="res://Scenes/UI/case_profile.tscn" id="9_bf53h"]
+[ext_resource type="PackedScene" uid="uid://brpu26ntje1bo" path="res://Scenes/UI/rollInput_menu.tscn" id="11_4q8tf"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://dbreokuptr7hu" path="res://Assets/2D/Backgrounds/Achtergrond_IY.png" id="12_tfod6"]
 [ext_resource type="Script" uid="uid://dyvgtauurl5xh" path="res://Scripts/Case/EvidenceSlideIn.cs" id="13_3cx6b"]
@@ -27,8 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://1pwgn0vbohdp" path="res://Assets/2D/HourGlass.png" id="15_acvyw"]
 [ext_resource type="Texture2D" uid="uid://i3wq6lt0kefe" path="res://Assets/2D/Scale/scale-arm.png" id="16_x3xnh"]
 [ext_resource type="Texture2D" uid="uid://634y2c2gnoh6" path="res://Assets/2D/Backgrounds/Middengrond_IY.png" id="17_vvhu1"]
+[ext_resource type="Script" uid="uid://cg2vk8k33mk8m" path="res://Scripts/RollManager.cs" id="18_i4lct"]
+[ext_resource type="PackedScene" uid="uid://ci6hqn44mod2" path="res://Scenes/UI/SwitchRolls.tscn" id="18_iyesh"]
 [ext_resource type="Texture2D" uid="uid://bj3q18mldxqfk" path="res://Assets/2D/Backgrounds/Voorgrond_IY.png" id="18_lbihj"]
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_356ba"]
+font = ExtResource("14_wxwew")
+font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
 font = ExtResource("14_wxwew")
@@ -81,8 +86,10 @@ script = ExtResource("7_alh3a")
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceSlideIn", "scale", "scaleFocus", "timerDisplay") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1150.0
+offset_bottom = 646.0
 scale = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-168.0,"offset_top":-256.0,"offset_right":168.5,"offset_bottom":218.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":1,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","texture":ExtResource("15_4q8tf"),"expand_mode":1,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
 
 size_flags_horizontal = 3
@@ -91,11 +98,23 @@ theme = ExtResource("1_b2bpf")
 script = ExtResource("2_b2bpf")
 judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
+rollMenu = ExtResource("11_4q8tf")
+rollSwitchMenu = ExtResource("18_iyesh")
 defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
 evidenceSlideIn = NodePath("../SecondWindow/Background/Evidence")
 scale = NodePath("../SecondWindow/Background/Scale")
 scaleFocus = NodePath("../SecondWindow/Background/scaleFocus")
 timerDisplay = NodePath("../SecondWindow/Timer")
+
+[node name="RollManager" type="Control" parent="." node_paths=PackedStringArray("rollVisualizer", "visualScores") groups=["RollManager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_right = 26.0
+offset_bottom = 40.0
+script = ExtResource("18_i4lct")
+rollVisualizer = NodePath("../SecondWindow/Background/scaleFocus")
+visualScores = [NodePath("../SecondWindow/Background/scaleFocus/Label2"), NodePath("../SecondWindow/Background/scaleFocus/Label"), NodePath("../SecondWindow/Background/scaleFocus/Label3")]
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -109,6 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.99709743, 0.99319124)
 size_flags_horizontal = 3
 texture = ExtResource("12_tfod6")
 expand_mode = 2
@@ -226,23 +246,58 @@ grow_vertical = 2
 expand_mode = 1
 script = ExtResource("13_3cx6b")
 
-[node name="scaleFocus" type="TextureRect" parent="SecondWindow/Background"]
-visible = false
+[node name="scaleFocus" type="Node2D" parent="SecondWindow/Background"]
+position = Vector2(0, 1.0068552)
+scale = Vector2(1.0029109, 1.0068552)
+
+[node name="Focus" type="TextureRect" parent="SecondWindow/Background/scaleFocus"]
 modulate = Color(0, 0, 0, 0.60784316)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.9999999
+offset_right = 1920.0
+offset_bottom = 1079.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_tfod6")
 
+[node name="Label2" type="Label" parent="SecondWindow/Background/scaleFocus"]
+z_index = 6
+texture_repeat = 1
+offset_left = 71.000015
+offset_top = 423.00012
+offset_right = 864.0
+offset_bottom = 523.0001
+text = "Player = 000"
+label_settings = SubResource("LabelSettings_356ba")
+
+[node name="Label" type="Label" parent="SecondWindow/Background/scaleFocus"]
+z_index = 6
+texture_repeat = 1
+offset_left = 71.000015
+offset_top = 548.0001
+offset_right = 836.0
+offset_bottom = 648.0001
+text = "Player = 000"
+label_settings = SubResource("LabelSettings_356ba")
+
+[node name="Label3" type="Label" parent="SecondWindow/Background/scaleFocus"]
+z_index = 6
+texture_repeat = 1
+offset_left = 64.000015
+offset_top = 664.0001
+offset_right = 867.0
+offset_bottom = 764.0001
+text = "Player = 000"
+label_settings = SubResource("LabelSettings_356ba")
+
 [node name="Timer" type="CanvasLayer" parent="SecondWindow"]
 
 [node name="Info" type="Label" parent="SecondWindow/Timer"]
-offset_left = 141.38147
+offset_left = 139.38147
 offset_top = 75.0
-offset_right = 1741.3815
+offset_right = 1739.3815
 offset_bottom = 261.0
 scale = Vector2(0.9004769, 0.8995372)
 pivot_offset = Vector2(800, 0)
@@ -250,9 +305,9 @@ text = "\"Prep phase\" 00:00"
 label_settings = SubResource("LabelSettings_acvyw")
 
 [node name="Time" type="Label" parent="SecondWindow/Timer"]
-offset_left = 244.38147
+offset_left = 242.38147
 offset_top = 215.0
-offset_right = 707.3815
+offset_right = 705.3815
 offset_bottom = 468.0
 scale = Vector2(1.1172643, 1.1370906)
 text = "00:00"
@@ -347,3 +402,4 @@ theme_override_font_sizes/font_size = 64
 text = "Confirm score"
 
 [connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ShowResult"]
+[connection signal="pressed" from="SecondWindow/ResultScreen/Button" to="RollManager" method="SwitchToRollSwitch"]

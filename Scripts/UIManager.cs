@@ -14,6 +14,10 @@ public partial class UIManager : Node
     [Export] private PackedScene rollMenu;
     public PackedScene Rollmenu { get { return rollMenu; } }
 
+    [Export] private PackedScene rollSwitchMenu;
+    public PackedScene RollSwitchMenu { get { return rollSwitchMenu; } }
+
+
 
     [ExportCategory("Big screen")]
 
@@ -21,8 +25,8 @@ public partial class UIManager : Node
     [Export] private EvidenceSlideIn evidenceSlideIn;
 
     [Export] private TextureRect scale;
-    [Export] private TextureRect scaleFocus;
-    
+    [Export] private Node2D scaleFocus;
+
     [Export] private CanvasLayer timerDisplay;
 
     private SceneChanger sceneChanger = new SceneChanger();
@@ -30,18 +34,24 @@ public partial class UIManager : Node
     public override void _Ready()
     {
         Instance = this;
+
+        sceneChanger.SwitchScene(rollMenu, this);
         ChooseCase();
     }
 
-    public void SwitchToJudgePanel() => sceneChanger.SwitchScene(judgePanel, this);
+    public void SwitchToJudgePanel()
+    {
+        sceneChanger.SwitchScene(judgePanel, this);
+        ChooseCase();
+    }
     public void SwitchToCaseMenu() => sceneChanger.SwitchScene(caseMenu, this);
+    public void SwitchToRollSwitch() => sceneChanger.SwitchScene(rollSwitchMenu, this);
 
     public void ChooseCase()
     {
         GD.Print("HEY");
-        sceneChanger.SwitchScene(rollMenu, this);
 
-        SwitchToCaseMenu();
+        //SwitchToCaseMenu();
         scale.ZIndex = 0;
         defendantDisplay.ChangeZIndex(0);
         scaleFocus.Hide();
@@ -65,6 +75,8 @@ public partial class UIManager : Node
         evidenceSlideIn.SlideOut();
         scale.ZIndex = 1;
         defendantDisplay.ChangeZIndex(2);
+
+        SwitchToRollSwitch();
         scaleFocus.Show();
     }
 }
