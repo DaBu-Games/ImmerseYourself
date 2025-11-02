@@ -14,9 +14,10 @@ public partial class RollDisplayer : Node2D
         rollManager = (RollManager)nodeGroup[0];
 
         rollManager.SwitchRolls();
+        SetDisplay();
     }
 
-    public override void _Process(double delta)
+    private void SetDisplay()
     {
         for (int i = 0; i < DisplayItems.Count; i++)
         {

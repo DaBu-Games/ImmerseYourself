@@ -66,9 +66,4 @@ public partial class RollManager : Node
             roll.PlayerName = playerName;
         }
     }
-
-    public void ToggleVisualizeRolls()
-    {
-
-    }
 }
