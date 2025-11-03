@@ -8,12 +8,13 @@ public partial class EndScreenUI : CanvasLayer
 
     public override void _Ready()
     {
-        ShowEndScreen();
+        this.Visible = false;
     }
 
     // list of players
     public void ShowEndScreen()
     {
+        this.Visible = true;
         for (int i = 0; i < 3; i++)
         {
             var scoreDisplay = this.scoreCard.Instantiate<ScoreDisplay>(); 

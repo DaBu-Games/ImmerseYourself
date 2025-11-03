@@ -21,6 +21,8 @@ public partial class UIManager : Node
     
     [Export] private CanvasLayer timerDisplay;
     [Export] private Camera2D camera2D;
+    
+    [Export] private EndScreenUI endScreenUI;
 
     private SceneChanger sceneChanger = new SceneChanger();
 
@@ -73,5 +75,10 @@ public partial class UIManager : Node
     private void ResetCameraPosition()
     {
         camera2D.Position = GetViewport().GetVisibleRect().Size / 2;
+    }
+
+    public void ShowEndScreen()
+    {
+        endScreenUI.ShowEndScreen();
     }
 }

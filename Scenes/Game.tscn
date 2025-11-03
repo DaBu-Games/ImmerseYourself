@@ -79,7 +79,7 @@ FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 [node name="ScaleManager" type="Node" parent="."]
 script = ExtResource("7_alh3a")
 
-[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceUiManager", "scale", "scaleFocus", "timerDisplay", "camera2D") groups=["UIManager"]]
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceUiManager", "scale", "scaleFocus", "timerDisplay", "camera2D", "endScreenUI") groups=["UIManager"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -98,6 +98,7 @@ scale = NodePath("../SecondWindow/Background/Scale")
 scaleFocus = NodePath("../SecondWindow/Background/scaleFocus")
 timerDisplay = NodePath("../SecondWindow/Timer")
 camera2D = NodePath("../Camera2D")
+endScreenUI = NodePath("../SecondWindow/Endscreen")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -353,6 +354,7 @@ theme_override_font_sizes/font_size = 64
 text = "Confirm score"
 
 [node name="Endscreen" type="CanvasLayer" parent="SecondWindow" node_paths=PackedStringArray("hContainer")]
+visible = false
 script = ExtResource("28_iyesh")
 hContainer = NodePath("VBoxContainer/HBoxContainer")
 scoreCard = ExtResource("30_iyesh")
