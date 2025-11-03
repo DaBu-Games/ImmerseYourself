@@ -37,11 +37,10 @@ public partial class RollManager : Node
 
     public override void _Process(double delta)
     {
-        for (int i = 0; i < visualScores.Count; i++)
-        {
-            var currentPlayer = rollList[i];
-            visualScores[i].Text = currentPlayer.PlayerName + ": " + currentPlayer.score;
-        }
+        if (!rollVisualizer.Visible) return;
+
+        visualScores[0].Text = rollList[1].PlayerName + ": " + rollList[1].score;
+        visualScores[1].Text = rollList[2].PlayerName + ": " + rollList[2].score;
     }
 
     public void SwitchRolls()
