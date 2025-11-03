@@ -76,12 +76,11 @@ evidenceScene = ExtResource("6_7lihs")
 caseScene = ExtResource("9_bf53h")
 roundsManager = NodePath("../RoundsManager")
 
-[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay", "FinalDisplay")]
+[node name="RoundsManager" type="Node" parent="." node_paths=PackedStringArray("timer", "roundTimer", "WarningDisplay")]
 script = ExtResource("6_71axn")
 timer = NodePath("../SecondWindow/Timer/Time")
 roundTimer = NodePath("../SecondWindow/Timer/Info")
 WarningDisplay = NodePath("../SecondWindow/Timer/InbetweenDisplay")
-FinalDisplay = NodePath("../SecondWindow/Timer/FinalDisplay")
 
 [node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("defendantDisplay", "evidenceUiManager", "scale", "scaleFocus", "timerDisplay", "camera2D", "endScreenUI") groups=["UIManager"]]
 layout_mode = 3
@@ -108,7 +107,7 @@ timerDisplay = NodePath("../SecondWindow/Timer")
 camera2D = NodePath("../Camera2D")
 endScreenUI = NodePath("../SecondWindow/Endscreen")
 
-[node name="RollManager" type="Control" parent="." node_paths=PackedStringArray("rollVisualizer", "visualScores") groups=["RollManager"]]
+[node name="RollManager" type="Control" parent="." node_paths=PackedStringArray("rollVisualizer", "visualNames", "input") groups=["RollManager"]]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -16.0
@@ -116,7 +115,8 @@ offset_right = 24.0
 offset_bottom = 40.0
 script = ExtResource("18_i4lct")
 rollVisualizer = NodePath("../SecondWindow/Background/scaleFocus")
-visualScores = [NodePath("../SecondWindow/Background/scaleFocus/Label2"), NodePath("../SecondWindow/Background/scaleFocus/Label")]
+visualNames = [NodePath("../SecondWindow/Background/scaleFocus/Label"), NodePath("../SecondWindow/Background/scaleFocus/Label2")]
+input = NodePath("../SecondWindow/Background/Scale")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -268,25 +268,37 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_tfod6")
 
-[node name="Label2" type="Label" parent="SecondWindow/Background/scaleFocus"]
-z_index = 6
-texture_repeat = 1
-offset_left = 71.000015
-offset_top = 423.00012
-offset_right = 864.0
-offset_bottom = 523.0001
-text = "Player = 000"
-label_settings = SubResource("LabelSettings_356ba")
-
 [node name="Label" type="Label" parent="SecondWindow/Background/scaleFocus"]
 z_index = 6
 texture_repeat = 1
-offset_left = 71.000015
-offset_top = 548.0001
-offset_right = 836.0
-offset_bottom = 648.0001
-text = "Player = 000"
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 123.000015
+offset_top = 190.00003
+offset_right = 461.0
+offset_bottom = 290.00003
+grow_vertical = 2
+text = "Player"
 label_settings = SubResource("LabelSettings_356ba")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SecondWindow/Background/scaleFocus"]
+z_index = 6
+texture_repeat = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1415.0002
+offset_top = 193.00003
+offset_right = 1753.0002
+offset_bottom = 293.00003
+grow_vertical = 2
+text = "Player"
+label_settings = SubResource("LabelSettings_356ba")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="CanvasLayer" parent="SecondWindow"]
 visible = false
@@ -343,34 +355,6 @@ text = "Phase is done!"
 label_settings = SubResource("LabelSettings_8r6kd")
 horizontal_alignment = 1
 
-[node name="FinalDisplay" type="Node2D" parent="SecondWindow/Timer"]
-visible = false
-
-[node name="Label2" type="Label" parent="SecondWindow/Timer/FinalDisplay"]
-offset_left = 356.0
-offset_top = 811.0
-offset_right = 1656.0
-offset_bottom = 911.0
-text = "Phase is done!"
-label_settings = SubResource("LabelSettings_8r6kd")
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="SecondWindow/Timer/FinalDisplay"]
-offset_left = 755.0
-offset_top = 902.0
-offset_right = 1264.0
-offset_bottom = 1013.9154
-
-[node name="Label" type="Label" parent="SecondWindow/Timer/FinalDisplay/Button"]
-layout_mode = 0
-offset_left = -397.0
-offset_top = 23.0
-offset_right = 903.0
-offset_bottom = 123.0
-text = "Show Score"
-label_settings = SubResource("LabelSettings_x3xnh")
-horizontal_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="SecondWindow/Timer"]
 offset_left = -151.0
 offset_top = -65.0
@@ -378,25 +362,6 @@ offset_right = 3849.0
 offset_bottom = 2935.0
 scale = Vector2(0.145, 0.145)
 texture = ExtResource("15_acvyw")
-
-[node name="ResultScreen" type="CanvasLayer" parent="SecondWindow"]
-visible = false
-
-[node name="Button" type="Button" parent="SecondWindow/ResultScreen"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -254.0
-offset_top = -192.0
-offset_right = 255.0
-offset_bottom = -80.08447
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("1_b2bpf")
-theme_override_font_sizes/font_size = 64
-text = "Confirm score"
 
 [node name="Endscreen" type="CanvasLayer" parent="SecondWindow" node_paths=PackedStringArray("hContainer")]
 visible = false
@@ -444,6 +409,3 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("14_wxwew")
 theme_override_font_sizes/font_size = 128
 text = "Quit"
-
-[connection signal="pressed" from="SecondWindow/Timer/FinalDisplay/Button" to="UIManager" method="ShowResult"]
-[connection signal="pressed" from="SecondWindow/ResultScreen/Button" to="RollManager" method="SwitchToRollSwitch"]

@@ -15,7 +15,6 @@ public partial class RoundsManager : Node
     [Export] public Label roundTimer;
 
     [Export] public Node2D WarningDisplay;
-    [Export] public Node2D FinalDisplay;
 
     public class Round
     {
@@ -73,7 +72,6 @@ public partial class RoundsManager : Node
             //Display based on round state.
             if (currentRound >= rounds.Count)
             {
-                FinalDisplay.Visible = true;
                 UIManager.Instance.RoundsCompleted();
             }
             else
@@ -98,7 +96,6 @@ public partial class RoundsManager : Node
     {
         if (currentRound >= rounds.Count)
         {
-            GD.Print("ello??????????");
             isRunning = false;
             return;
         }
@@ -110,7 +107,6 @@ public partial class RoundsManager : Node
         isRunning = true;
 
         WarningDisplay.Visible = false;
-        FinalDisplay.Visible = false;
 
         OnRoundStart();
     }

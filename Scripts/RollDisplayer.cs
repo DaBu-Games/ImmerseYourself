@@ -17,12 +17,22 @@ public partial class RollDisplayer : Node2D
         SetDisplay();
     }
 
+    public void AddScore()
+    {
+        if (rollManager != null)
+        {
+            GD.Print("AddScore");
+        }
+            
+        rollManager.AddScore();
+    }
+
     private void SetDisplay()
     {
         for (int i = 0; i < DisplayItems.Count; i++)
         {
             DisplayItems[i].Text = rollManager.rollList[i].PlayerName
-                + " --> " + rollManager.rollList[i].Name;
+                + " --> " + rollManager.rollList[i].rol;
         }
     }
 

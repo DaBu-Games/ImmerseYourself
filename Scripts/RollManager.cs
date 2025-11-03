@@ -7,18 +7,19 @@ public partial class RollManager : Node
     public List<Player> rollList;
 
     [Export] private Node2D rollVisualizer;
-    [Export] private Array<Label> visualScores;
+    [Export] private Array<Label> visualNames;
+    [Export] private ScaleInput input;
 
     public class Player
     {
-        public string Name;
+        public string rol;
         public string PlayerName;
 
         public int score = 0;
 
-        public Player(string name, string PlayerName)
+        public Player(string rol, string PlayerName)
         {
-            this.Name = name;
+            this.rol = rol;
             this.PlayerName = PlayerName;
         }
     }
@@ -35,32 +36,68 @@ public partial class RollManager : Node
         rollVisualizer.Visible = false;
     }
 
-    public override void _Process(double delta)
+    public void ShowNames()
     {
-        if (!rollVisualizer.Visible) return;
-
-        visualScores[0].Text = rollList[1].PlayerName + ": " + rollList[1].score;
-        visualScores[1].Text = rollList[2].PlayerName + ": " + rollList[2].score;
+        foreach (Player p in rollList)
+        {
+            if (p.rol == "Devil")
+            {
+                visualNames[0].Text = p.rol + ": " +  p.PlayerName;
+            }
+            else if (p.rol == "Angel")
+            {
+                visualNames[1].Text = p.rol + ": " +  p.PlayerName;
+            }
+        }
+        
+        visualNames[0].Show();
+        visualNames[1].Show();
     }
 
     public void SwitchRolls()
     {
+        ShowNames();
+        
         var tempList = new List<string>();
         foreach (var player in rollList)
         {
-            tempList.Add(player.PlayerName);
+            tempList.Add(player.rol);
         }
 
-        rollList[0].PlayerName = tempList[1]; // Judge --> Devil
-        rollList[1].PlayerName = tempList[2]; // Devil --> Angel
-        rollList[2].PlayerName = tempList[0]; // Angel --> Judge
+        rollList[0].rol = tempList[1]; // Judge --> Devil
+        rollList[1].rol = tempList[2]; // Devil --> Angel
+        rollList[2].rol = tempList[0]; // Angel --> Judge
+        
+        GD.Print("switch");
+    }
+
+    public void AddScore()
+    {
+        Vector2 percentage = input.GetPercentage();
+        
+        foreach (Player p in rollList)
+        {
+            if (p.rol == "Devil")
+            {
+                p.score += Mathf.RoundToInt(percentage.Y * 100f);
+                GD.Print(p.rol + ": " + p.PlayerName + " -> " + p.score);
+            }
+            else if (p.rol == "Angel")
+            {
+                p.score += Mathf.RoundToInt(percentage.X * 100f);
+                GD.Print(p.rol + ": " + p.PlayerName + " -> " + p.score);
+            }
+        }
+        
+        visualNames[0].Hide();
+        visualNames[1].Hide();
     }
 
     public void FillRoll(string name, string playerName)
     {
         foreach (Player roll in rollList)
         {
-            if (roll.Name != name) continue;
+            if (roll.rol != name) continue;
 
             roll.PlayerName = playerName;
         }

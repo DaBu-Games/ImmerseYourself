@@ -75,7 +75,6 @@ public partial class ScaleInput : TextureRect
 
     public void UpdateInput(bool update)
     {
-        GD.Print("Update: " + update);
         if(wiiDevice == null)
             return;
         
