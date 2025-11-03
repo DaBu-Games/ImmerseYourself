@@ -116,7 +116,7 @@ offset_right = 24.0
 offset_bottom = 40.0
 script = ExtResource("18_i4lct")
 rollVisualizer = NodePath("../SecondWindow/Background/scaleFocus")
-visualScores = []
+visualScores = [NodePath("../SecondWindow/Background/scaleFocus/Label2"), NodePath("../SecondWindow/Background/scaleFocus/Label")]
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
@@ -285,16 +285,6 @@ offset_left = 71.000015
 offset_top = 548.0001
 offset_right = 836.0
 offset_bottom = 648.0001
-text = "Player = 000"
-label_settings = SubResource("LabelSettings_356ba")
-
-[node name="Label3" type="Label" parent="SecondWindow/Background/scaleFocus"]
-z_index = 6
-texture_repeat = 1
-offset_left = 64.000015
-offset_top = 664.0001
-offset_right = 867.0
-offset_bottom = 764.0001
 text = "Player = 000"
 label_settings = SubResource("LabelSettings_356ba")
 
