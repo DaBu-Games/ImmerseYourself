@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb1a219-aad1-4806-806d-4412567e67bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Cases/CaseDimsel/CaseWimsel.tres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Cases/CaseDimsel/DefendantWimsel.tres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Cases/CaseDimsel/Evidence/WimselBlood.tres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Cases/CaseDimsel/Evidence/WimselKnife.tres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Case.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Case.cs.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/CaseManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/CaseManager.cs.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Defendant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Defendant.cs.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Evidence.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Case/Evidence.cs.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courtUML.svg.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Game.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Game.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/UI/judge_panel.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/UI/main_menu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/UI/main_menu.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/CameraMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CameraMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/EvidenceDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/EvidenceDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Scenes/JudgePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scenes/JudgePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Scenes/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scenes/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,20 +28,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/evidenceObjects&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Player.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "EndScreen",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -117,6 +93,7 @@
       <workItem from="1761226282156" duration="5300000" />
       <workItem from="1761234528229" duration="595000" />
       <workItem from="1761302041704" duration="3443000" />
+      <workItem from="1762083313186" duration="2281000" />
     </task>
     <servers />
   </component>
