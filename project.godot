@@ -29,6 +29,7 @@ project/assembly_name="ImmerseYourself"
 
 MainCamera=""
 UIManager=""
+RollManager=""
 
 [input]
 

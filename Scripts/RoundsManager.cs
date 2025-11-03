@@ -41,6 +41,7 @@ public partial class RoundsManager : Node
         new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
         new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
         new Round(RoundType.allOut,    0.1, false, "OPEN DEBATE")
+
     };
 
     private int currentRound = 0;
@@ -51,17 +52,9 @@ public partial class RoundsManager : Node
 
     private double fullTimer = 0;
 
-    public override void _Ready()
-    {
-        foreach (var round in rounds)
-        {
-            fullTimer += round.Duration;
-        }
-    }
-
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
+        if (time != 0 && Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
 
         if (!isRunning)
             return;
@@ -92,6 +85,11 @@ public partial class RoundsManager : Node
 
     public void StartTiking()
     {
+        foreach (var round in rounds)
+        {
+            fullTimer += round.Duration;
+        }
+
         currentRound = 0;
         StartRound();
     }
