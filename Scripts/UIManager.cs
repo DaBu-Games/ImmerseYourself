@@ -17,7 +17,8 @@ public partial class UIManager : Node
     [Export] private PackedScene rollSwitchMenu;
     public PackedScene RollSwitchMenu { get { return rollSwitchMenu; } }
 
-
+    [Export] private PackedScene mainMenu;
+    public PackedScene Mainmenu { get { return mainMenu; } }
 
     [ExportCategory("Big screen")]
 
@@ -29,7 +30,7 @@ public partial class UIManager : Node
 
     [Export] private CanvasLayer timerDisplay;
     [Export] private Camera2D camera2D;
-    
+
     [Export] private EndScreenUI endScreenUI;
 
     private SceneChanger sceneChanger = new SceneChanger();
@@ -38,7 +39,7 @@ public partial class UIManager : Node
     {
         Instance = this;
 
-        sceneChanger.SwitchScene(rollMenu, this);
+        sceneChanger.SwitchScene(mainMenu, this);
         ChooseCase();
     }
 
@@ -49,6 +50,8 @@ public partial class UIManager : Node
     }
     public void SwitchToCaseMenu() => sceneChanger.SwitchScene(caseMenu, this);
     public void SwitchToRollSwitch() => sceneChanger.SwitchScene(rollSwitchMenu, this);
+    public void SwitchToRollMenu() => sceneChanger.SwitchScene(rollMenu, this);
+
 
     public void ChooseCase()
     {

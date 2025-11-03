@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=41 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6hqn44mod2" path="res://Scenes/UI/SwitchRolls.tscn" id="18_iyesh"]
 [ext_resource type="Texture2D" uid="uid://bj3q18mldxqfk" path="res://Assets/2D/Backgrounds/Voorgrond_IY.png" id="18_lbihj"]
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
+[ext_resource type="PackedScene" uid="uid://ieif1frwmyhv" path="res://Scenes/UI/mainMenu.tscn" id="19_0iyqm"]
 [ext_resource type="Script" uid="uid://crjshtt1jdsek" path="res://Scripts/Case/EvidenceUIManager.cs" id="25_3jf1l"]
 [ext_resource type="Texture2D" uid="uid://djao0o74f0yd7" path="res://Assets/2D/Backgrounds/EndScreen.png" id="28_356ba"]
 [ext_resource type="Script" uid="uid://b3qux1nguwe6j" path="res://Scripts/EndScreen/EndScreenUI.cs" id="28_iyesh"]
@@ -103,6 +104,7 @@ judgePanel = ExtResource("2_kldst")
 caseMenu = ExtResource("4_kldst")
 rollMenu = ExtResource("11_4q8tf")
 rollSwitchMenu = ExtResource("18_iyesh")
+mainMenu = ExtResource("19_0iyqm")
 defendantDisplay = NodePath("../SecondWindow/Background/Defendant")
 evidenceUiManager = NodePath("../SecondWindow/Background/Evidence")
 scale = NodePath("../SecondWindow/Background/Scale")
@@ -255,6 +257,7 @@ stretch_mode = 5
 script = ExtResource("25_3jf1l")
 
 [node name="scaleFocus" type="Node2D" parent="SecondWindow/Background"]
+visible = false
 position = Vector2(0, 1.0068552)
 scale = Vector2(1.0029109, 1.0068552)
 
