@@ -35,6 +35,8 @@ public partial class ScaleRotate : TextureRect
 
             // scale into degrees
             targetRotation = Mathf.DegToRad(maxRotation * balance);
+            GD.Print(minWeight);
+            GD.Print(percentage);
         }
         else
         {
@@ -61,10 +63,5 @@ public partial class ScaleRotate : TextureRect
                 bad.Text = "50%";
             }
         }
-    }
-
-    public override void _ExitTree()
-    {
-        input.UpdateInput(false);
     }
 }

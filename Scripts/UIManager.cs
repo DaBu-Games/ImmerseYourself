@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public partial class UIManager : Node
@@ -39,25 +40,30 @@ public partial class UIManager : Node
         Instance = this;
 
         sceneChanger.SwitchScene(rollMenu, this);
-        ChooseCase();
+        ResetCase();
     }
 
     public void SwitchToJudgePanel()
     {
         sceneChanger.SwitchScene(judgePanel, this);
-        ChooseCase();
+        ResetCase();
     }
+
+    private void ResetCase()
+    {
+        scale.ZIndex = 0;
+        defendantDisplay.ChangeZIndex(0);
+        scaleFocus.Hide();
+    }
+    
     public void SwitchToCaseMenu() => sceneChanger.SwitchScene(caseMenu, this);
     public void SwitchToRollSwitch() => sceneChanger.SwitchScene(rollSwitchMenu, this);
 
     public void ChooseCase()
     {
-        GD.Print("HEY");
-
-        //SwitchToCaseMenu();
-        scale.ZIndex = 0;
-        defendantDisplay.ChangeZIndex(0);
-        scaleFocus.Hide();
+        ResetCase();
+        defendantDisplay.Texture = null;
+        SwitchToCaseMenu();
     }
 
     public void StartCase(Defendant defendant)
@@ -76,17 +82,13 @@ public partial class UIManager : Node
     {
         evidenceUiManager.SlideOut();
         (GetTree().GetFirstNodeInGroup("evidenceButton") as TextureButton)?.SetDisabled(true);
-        ResetCameraPosition();
-    }
-
-    public void ShowResult()
-    {
         timerDisplay.Hide();
         scale.ZIndex = 1;
         defendantDisplay.ChangeZIndex(2);
-
-        SwitchToRollSwitch();
         scaleFocus.Show();
+        
+        ResetCameraPosition();
+        SwitchToRollSwitch();
     }
 
 
@@ -95,8 +97,8 @@ public partial class UIManager : Node
         camera2D.Position = GetViewport().GetVisibleRect().Size / 2;
     }
 
-    public void ShowEndScreen()
+    public void ShowEndScreen(List<RollManager.Player> players)
     {
-        endScreenUI.ShowEndScreen();
+        endScreenUI.ShowEndScreen(players);
     }
 }
