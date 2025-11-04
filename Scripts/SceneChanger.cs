@@ -10,6 +10,8 @@ public partial class SceneChanger : Node
         }
 
         var instance = scene.Instantiate();
+        //instance.GetOwner<Control>().Size = new Vector2(1000000, 1000000); // THIS CODE HURTS ME, BUT IS A TEMP FIX.
+
         parentNode.AddChild(instance);
     }
 
@@ -26,6 +28,7 @@ public partial class SceneChanger : Node
         }
 
         parentNode.AddChild(instance);
+        //instance.GetOwner<Control>().Size = new Vector2(1000000, 1000000); // THIS CODE HURTS ME, BUT IS A TEMP FIX.
     }
 
     public void CloseScene(PackedScene scene, string rootName, Node parentNode)

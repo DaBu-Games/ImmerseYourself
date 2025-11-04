@@ -7,27 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://ccewrxa17wo01" path="res://Assets/2D/Buttons/evidence file button.png" id="4_hjrl2"]
 [ext_resource type="Texture2D" uid="uid://deedkpeh3es1y" path="res://Assets/2D/Buttons/arrow_button_back.png" id="4_q0vg7"]
 
-[node name="Judge2" type="Control" groups=["JudgePanel"]]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Judge2" type="Node" groups=["JudgePanel"]]
 
 [node name="CameraMover" type="Node" parent="."]
 script = ExtResource("1_l3igj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cw4wv")
 expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="." groups=["evidenceButton"]]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -45,7 +40,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
