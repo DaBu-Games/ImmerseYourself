@@ -42,11 +42,11 @@ public partial class RollManager : Node
         {
             if (p.rol == "Devil")
             {
-                visualNames[0].Text = p.rol + ": " +  p.PlayerName;
+                visualNames[0].Text = p.PlayerName;
             }
             else if (p.rol == "Angel")
             {
-                visualNames[1].Text = p.rol + ": " +  p.PlayerName;
+                visualNames[1].Text = p.PlayerName;
             }
         }
         
@@ -54,26 +54,40 @@ public partial class RollManager : Node
         visualNames[1].Show();
     }
 
+    public List<string> GetAllRols()
+    {
+        var tempList = new List<string>();
+        foreach (Player p in rollList)
+        {
+            tempList.Add(p.rol);
+        }
+        
+        return tempList;
+    }
+
     public void SwitchRolls()
     {
-        ShowNames();
-        
-        var tempList = new List<string>();
-        foreach (var player in rollList)
-        {
-            tempList.Add(player.rol);
-        }
+        var tempList = GetAllRols();
 
         rollList[0].rol = tempList[1]; // Judge --> Devil
         rollList[1].rol = tempList[2]; // Devil --> Angel
         rollList[2].rol = tempList[0]; // Angel --> Judge
         
         GD.Print("switch");
+                
+        visualNames[0].Hide();
+        visualNames[1].Hide();
     }
 
     public void AddScore()
     {
         Vector2 percentage = input.GetPercentage();
+        
+        if (percentage.X == 0 && percentage.Y == 0)
+        {
+            percentage.X = 0.5f;
+            percentage.Y = 0.5f;
+        }
         
         foreach (Player p in rollList)
         {
@@ -89,8 +103,7 @@ public partial class RollManager : Node
             }
         }
         
-        visualNames[0].Hide();
-        visualNames[1].Hide();
+        SwitchRolls();
     }
 
     public void FillRoll(string name, string playerName)

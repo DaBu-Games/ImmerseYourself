@@ -76,5 +76,6 @@ public partial class EvidenceUIManager : TextureRect
         isCentered = false;
         Visible = false;
         isAnimating = false;
+        currentIndex = -1;
     }
 }

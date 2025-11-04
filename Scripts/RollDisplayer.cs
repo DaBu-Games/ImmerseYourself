@@ -13,17 +13,12 @@ public partial class RollDisplayer : Node2D
         var nodeGroup = GetTree().GetNodesInGroup("RollManager");
         rollManager = (RollManager)nodeGroup[0];
 
-        rollManager.SwitchRolls();
+        rollManager.ShowNames();
         SetDisplay();
     }
 
     public void AddScore()
     {
-        if (rollManager != null)
-        {
-            GD.Print("AddScore");
-        }
-            
         rollManager.AddScore();
     }
 
@@ -31,8 +26,10 @@ public partial class RollDisplayer : Node2D
     {
         for (int i = 0; i < DisplayItems.Count; i++)
         {
+            int index = i + 1 == 3 ? 0 : i + 1;
+            
             DisplayItems[i].Text = rollManager.rollList[i].PlayerName
-                + " --> " + rollManager.rollList[i].rol;
+                + " --> " + rollManager.rollList[index].rol;
         }
     }
 
