@@ -24,13 +24,21 @@ public partial class RollDisplayer : Node2D
 
     private void SetDisplay()
     {
-        for (int i = 0; i < DisplayItems.Count; i++)
+        if (!rollManager.FinalRound())
         {
-            int index = i + 1 == 3 ? 0 : i + 1;
+            for (int i = 0; i < DisplayItems.Count; i++)
+            {
+                int index = i + 1 == 3 ? 0 : i + 1;
             
-            DisplayItems[i].Text = rollManager.rollList[i].PlayerName
-                + " --> " + rollManager.rollList[index].rol;
+                DisplayItems[i].Text = rollManager.rollList[i].PlayerName
+                                       + " --> " + rollManager.rollList[index].rol;
+            }
         }
+        else
+        {
+            DisplayItems[0].Text = "No more rounds";
+        }
+        
     }
 
 }

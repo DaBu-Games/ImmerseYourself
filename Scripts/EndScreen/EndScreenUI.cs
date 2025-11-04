@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class EndScreenUI : CanvasLayer
 {
@@ -12,13 +13,13 @@ public partial class EndScreenUI : CanvasLayer
     }
 
     // list of players
-    public void ShowEndScreen()
+    public void ShowEndScreen(List<RollManager.Player> players)
     {
         this.Visible = true;
-        for (int i = 0; i < 3; i++)
+        foreach (var player in players)
         {
             var scoreDisplay = this.scoreCard.Instantiate<ScoreDisplay>(); 
-            scoreDisplay.SetUp("Daan", 60 * i);
+            scoreDisplay.SetUp(player.PlayerName, player.score);
             
             hContainer.AddChild(scoreDisplay);
         }

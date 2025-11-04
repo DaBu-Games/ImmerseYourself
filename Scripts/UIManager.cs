@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public partial class UIManager : Node
@@ -96,8 +97,8 @@ public partial class UIManager : Node
         camera2D.Position = GetViewport().GetVisibleRect().Size / 2;
     }
 
-    public void ShowEndScreen()
+    public void ShowEndScreen(List<RollManager.Player> players)
     {
-        endScreenUI.ShowEndScreen();
+        endScreenUI.ShowEndScreen(players);
     }
 }

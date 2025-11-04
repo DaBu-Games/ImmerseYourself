@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public partial class RollManager : Node
 {
     public List<Player> rollList;
+    public int roundIndex = 1;
 
     [Export] private Node2D rollVisualizer;
     [Export] private Array<Label> visualNames;
@@ -22,6 +23,11 @@ public partial class RollManager : Node
             this.rol = rol;
             this.PlayerName = PlayerName;
         }
+    }
+
+    public bool FinalRound()
+    {
+        return roundIndex >= 3;
     }
 
     public override void _Ready()
@@ -77,6 +83,8 @@ public partial class RollManager : Node
                 
         visualNames[0].Hide();
         visualNames[1].Hide();
+
+        roundIndex++;
     }
 
     public void AddScore()
@@ -102,8 +110,16 @@ public partial class RollManager : Node
                 GD.Print(p.rol + ": " + p.PlayerName + " -> " + p.score);
             }
         }
-        
-        SwitchRolls();
+
+        if (!FinalRound())
+        {
+            SwitchRolls();
+            UIManager.Instance.ChooseCase();
+        }
+        else
+        {
+            UIManager.Instance.ShowEndScreen(rollList);
+        }
     }
 
     public void FillRoll(string name, string playerName)
