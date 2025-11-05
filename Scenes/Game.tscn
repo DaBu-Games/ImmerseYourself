@@ -120,7 +120,7 @@ input = NodePath("../SecondWindow/Background/Scale")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
-mode = 2
+mode = 3
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
