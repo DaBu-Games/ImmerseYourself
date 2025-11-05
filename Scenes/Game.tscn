@@ -120,7 +120,7 @@ input = NodePath("../SecondWindow/Background/Scale")
 
 [node name="SecondWindow" type="Window" parent="."]
 oversampling_override = 1.0
-mode = 3
+mode = 2
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
@@ -248,6 +248,7 @@ offset_right = 500.0
 offset_bottom = 718.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.9944397)
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("25_3jf1l")
