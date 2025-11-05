@@ -41,7 +41,7 @@ public partial class UIManager : Node
         Instance = this;
 
         sceneChanger.SwitchScene(mainMenu, this);
-        ChooseCase();
+        //ChooseCase();
     }
 
     public void SwitchToJudgePanel()

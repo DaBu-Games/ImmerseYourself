@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ieif1frwmyhv"]
+[gd_scene load_steps=4 format=3 uid="uid://ccxw527pe5fpa"]
 
 [ext_resource type="Script" uid="uid://dmnc21h1mjqt8" path="res://Scripts/Scenes/MainMenu.cs" id="1_8kx52"]
 [ext_resource type="Texture2D" uid="uid://1l3v13m05ces" path="res://Assets/TIPPING THE SCALES LOGO.png" id="1_o0db6"]
