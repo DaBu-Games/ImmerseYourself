@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci6hqn44mod2"]
+[gd_scene load_steps=8 format=3 uid="uid://ci6hqn44mod2"]
 
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_wmygy"]
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="2_ydank"]
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="3_373v0"]
 [ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="3_l4aq6"]
+[ext_resource type="Script" uid="uid://bo2rxunjr1lyb" path="res://Scripts/SceneChanger.cs" id="3_lna36"]
 [ext_resource type="Script" uid="uid://dom4lont82knb" path="res://Scripts/RollDisplayer.cs" id="4_373v0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpcm2"]
@@ -37,11 +38,12 @@ theme = ExtResource("3_373v0")
 theme_override_font_sizes/font_size = 64
 text = "Confirm score"
 
-[node name="RollVisual" type="Node2D" parent="." node_paths=PackedStringArray("DisplayItems")]
+[node name="RollVisual" type="Node2D" parent="." node_paths=PackedStringArray("DisplayItems", "finalUI")]
 position = Vector2(0, 1)
 scale = Vector2(0.6000005, 0.6000005)
 script = ExtResource("4_373v0")
 DisplayItems = [NodePath("Label2"), NodePath("Label"), NodePath("Label3")]
+finalUI = NodePath("Button3")
 
 [node name="scaleFocus" type="TextureRect" parent="RollVisual"]
 modulate = Color(0, 0, 0, 0.60784316)
@@ -78,4 +80,25 @@ offset_right = 1373.0
 offset_bottom = 700.0
 label_settings = SubResource("LabelSettings_vpcm2")
 
+[node name="Button3" type="Button" parent="RollVisual"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1414.9988
+offset_top = 783.33276
+offset_right = 1704.9988
+offset_bottom = 895.2487
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.1375053, 1.1375053)
+theme = ExtResource("3_373v0")
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[node name="Node" type="Node" parent="RollVisual/Button3"]
+script = ExtResource("3_lna36")
+
 [connection signal="pressed" from="Button2" to="RollVisual" method="AddScore"]
+[connection signal="pressed" from="RollVisual/Button3" to="RollVisual/Button3/Node" method="ResetScene"]

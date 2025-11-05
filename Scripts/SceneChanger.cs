@@ -39,4 +39,6 @@ public partial class SceneChanger : Node
             }
         }
     }
+
+    public void ResetScene() => GetTree().ReloadCurrentScene();
 }

@@ -409,12 +409,3 @@ custom_minimum_size = Vector2(0, 620)
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/separation = 20
-
-[node name="Button" type="Button" parent="SecondWindow/Endscreen/VBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("14_wxwew")
-theme_override_font_sizes/font_size = 128
-text = "Quit"
