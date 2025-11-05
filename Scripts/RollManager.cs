@@ -6,6 +6,7 @@ public partial class RollManager : Node
 {
     public List<Player> rollList;
     public int roundIndex = 1;
+    private float minWeight = 0.3f;
 
     [Export] private Node2D rollVisualizer;
     [Export] private Array<Label> visualNames;
@@ -48,11 +49,11 @@ public partial class RollManager : Node
         {
             if (p.rol == "Devil")
             {
-                visualNames[0].Text = p.PlayerName;
+                visualNames[1].Text = p.PlayerName;
             }
             else if (p.rol == "Angel")
             {
-                visualNames[1].Text = p.PlayerName;
+                visualNames[0].Text = p.PlayerName;
             }
         }
         
@@ -89,9 +90,11 @@ public partial class RollManager : Node
 
     public void AddScore()
     {
+        float weight = input.GetTotalWeight();
+        
         Vector2 percentage = input.GetPercentage();
         
-        if (percentage.X == 0 && percentage.Y == 0)
+        if (weight <= minWeight)
         {
             percentage.X = 0.5f;
             percentage.Y = 0.5f;
