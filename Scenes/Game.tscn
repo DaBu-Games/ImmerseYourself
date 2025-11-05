@@ -252,7 +252,7 @@ offset_bottom = 718.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.9944397)
-expand_mode = 2
+expand_mode = 4
 stretch_mode = 5
 script = ExtResource("25_3jf1l")
 

@@ -19,7 +19,10 @@ public partial class RollDisplayer : Node2D
 
     public void AddScore()
     {
-        rollManager.AddScore();
+        if (rollManager.roundIndex < 4 )
+        {
+            rollManager.AddScore();
+        }
     }
 
     private void SetDisplay()
