@@ -9,18 +9,11 @@
 font = ExtResource("2_2wrsb")
 font_size = 25
 
-[node name="RollInputMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RollInputMenu" type="Node"]
 script = ExtResource("1_2laf5")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.5211406, 0.5211406, 0.5211405, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,7 +94,6 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Input Name"
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
 offset_left = 531.0
 offset_top = 455.0
 offset_right = 622.0

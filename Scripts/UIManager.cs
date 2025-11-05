@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Godot;
+using System.Collections.Generic;
 
 public partial class UIManager : Node
 {
@@ -30,7 +30,7 @@ public partial class UIManager : Node
 
     [Export] private CanvasLayer timerDisplay;
     [Export] private Camera2D camera2D;
-    
+
     [Export] private EndScreenUI endScreenUI;
 
     private SceneChanger sceneChanger = new SceneChanger();
@@ -55,7 +55,7 @@ public partial class UIManager : Node
         defendantDisplay.ChangeZIndex(0);
         scaleFocus.Hide();
     }
-    
+
     public void SwitchToCaseMenu() => sceneChanger.SwitchScene(caseMenu, this);
     public void SwitchToRollSwitch() => sceneChanger.SwitchScene(rollSwitchMenu, this);
 
@@ -86,7 +86,7 @@ public partial class UIManager : Node
         scale.ZIndex = 1;
         defendantDisplay.ChangeZIndex(2);
         scaleFocus.Show();
-        
+
         ResetCameraPosition();
         SwitchToRollSwitch();
     }
