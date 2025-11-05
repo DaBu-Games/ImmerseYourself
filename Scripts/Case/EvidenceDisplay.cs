@@ -2,20 +2,20 @@ using Godot;
 
 public partial class EvidenceDisplay : Button
 {
-    [Export] TextureRect textureRect;
-    [Export] private Label labelNR;
-    private int count;
+	[Export] TextureRect textureRect;
+	[Export] private Label labelNR;
+	private int count;
 
-    private void _on_button_pressed()
-    {
-       
-    }
-    
-    public void SetUp(Texture2D texture, int nr)
-    {
-        textureRect.Texture = texture;
-        labelNR.Text = (nr + 1).ToString();
-        
-        count = nr;
-    }
+	private void _on_button_pressed()
+	{
+	   
+	}
+	
+	public void SetUp(Texture2D texture, int nr)
+	{
+		textureRect.Texture = texture;
+		labelNR.Text = (nr + 1).ToString();
+		
+		count = nr;
+	}
 }

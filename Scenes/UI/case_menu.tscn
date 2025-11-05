@@ -1,12 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhdxhijgpg0m1"]
+[gd_scene load_steps=5 format=3 uid="uid://bhdxhijgpg0m1"]
 
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_5wsvm"]
 [ext_resource type="Script" uid="uid://dmqdpk6hi1uml" path="res://Scripts/Scenes/CaseMenu.cs" id="1_qhymh"]
+
+[sub_resource type="Gradient" id="Gradient_2laf5"]
+offsets = PackedFloat32Array(0.23790322, 0.48387095, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhymh"]
+gradient = SubResource("Gradient_2laf5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="CaseMenu" type="Node"]
 script = ExtResource("1_qhymh")
 
 [node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +25,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5wsvm")
 expand_mode = 1
+
+[node name="Vingette" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_qhymh")
 
 [node name="Button" type="Button" parent="."]
 visible = false

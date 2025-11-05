@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brpu26ntje1bo"]
+[gd_scene load_steps=8 format=3 uid="uid://brpu26ntje1bo"]
 
 [ext_resource type="Script" uid="uid://maykst3nxwcg" path="res://Scripts/Scenes/RollMenu.cs" id="1_2laf5"]
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_6rvj3"]
@@ -7,12 +7,24 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wrsb"]
 font_size = 30
+outline_size = 15
+outline_color = Color(0.1617513, 0.08662482, 0.040977947, 1)
+
+[sub_resource type="Gradient" id="Gradient_2laf5"]
+offsets = PackedFloat32Array(0.23790322, 0.48387095, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pd80f"]
+gradient = SubResource("Gradient_2laf5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="RollInputMenu" type="Node"]
 script = ExtResource("1_2laf5")
 
 [node name="Background" type="TextureRect" parent="."]
-modulate = Color(0.5211406, 0.5211406, 0.5211405, 1)
+self_modulate = Color(0.46666667, 0.43137255, 0.45882353, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,7 +62,7 @@ columns = 2
 [node name="Judge" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
 layout_mode = 2
 theme = ExtResource("3_pd80f")
-text = "Judge:"
+text = "Judge"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
@@ -66,7 +78,7 @@ placeholder_text = "Input Name"
 [node name="Devil" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
 layout_mode = 2
 theme = ExtResource("3_pd80f")
-text = "Devil:"
+text = "Devil"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
@@ -81,7 +93,7 @@ placeholder_text = "Input Name"
 [node name="Angel" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
 layout_mode = 2
 theme = ExtResource("3_pd80f")
-text = "Angel:"
+text = "Angel"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
@@ -97,5 +109,14 @@ placeholder_text = "Input Name"
 layout_mode = 2
 theme = ExtResource("3_pd80f")
 text = "Play"
+
+[node name="Vingette" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_pd80f")
 
 [connection signal="pressed" from="NameInput/Control/CenterContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

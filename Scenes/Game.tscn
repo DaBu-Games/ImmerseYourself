@@ -33,7 +33,7 @@
 [ext_resource type="Shader" uid="uid://cecaqa15gc67w" path="res://Assets/2D/Character/chara_displacement_uv.tres" id="27_jn8rg"]
 [ext_resource type="Texture2D" uid="uid://djao0o74f0yd7" path="res://Assets/2D/Backgrounds/EndScreen.png" id="28_356ba"]
 [ext_resource type="Script" uid="uid://b3qux1nguwe6j" path="res://Scripts/EndScreen/EndScreenUI.cs" id="28_iyesh"]
-[ext_resource type="Texture2D" uid="uid://dxaf3m47aijmo" path="res://Assets/2D/Character/Bemis.png" id="28_jn8rg"]
+[ext_resource type="Texture2D" uid="uid://cu11g7l83rorn" path="res://Assets/2D/Character/Jan-Diederik.png" id="28_jn8rg"]
 [ext_resource type="PackedScene" uid="uid://f8ka0ak6776l" path="res://Scenes/UI/ScoreCard.tscn" id="30_iyesh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnjm"]
@@ -272,7 +272,7 @@ anchor_bottom = 0.5
 offset_left = -250.0
 offset_top = -219.0
 offset_right = 250.0
-offset_bottom = 281.0
+offset_bottom = 281.00006
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("28_jn8rg")
@@ -428,7 +428,7 @@ hContainer = NodePath("VBoxContainer/HBoxContainer")
 scoreCard = ExtResource("30_iyesh")
 
 [node name="TextureRect" type="TextureRect" parent="SecondWindow/Endscreen"]
-self_modulate = Color(0.31929973, 0.24111345, 0.18471229, 0.8509804)
+self_modulate = Color(0.26545164, 0.1758528, 0.116120234, 0.72156864)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

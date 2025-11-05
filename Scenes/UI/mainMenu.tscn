@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccxw527pe5fpa"]
+[gd_scene load_steps=7 format=3 uid="uid://ccxw527pe5fpa"]
 
 [ext_resource type="Script" uid="uid://dmnc21h1mjqt8" path="res://Scripts/Scenes/MainMenu.cs" id="1_8kx52"]
 [ext_resource type="Texture2D" uid="uid://1l3v13m05ces" path="res://Assets/TIPPING THE SCALES LOGO.png" id="1_o0db6"]
-[ext_resource type="Texture2D" uid="uid://btrtm02cyw2w5" path="res://Assets/Untitled-2-1-1-Recovered.png" id="2_8be4d"]
+[ext_resource type="Texture2D" uid="uid://dcim1bnvgmkt8" path="res://Assets/2D/Backgrounds/MainMenuBG.png" id="2_pr0b3"]
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="4_pr0b3"]
+
+[sub_resource type="Gradient" id="Gradient_pr0b3"]
+offsets = PackedFloat32Array(0.23790322, 0.48387095, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4tit"]
+gradient = SubResource("Gradient_pr0b3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,12 +26,13 @@ grow_vertical = 2
 script = ExtResource("1_8kx52")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.40755185, 0.396699, 0.3673876, 1)
 layout_mode = 0
 offset_left = -13.0
 offset_right = 1907.0
 offset_bottom = 1080.0
 scale = Vector2(0.60465086, 0.60465086)
-texture = ExtResource("2_8be4d")
+texture = ExtResource("2_pr0b3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -53,5 +64,15 @@ layout_mode = 2
 theme = ExtResource("4_pr0b3")
 theme_override_font_sizes/font_size = 50
 text = "START"
+
+[node name="Vingette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_j4tit")
 
 [connection signal="pressed" from="Control/CenterContainer/Button" to="." method="_on_button_pressed"]
