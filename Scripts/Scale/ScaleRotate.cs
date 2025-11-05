@@ -35,8 +35,6 @@ public partial class ScaleRotate : TextureRect
 
             // scale into degrees
             targetRotation = Mathf.DegToRad(maxRotation * balance);
-            GD.Print(minWeight);
-            GD.Print(percentage);
         }
         else
         {

@@ -10,7 +10,7 @@ public partial class ScaleInput : TextureRect
     public delegate void InitializedEventHandler();
     
     private Wiimote wiiDevice;
-    private const float startWeight = 1.5f;
+    private const float startWeight = 1.75f;
     
     private float offsetTL = 0f;   // Top Left
     private float offsetTR = 0f;   // Top Right
@@ -179,6 +179,7 @@ public partial class ScaleInput : TextureRect
     // Called when WiimoteLib detects a state change
     private void OnWiimoteChanged(object sender, WiimoteChangedEventArgs e)
     {
+        
         var bb = e.WiimoteState.BalanceBoardState;
         float total = bb.WeightKg;
 
