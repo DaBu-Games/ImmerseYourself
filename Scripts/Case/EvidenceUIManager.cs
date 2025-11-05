@@ -18,7 +18,8 @@ public partial class EvidenceUIManager : TextureRect
 
     public override void _Ready()
     {
-        screenCenter = GetViewportRect().Size / 2 - Size / 2;
+        var window = GetWindow();
+        screenCenter = window.GetWindow().Size / 2 - Size / 2;
         offScreenLeft = new Vector2(-Size.X, screenCenter.Y);
         offScreenRight = new Vector2(GetViewportRect().Size.X + Size.X, screenCenter.Y);
         
