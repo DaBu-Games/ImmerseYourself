@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=46 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -30,9 +30,28 @@
 [ext_resource type="Texture2D" uid="uid://bkasa8trkkup0" path="res://Assets/2D/Backgrounds/white-panel.png" id="18_tfod6"]
 [ext_resource type="PackedScene" uid="uid://ccxw527pe5fpa" path="res://Scenes/UI/mainMenu.tscn" id="19_0iyqm"]
 [ext_resource type="Script" uid="uid://crjshtt1jdsek" path="res://Scripts/Case/EvidenceUIManager.cs" id="25_3jf1l"]
+[ext_resource type="Shader" uid="uid://cecaqa15gc67w" path="res://Assets/2D/Character/chara_displacement_uv.tres" id="27_jn8rg"]
 [ext_resource type="Texture2D" uid="uid://djao0o74f0yd7" path="res://Assets/2D/Backgrounds/EndScreen.png" id="28_356ba"]
 [ext_resource type="Script" uid="uid://b3qux1nguwe6j" path="res://Scripts/EndScreen/EndScreenUI.cs" id="28_iyesh"]
+[ext_resource type="Texture2D" uid="uid://ctcbsti6v48q" path="res://Assets/2D/Character/Lily.png" id="28_jn8rg"]
 [ext_resource type="PackedScene" uid="uid://f8ka0ak6776l" path="res://Scenes/UI/ScoreCard.tscn" id="30_iyesh"]
+
+[sub_resource type="Gradient" id="Gradient_jn8rg"]
+offsets = PackedFloat32Array(0.018518519, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.096204735, 0.09620475, 0.096204735, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jn8rg"]
+frequency = 0.0005
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_umnjm"]
+noise = SubResource("FastNoiseLite_jn8rg")
+color_ramp = SubResource("Gradient_jn8rg")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jn8rg"]
+shader = ExtResource("27_jn8rg")
+shader_parameter/Noise = SubResource("NoiseTexture2D_umnjm")
 
 [sub_resource type="LabelSettings" id="LabelSettings_356ba"]
 font_size = 100
@@ -215,6 +234,7 @@ texture = ExtResource("18_lbihj")
 expand_mode = 2
 
 [node name="Defendant" type="TextureRect" parent="SecondWindow/Background"]
+material = SubResource("ShaderMaterial_jn8rg")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -227,6 +247,7 @@ offset_right = 250.0
 offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("28_jn8rg")
 expand_mode = 4
 stretch_mode = 5
 script = ExtResource("12_3so38")
