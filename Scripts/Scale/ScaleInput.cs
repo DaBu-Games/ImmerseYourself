@@ -4,7 +4,7 @@ using WiimoteLib;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-public partial class ScaleInput : Node
+public partial class ScaleInput : TextureRect
 {
     [Signal]
     public delegate void InitializedEventHandler();
@@ -75,7 +75,6 @@ public partial class ScaleInput : Node
 
     public void UpdateInput(bool update)
     {
-        GD.Print("Update: " + update);
         if(wiiDevice == null)
             return;
         
@@ -237,9 +236,5 @@ public partial class ScaleInput : Node
         totalLeft = total * leftPerc;
         totalRight = total * rightPerc;
         totalWeight = total; 
-        
-        GD.Print($"Total Weight: {totalWeight:F2}");
-        GD.Print($"Total Left: {totalLeft:F2} percentage: {leftPerc:F2}");
-        GD.Print($"Total Right: {totalRight:F2} percentage: {rightPerc:F2}");
     }
 }

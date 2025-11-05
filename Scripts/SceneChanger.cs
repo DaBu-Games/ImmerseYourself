@@ -10,6 +10,7 @@ public partial class SceneChanger : Node
         }
 
         var instance = scene.Instantiate();
+
         parentNode.AddChild(instance);
     }
 
