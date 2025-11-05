@@ -122,6 +122,7 @@ public partial class RollManager : Node
         else
         {
             UIManager.Instance.ShowEndScreen(rollList);
+            roundIndex++;
         }
     }
 
