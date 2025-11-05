@@ -13,7 +13,8 @@ config_version=5
 config/name="ImmerseYourself"
 run/main_scene="uid://ddsclml7gkpr6"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://dcim1bnvgmkt8"
+config/icon="uid://b3xcpfy28oae5"
 
 [display]
 

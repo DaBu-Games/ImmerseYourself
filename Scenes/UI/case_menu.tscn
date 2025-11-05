@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_5wsvm"]
 [ext_resource type="Script" uid="uid://dmqdpk6hi1uml" path="res://Scripts/Scenes/CaseMenu.cs" id="1_qhymh"]
 
-[sub_resource type="Gradient" id="Gradient_2laf5"]
+[sub_resource type="Gradient" id="Gradient_qhymh"]
 offsets = PackedFloat32Array(0.23790322, 0.48387095, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qhymh"]
-gradient = SubResource("Gradient_2laf5")
+gradient = SubResource("Gradient_qhymh")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true

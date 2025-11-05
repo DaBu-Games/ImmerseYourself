@@ -151,7 +151,7 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(1060, 40)
-nodes/fragment/0/position = Vector2(1760, 700)
+nodes/fragment/0/position = Vector2(1240, 880)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_m5fsl")
 nodes/fragment/2/position = Vector2(-1320, 1240)
 nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_qares")
