@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=40 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://brpu26ntje1bo" path="res://Scenes/UI/rollInput_menu.tscn" id="11_4q8tf"]
 [ext_resource type="Script" uid="uid://bcs3g4tpt5fct" path="res://Scripts/Case/DefendantDisplay.cs" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://dbreokuptr7hu" path="res://Assets/2D/Backgrounds/Achtergrond_IY.png" id="12_tfod6"]
-[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="14_wxwew"]
 [ext_resource type="Texture2D" uid="uid://c2xudq5m822wo" path="res://Assets/2D/Scale/scale-foot.png" id="15_4q8tf"]
 [ext_resource type="Script" uid="uid://dp18pvwsnbhwe" path="res://Scripts/Scale/ScaleRotate.cs" id="15_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://1pwgn0vbohdp" path="res://Assets/2D/HourGlass.png" id="15_acvyw"]
@@ -36,27 +35,21 @@
 [ext_resource type="PackedScene" uid="uid://f8ka0ak6776l" path="res://Scenes/UI/ScoreCard.tscn" id="30_iyesh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_356ba"]
-font = ExtResource("14_wxwew")
 font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
-font = ExtResource("14_wxwew")
 font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_alh3a"]
-font = ExtResource("14_wxwew")
 font_size = 56
 
 [sub_resource type="LabelSettings" id="LabelSettings_4q8tf"]
-font = ExtResource("14_wxwew")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_x3xnh"]
-font = ExtResource("14_wxwew")
 font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r6kd"]
-font = ExtResource("14_wxwew")
 font_size = 100
 
 [node name="Game" type="Node2D"]
@@ -183,7 +176,7 @@ offset_left = 35.0
 offset_top = 5.5
 offset_right = 232.0
 offset_bottom = 141.5
-theme_override_fonts/font = ExtResource("14_wxwew")
+theme = ExtResource("1_b2bpf")
 theme_override_font_sizes/font_size = 74
 text = "50%"
 horizontal_alignment = 1
@@ -195,7 +188,7 @@ offset_left = 491.0
 offset_top = 7.5
 offset_right = 688.0
 offset_bottom = 143.5
-theme_override_fonts/font = ExtResource("14_wxwew")
+theme = ExtResource("1_b2bpf")
 theme_override_font_sizes/font_size = 74
 text = "50%"
 horizontal_alignment = 1
@@ -285,6 +278,7 @@ offset_top = 190.00003
 offset_right = 593.00006
 offset_bottom = 290.00003
 grow_vertical = 2
+theme = ExtResource("1_b2bpf")
 text = "Player"
 label_settings = SubResource("LabelSettings_356ba")
 horizontal_alignment = 1
@@ -303,6 +297,7 @@ offset_top = 193.00003
 offset_right = 1883.0004
 offset_bottom = 293.00003
 grow_vertical = 2
+theme = ExtResource("1_b2bpf")
 text = "Player"
 label_settings = SubResource("LabelSettings_356ba")
 horizontal_alignment = 1
@@ -319,6 +314,7 @@ offset_right = 1739.3815
 offset_bottom = 261.0
 scale = Vector2(0.9004769, 0.8995372)
 pivot_offset = Vector2(800, 0)
+theme = ExtResource("1_b2bpf")
 text = "\"Prep phase\" 00:00"
 label_settings = SubResource("LabelSettings_acvyw")
 
@@ -328,6 +324,7 @@ offset_top = 215.0
 offset_right = 705.3815
 offset_bottom = 468.0
 scale = Vector2(1.1172643, 1.1370906)
+theme = ExtResource("1_b2bpf")
 text = "00:00"
 label_settings = SubResource("LabelSettings_alh3a")
 autowrap_mode = 2
@@ -339,6 +336,7 @@ offset_top = 723.77716
 offset_right = 250.87476
 offset_bottom = 976.7771
 scale = Vector2(1.1172643, 1.1370906)
+theme = ExtResource("1_b2bpf")
 text = "Press \"space\" to skip"
 label_settings = SubResource("LabelSettings_4q8tf")
 autowrap_mode = 2
@@ -351,6 +349,7 @@ offset_left = 358.0
 offset_top = 925.0
 offset_right = 1658.0
 offset_bottom = 1025.0
+theme = ExtResource("1_b2bpf")
 text = "Press space to continue"
 label_settings = SubResource("LabelSettings_x3xnh")
 horizontal_alignment = 1
@@ -360,6 +359,7 @@ offset_left = 356.0
 offset_top = 811.0
 offset_right = 1656.0
 offset_bottom = 911.0
+theme = ExtResource("1_b2bpf")
 text = "Phase is done!"
 label_settings = SubResource("LabelSettings_8r6kd")
 horizontal_alignment = 1
@@ -398,7 +398,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="SecondWindow/Endscreen/VBoxContainer"]
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("14_wxwew")
+theme = ExtResource("1_b2bpf")
 theme_override_font_sizes/font_size = 124
 text = "End results"
 horizontal_alignment = 1

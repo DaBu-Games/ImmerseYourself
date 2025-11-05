@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://1co0c6oplrkn"]
 
-[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="1_uxq82"]
+[ext_resource type="FontFile" uid="uid://bg6jbnle4nbb8" path="res://Assets/2D/Font/posterama-regular.otf" id="1_ao8vu"]
 
 [resource]
-default_font = ExtResource("1_uxq82")
+default_font = ExtResource("1_ao8vu")
 default_font_size = 32

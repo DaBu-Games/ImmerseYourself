@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccxw527pe5fpa"]
+[gd_scene load_steps=5 format=3 uid="uid://ccxw527pe5fpa"]
 
 [ext_resource type="Script" uid="uid://dmnc21h1mjqt8" path="res://Scripts/Scenes/MainMenu.cs" id="1_8kx52"]
 [ext_resource type="Texture2D" uid="uid://1l3v13m05ces" path="res://Assets/TIPPING THE SCALES LOGO.png" id="1_o0db6"]
 [ext_resource type="Texture2D" uid="uid://btrtm02cyw2w5" path="res://Assets/Untitled-2-1-1-Recovered.png" id="2_8be4d"]
+[ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="4_pr0b3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,18 +25,33 @@ texture = ExtResource("2_8be4d")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1784.8889
+offset_right = 1820.8855
 offset_bottom = 1004.0
 scale = Vector2(0.60465086, 0.60465086)
 texture = ExtResource("1_o0db6")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 467.00003
-offset_top = 426.00003
-offset_right = 558.0
-offset_bottom = 464.3372
-scale = Vector2(2.0799992, 2.0799992)
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control/CenterContainer"]
+texture_filter = 3
+layout_mode = 2
+theme = ExtResource("4_pr0b3")
+theme_override_font_sizes/font_size = 50
 text = "START"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/Button" to="." method="_on_button_pressed"]

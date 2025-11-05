@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://maykst3nxwcg" path="res://Scripts/Scenes/RollMenu.cs" id="1_2laf5"]
 [ext_resource type="Texture2D" uid="uid://bhxdksf36eiiw" path="res://Assets/2D/Backgrounds/UI_JUDGE_BACKGROUND.png" id="1_6rvj3"]
-[ext_resource type="FontFile" uid="uid://do6bs0msnmrbh" path="res://Assets/2D/Font/PF Hellenica Serif Pro Regular.ttf" id="2_2wrsb"]
+[ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="3_pd80f"]
 [ext_resource type="Script" uid="uid://ctuhtt6lcopt7" path="res://Scripts/RollInput.cs" id="3_yu06s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wrsb"]
-font = ExtResource("2_2wrsb")
-font_size = 25
+font_size = 30
 
 [node name="RollInputMenu" type="Node"]
 script = ExtResource("1_2laf5")
@@ -24,80 +23,79 @@ expand_mode = 1
 
 [node name="NameInput" type="Node" parent="."]
 
-[node name="Judge" type="Label" parent="NameInput" node_paths=PackedStringArray("inputItem")]
-offset_left = 254.0
-offset_top = 236.0
-offset_right = 399.22
-offset_bottom = 262.0
-scale = Vector2(1.8, 1.8)
+[node name="Control" type="Control" parent="NameInput"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="NameInput/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="NameInput/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="NameInput/Control/CenterContainer/HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Judge" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 text = "Judge:"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
-inputItem = NodePath("TextEdit")
-metadata/_edit_use_anchors_ = true
+inputItem = NodePath("../TextEdit")
 
-[node name="TextEdit" type="TextEdit" parent="NameInput/Judge"]
-layout_mode = 0
-offset_left = 149.0
-offset_top = -1.0
-offset_right = 283.0
-offset_bottom = 28.0
-theme_override_fonts/font = ExtResource("2_2wrsb")
+[node name="TextEdit" type="TextEdit" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Input Name"
 
-[node name="Devil" type="Label" parent="NameInput" node_paths=PackedStringArray("inputItem")]
-offset_left = 254.0
-offset_top = 296.0
-offset_right = 399.22
-offset_bottom = 322.0
-scale = Vector2(1.8, 1.8)
+[node name="Devil" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 text = "Devil:"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
-inputItem = NodePath("TextEdit2")
-metadata/_edit_use_anchors_ = true
+inputItem = NodePath("../TextEdit2")
 
-[node name="TextEdit2" type="TextEdit" parent="NameInput/Devil"]
-layout_mode = 0
-offset_left = 148.33336
-offset_top = -2.7777812
-offset_right = 282.33337
-offset_bottom = 26.22222
-theme_override_fonts/font = ExtResource("2_2wrsb")
+[node name="TextEdit2" type="TextEdit" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Input Name"
 
-[node name="Angel" type="Label" parent="NameInput" node_paths=PackedStringArray("inputItem")]
-offset_left = 254.0
-offset_top = 349.0
-offset_right = 399.22
-offset_bottom = 375.0
-scale = Vector2(1.8, 1.8)
+[node name="Angel" type="Label" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("inputItem")]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 text = "Angel:"
 label_settings = SubResource("LabelSettings_2wrsb")
 horizontal_alignment = 2
 script = ExtResource("3_yu06s")
-inputItem = NodePath("TextEdit3")
-metadata/_edit_use_anchors_ = true
+inputItem = NodePath("../TextEdit3")
 
-[node name="TextEdit3" type="TextEdit" parent="NameInput/Angel"]
-layout_mode = 0
-offset_left = 149.0
-offset_top = -1.0
-offset_right = 283.0
-offset_bottom = 28.0
-theme_override_fonts/font = ExtResource("2_2wrsb")
+[node name="TextEdit3" type="TextEdit" parent="NameInput/Control/CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Input Name"
 
-[node name="Button" type="Button" parent="."]
-offset_left = 531.0
-offset_top = 455.0
-offset_right = 622.0
-offset_bottom = 507.0
+[node name="Button" type="Button" parent="NameInput/Control/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_pd80f")
 text = "Play"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="NameInput/Control/CenterContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
