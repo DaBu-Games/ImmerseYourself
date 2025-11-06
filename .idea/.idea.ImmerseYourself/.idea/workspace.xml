@@ -7,6 +7,8 @@
     <list default="true" id="cdb1a219-aad1-4806-806d-4412567e67bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ImmerseYourself/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Game.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Game.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Case/EvidenceUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Case/EvidenceUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/RoundsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/RoundsManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +35,7 @@
     ".NET Executable.Player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "EndScreen",
+    "git-widget-placeholder": "AnimCheck",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

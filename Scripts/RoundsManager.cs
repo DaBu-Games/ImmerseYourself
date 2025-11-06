@@ -39,7 +39,7 @@ public partial class RoundsManager : Node
         new Round(RoundType.preparing, 1, true, "Prep phase"),
         new Round(RoundType.evil,      1, true, "Opening statement [SINS]"),
         new Round(RoundType.good,      1, true, "Opening statement [VIRTUES]"),
-        new Round(RoundType.allOut,    3, false, "OPEN DEBATE")
+        new Round(RoundType.allOut,    2, false, "OPEN DEBATE")
 
     };
 
@@ -53,7 +53,7 @@ public partial class RoundsManager : Node
 
     public override void _Process(double delta)
     {
-        if (time != 0 && Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
+        if (Input.IsActionJustPressed("TestSpace")) TryStartNextRound();
 
         if (!isRunning)
             return;
@@ -65,12 +65,12 @@ public partial class RoundsManager : Node
         if (time > targetTime)
         {
             OnRoundEnd();
-            currentRound++;
+            //currentRound++;
 
             isRunning = false;
 
             //Display based on round state.
-            if (currentRound >= rounds.Count)
+            if (currentRound >= rounds.Count -1)
             {
                 UIManager.Instance.RoundsCompleted();
             }
