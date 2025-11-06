@@ -1,17 +1,16 @@
 using Godot;
 using System;
-using WiimoteLib; 
-using System.Text.RegularExpressions;
 using System.Threading;
+using WiimoteLib;
 
 public partial class ScaleInput : TextureRect
 {
     [Signal]
     public delegate void InitializedEventHandler();
-    
+
     private Wiimote wiiDevice;
-    private const float startWeight = 1.75f;
-    
+    private const float startWeight = 1.85f;
+
     private float offsetTL = 0f;   // Top Left
     private float offsetTR = 0f;   // Top Right
     private float offsetBL = 0f;   // Bottom Left
@@ -19,27 +18,27 @@ public partial class ScaleInput : TextureRect
 
     private float baseWeightOffset = 0f;
     private float previousWeight = 0f;
-    
+
     private float totalLeft = 0f;
     private float leftPerc = 0f;
-    
+
     private float rightPerc = 0f;
     private float totalRight = 0f;
-    
+
     private float totalWeight = 0f;
-    
+
     private bool isHandlerAttached = false;
-    
+
     public override void _Ready()
     {
         GD.Print("=== Wii Fit Board Connection Test ===");
-        
+
         if (!Attempt_Connect())
         {
             GD.Print("Failed to connect to Wii Fit Board.");
             return;
         }
-        
+
         GD.Print("✅ Connected! Reading weight data...");
         EmitSignal(SignalName.Initialized);
     }
@@ -75,15 +74,15 @@ public partial class ScaleInput : TextureRect
 
     public void UpdateInput(bool update)
     {
-        if(wiiDevice == null)
+        if (wiiDevice == null)
             return;
-        
+
         if (update && !isHandlerAttached)
         {
             wiiDevice.WiimoteChanged += OnWiimoteChanged;
             isHandlerAttached = true;
         }
-        else if(!update && isHandlerAttached)
+        else if (!update && isHandlerAttached)
         {
             wiiDevice.WiimoteChanged -= OnWiimoteChanged;
             isHandlerAttached = false;
@@ -123,10 +122,10 @@ public partial class ScaleInput : TextureRect
             {
                 GD.Print("To many devices found");
             }
-            
+
             wiiDevice = deviceCollection[0];
             wiiDevice.Connect();
-            
+
 
             if (wiiDevice.WiimoteState.ExtensionType != ExtensionType.BalanceBoard)
             {
@@ -136,12 +135,12 @@ public partial class ScaleInput : TextureRect
             {
                 GD.Print("Connected to Wii Fit Board.");
             }
-            
+
             wiiDevice.SetReportType(InputReport.IRAccel, true);
             wiiDevice.SetLEDs(true, false, false, false);
 
             // Listen for updates
-            
+
 
             // Start thread to keep processing updates
             new Thread(ThreadTick).Start();
@@ -179,63 +178,63 @@ public partial class ScaleInput : TextureRect
     // Called when WiimoteLib detects a state change
     private void OnWiimoteChanged(object sender, WiimoteChangedEventArgs e)
     {
-        
+
         var bb = e.WiimoteState.BalanceBoardState;
         float total = bb.WeightKg;
 
         // Only process if the difference is greater than 0.225 kg
         //if (Math.Abs(total - previousWeight) <= 0.15f)
-            //return;
-        
+        //return;
+
         previousWeight = total;
-        
+
         //left
         float tl = bb.SensorValuesKg.TopLeft;
         float bl = bb.SensorValuesKg.BottomLeft;
-        
+
         //right
         float tr = bb.SensorValuesKg.TopRight;
         float br = bb.SensorValuesKg.BottomRight;
-        
+
         // recalibrate because it means there is nothing on the board
         if (total < startWeight)
         {
             offsetTL = GetEverage(offsetTL, tl);
             offsetBL = GetEverage(offsetBL, bl);
-            
+
             offsetTR = GetEverage(offsetTR, tr);
             offsetBR = GetEverage(offsetBR, br);
-            
+
             baseWeightOffset = GetEverage(baseWeightOffset, total);
         }
 
         // Clamp negative values to 0
         tl -= offsetTL;
         tl = Math.Max(0, tl);
-        
+
         bl -= offsetBL;
         bl = Math.Max(0, bl);
-        
+
         tr -= offsetTR;
         tr = Math.Max(0, tr);
-        
+
         br -= offsetBR;
         br = Math.Max(0, br);
-        
+
         total = Math.Max(0, total - baseWeightOffset);
 
         // Compute left/right weights
-        float left  = tl + bl;
+        float left = tl + bl;
         float right = tr + br;
 
         // Compute total weight
         float totalRaw = left + right;
-        
-        leftPerc  = totalRaw > 0 ? left / totalRaw : 0f;
+
+        leftPerc = totalRaw > 0 ? left / totalRaw : 0f;
         rightPerc = totalRaw > 0 ? right / totalRaw : 0f;
-        
+
         totalLeft = total * leftPerc;
         totalRight = total * rightPerc;
-        totalWeight = total; 
+        totalWeight = total;
     }
 }

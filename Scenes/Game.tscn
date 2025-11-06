@@ -357,6 +357,7 @@ offset_right = 1920.0
 offset_bottom = 1079.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(10.1, 10.1)
 texture = ExtResource("18_tfod6")
 
 [node name="Label" type="Label" parent="SecondWindow/Background/scaleFocus"]
