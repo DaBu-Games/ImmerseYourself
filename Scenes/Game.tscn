@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ddsclml7gkpr6"]
+[gd_scene load_steps=55 format=3 uid="uid://ddsclml7gkpr6"]
 
 [ext_resource type="Theme" uid="uid://1co0c6oplrkn" path="res://Assets/2D/DefaultSettings.tres" id="1_b2bpf"]
 [ext_resource type="Script" uid="uid://b4dy15bkou3at" path="res://Scripts/UIManager.cs" id="2_b2bpf"]
@@ -82,6 +82,13 @@ metadata/_snap_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_356ba"]
 font_size = 100
+font_color = Color(0.41960785, 1, 0.9137255, 1)
+outline_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_18uti"]
+font_size = 100
+font_color = Color(1, 0.105882354, 0.24313726, 1)
+outline_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
 font_size = 100
@@ -337,7 +344,6 @@ stretch_mode = 5
 script = ExtResource("25_3jf1l")
 
 [node name="scaleFocus" type="Node2D" parent="SecondWindow/Background"]
-visible = false
 position = Vector2(0, 1.0068552)
 scale = Vector2(1.0029109, 1.0068552)
 
@@ -354,7 +360,6 @@ grow_vertical = 2
 texture = ExtResource("18_tfod6")
 
 [node name="Label" type="Label" parent="SecondWindow/Background/scaleFocus"]
-modulate = Color(0, 0.7058824, 0, 1)
 z_index = 6
 texture_repeat = 1
 anchors_preset = 4
@@ -373,7 +378,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="SecondWindow/Background/scaleFocus"]
-modulate = Color(0.7058824, 0, 0, 1)
 z_index = 6
 texture_repeat = 1
 anchors_preset = 4
@@ -386,7 +390,7 @@ offset_bottom = 293.00003
 grow_vertical = 2
 theme = ExtResource("1_b2bpf")
 text = "Player"
-label_settings = SubResource("LabelSettings_356ba")
+label_settings = SubResource("LabelSettings_18uti")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

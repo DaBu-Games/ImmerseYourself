@@ -42,8 +42,44 @@ text = "Confirm score"
 position = Vector2(0, 1)
 scale = Vector2(0.6000005, 0.6000005)
 script = ExtResource("4_373v0")
-DisplayItems = [NodePath("Label2"), NodePath("Label"), NodePath("Label3")]
+DisplayItems = [NodePath("CenterContainer/VBoxContainer/Label2"), NodePath("CenterContainer/VBoxContainer/Label"), NodePath("CenterContainer/VBoxContainer/Label3")]
 finalUI = NodePath("Button3")
+
+[node name="CenterContainer" type="CenterContainer" parent="RollVisual"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 226.6665
+offset_top = 353.33307
+offset_right = 1726.6665
+offset_bottom = 661.33307
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RollVisual/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RollVisual/CenterContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "sdvkjbskdbvksjddbv"
+label_settings = SubResource("LabelSettings_vpcm2")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="RollVisual/CenterContainer/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+text = "sdfsdf"
+label_settings = SubResource("LabelSettings_vpcm2")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="RollVisual/CenterContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "sdfsdfsdf"
+label_settings = SubResource("LabelSettings_vpcm2")
+horizontal_alignment = 1
 
 [node name="scaleFocus" type="TextureRect" parent="RollVisual"]
 modulate = Color(0, 0, 0, 0.60784316)
@@ -58,27 +94,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.80027974, 0.4319904)
 texture = ExtResource("2_ydank")
-
-[node name="Label2" type="Label" parent="RollVisual"]
-offset_left = 570.0
-offset_top = 359.0
-offset_right = 1363.0
-offset_bottom = 459.0
-label_settings = SubResource("LabelSettings_vpcm2")
-
-[node name="Label" type="Label" parent="RollVisual"]
-offset_left = 570.0
-offset_top = 484.0
-offset_right = 1335.0
-offset_bottom = 584.0
-label_settings = SubResource("LabelSettings_vpcm2")
-
-[node name="Label3" type="Label" parent="RollVisual"]
-offset_left = 570.0
-offset_top = 600.0
-offset_right = 1373.0
-offset_bottom = 700.0
-label_settings = SubResource("LabelSettings_vpcm2")
 
 [node name="Button3" type="Button" parent="RollVisual"]
 anchors_preset = 7
